@@ -20,7 +20,7 @@
   <!-- Ventana del chatbot -->
   <div 
     id="chatbot-window" 
-    class="chatbot-window hidden absolute bottom-20 right-0 w-96 h-96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+    class="chatbot-window hidden absolute bottom-20 right-0 w-96 h96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
   >
     <!-- Header del chatbot -->
     <div class="chatbot-header p-4 text-white flex items-center justify-between" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 100%);">
@@ -56,7 +56,7 @@
     </div>
 
     <!-- Área de chat -->
-    <div id="chat-area" class="flex-1 p-4 h-64 overflow-y-auto bg-gray-50">
+    <div id="chat-area" class="flex-1 p-4 bg-gray-50">
       <!-- Vista inicial -->
       <div id="initial-view" class="text-center">
         <div class="mb-4">
@@ -94,7 +94,7 @@
             <div class="flex items-center space-x-3">
               <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200">
                 <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29-3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
                 </svg>
               </div>
               <div>
@@ -266,67 +266,106 @@
       bottom: 5rem;
     }
   }
+
+  #chat-area {
+    min-height: 16rem;
+    max-height: 24rem;
+    /* No overflow por defecto */
+    overflow: visible;
+    transition: max-height 0.2s;
+  }
+  #chat-area.scrollable {
+    overflow-y: auto;
+  }
 </style>
 
 <script>
   let currentGender = 'male'; // male o female
   
   // Toggle chatbot
-  document.getElementById('chatbot-toggle').addEventListener('click', function() {
-    const window = document.getElementById('chatbot-window');
-    window.classList.toggle('hidden');
-  });
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  if (chatbotToggle) {
+    chatbotToggle.addEventListener('click', function() {
+      const windowEl = document.getElementById('chatbot-window');
+      if (windowEl) windowEl.classList.toggle('hidden');
+    });
+  }
   
   // Cerrar chatbot
-  document.getElementById('chatbot-close').addEventListener('click', function() {
-    document.getElementById('chatbot-window').classList.add('hidden');
-  });
+  const chatbotClose = document.getElementById('chatbot-close');
+  if (chatbotClose) {
+    chatbotClose.addEventListener('click', function() {
+      const windowEl = document.getElementById('chatbot-window');
+      if (windowEl) windowEl.classList.add('hidden');
+    });
+  }
   
   // Cambiar género del asistente
-  document.getElementById('gender-toggle').addEventListener('click', function() {
-    currentGender = currentGender === 'male' ? 'female' : 'male';
-    const iconSrc = currentGender === 'male' ? '/icon2023.webp' : '/icon2025.webp';
-    
-    document.getElementById('chatbot-icon').src = iconSrc;
-    document.getElementById('chatbot-header-icon').src = iconSrc;
-  });
+  const genderToggle = document.getElementById('gender-toggle');
+  if (genderToggle) {
+    genderToggle.addEventListener('click', function() {
+      currentGender = currentGender === 'male' ? 'female' : 'male';
+      const iconSrc = currentGender === 'male' ? '/icon2023.webp' : '/icon2025.webp';
+      const chatbotIcon = document.getElementById('chatbot-icon');
+      const chatbotHeaderIcon = document.getElementById('chatbot-header-icon');
+      if (chatbotIcon && 'src' in chatbotIcon) chatbotIcon.src = iconSrc;
+      if (chatbotHeaderIcon && 'src' in chatbotHeaderIcon) chatbotHeaderIcon.src = iconSrc;
+    });
+  }
   
   // Funciones de navegación
   function showInitialView() {
     hideAllViews();
-    document.getElementById('initial-view').classList.remove('hidden');
+    const initialView = document.getElementById('initial-view');
+    const chatArea = document.getElementById('chat-area');
+    if (initialView) initialView.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
   }
   
   function showPQRForm() {
     hideAllViews();
-    document.getElementById('pqr-form').classList.remove('hidden');
+    const pqrForm = document.getElementById('pqr-form');
+    const chatArea = document.getElementById('chat-area');
+    if (pqrForm) pqrForm.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
   }
   
   function showInfoMenu() {
     hideAllViews();
-    document.getElementById('info-menu').classList.remove('hidden');
+    const infoMenu = document.getElementById('info-menu');
+    const chatArea = document.getElementById('chat-area');
+    if (infoMenu) infoMenu.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
   }
   
   function showAdminMenu() {
     hideAllViews();
-    document.getElementById('admin-menu').classList.remove('hidden');
+    const adminMenu = document.getElementById('admin-menu');
+    const chatArea = document.getElementById('chat-area');
+    if (adminMenu) adminMenu.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
   }
   
   function hideAllViews() {
-    document.getElementById('initial-view').classList.add('hidden');
-    document.getElementById('pqr-form').classList.add('hidden');
-    document.getElementById('info-menu').classList.add('hidden');
-    document.getElementById('admin-menu').classList.add('hidden');
-    document.getElementById('result-area').classList.add('hidden');
+    const views = ['initial-view', 'pqr-form', 'info-menu', 'admin-menu', 'result-area'];
+    views.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    });
   }
   
   // Enviar PQR
   function submitPQR(event) {
     event.preventDefault();
     hideAllViews();
-    document.getElementById('result-area').classList.remove('hidden');
-    document.getElementById('result-title').textContent = 'PQR Enviada';
-    document.getElementById('result-content').innerHTML = `
+    const resultArea = document.getElementById('result-area');
+    const chatArea = document.getElementById('chat-area');
+    const resultTitle = document.getElementById('result-title');
+    const resultContent = document.getElementById('result-content');
+    if (resultArea) resultArea.classList.remove('hidden');
+    if (chatArea) chatArea.classList.add('scrollable');
+    if (resultTitle) resultTitle.textContent = 'PQR Enviada';
+    if (resultContent) resultContent.innerHTML = `
       <div class="text-center p-4">
         <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
           <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -343,7 +382,12 @@
   // Mostrar información académica
   function showAcademicInfo(type) {
     hideAllViews();
-    document.getElementById('result-area').classList.remove('hidden');
+    const resultArea = document.getElementById('result-area');
+    const chatArea = document.getElementById('chat-area');
+    const resultTitle = document.getElementById('result-title');
+    const resultContent = document.getElementById('result-content');
+    if (resultArea) resultArea.classList.remove('hidden');
+    if (chatArea) chatArea.classList.add('scrollable');
     
     const infoData = {
       notas: {
@@ -443,14 +487,19 @@
     };
     
     const info = infoData[type];
-    document.getElementById('result-title').textContent = info.title;
-    document.getElementById('result-content').innerHTML = info.content;
+    if (resultTitle) resultTitle.textContent = info.title;
+    if (resultContent) resultContent.innerHTML = info.content;
   }
   
   // Mostrar información administrativa
   function showAdminInfo(type) {
     hideAllViews();
-    document.getElementById('result-area').classList.remove('hidden');
+    const resultArea = document.getElementById('result-area');
+    const chatArea = document.getElementById('chat-area');
+    const resultTitle = document.getElementById('result-title');
+    const resultContent = document.getElementById('result-content');
+    if (resultArea) resultArea.classList.remove('hidden');
+    if (chatArea) chatArea.classList.add('scrollable');
     
     const adminData = {
       pagos: {
@@ -533,7 +582,7 @@
     };
     
     const info = adminData[type];
-    document.getElementById('result-title').textContent = info.title;
-    document.getElementById('result-content').innerHTML = info.content;
+    if (resultTitle) resultTitle.textContent = info.title;
+    if (resultContent) resultContent.innerHTML = info.content;
   }
 </script>
