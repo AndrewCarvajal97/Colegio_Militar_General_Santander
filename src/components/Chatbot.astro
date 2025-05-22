@@ -20,15 +20,16 @@
   <!-- Ventana del chatbot -->
   <div 
     id="chatbot-window" 
-    class="chatbot-window hidden absolute bottom-20 right-0 w-96 max-h-[90vh] h-[38rem] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+    class="chatbot-window hidden absolute bottom-20 right-0 w-96 max-h-[90vh] h-[33rem] bg-gray-50 rounded-3xl shadow-2xl border border-gray-100/80 overflow-hidden ring-1 ring-black/10 backdrop-blur-md transition-all duration-300"
+    style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);"
   >
     <!-- Header del chatbot -->
-    <div class="chatbot-header p-4 text-white flex items-center justify-between" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 100%);">
-      <div class="flex items-center space-x-3">
-        <img id="chatbot-header-icon" src="/icon2023.webp" alt="Asistente" class="w-10 h-10 rounded-full border-2 border-white">
+    <div class="chatbot-header p-5 text-white flex items-center justify-between rounded-t-3xl shadow-sm" style="background: linear-gradient(135deg, #34b70d 0%, #5771FE 100%); min-height: 70px;">
+      <div class="flex items-center space-x-4">
+        <img id="chatbot-header-icon" src="/icon2023.webp" alt="Asistente" class="w-12 h-12 rounded-full border-4 border-white shadow-md">
         <div>
-          <h3 class="font-bold text-sm">Asistente Virtual CMGS</h3>
-          <p class="text-xs opacity-90">En línea</p>
+          <h3 class="font-extrabold text-base tracking-wide">Asistente Virtual CMGS</h3>
+          <p class="text-xs opacity-90 font-medium">En línea</p>
         </div>
       </div>
       <div class="flex items-center space-x-2">
@@ -38,7 +39,7 @@
           class="p-2 hover:bg-white/20 rounded-full transition-colors"
           title="Cambiar asistente"
         >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
             <path fill-rule="evenodd" d="M3 8a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           </svg>
@@ -48,7 +49,7 @@
           id="chatbot-close" 
           class="p-2 hover:bg-white/20 rounded-full transition-colors"
         >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
           </svg>
         </button>
@@ -56,7 +57,7 @@
     </div>
 
     <!-- Área de chat -->
-    <div id="chat-area" class="flex-1 p-4 bg-gray-50">
+    <div id="chat-area" class="flex-1 p-6 bg-gray-50">
       <!-- Vista inicial -->
       <div id="initial-view" class="text-center">
         <div class="mb-4">
@@ -68,8 +69,23 @@
           <h4 class="font-bold text-military-blue mb-2">¡Hola! Soy tu asistente virtual</h4>
           <p class="text-sm text-gray-600 mb-4">¿En qué puedo ayudarte hoy?</p>
         </div>
-        
-        <div class="space-y-2">
+        <div class="space-y-2 max-h-64 overflow-y-auto px-1">
+          <button 
+            onclick="showMayorVirtual()" 
+            class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-yellow-400 transition-colors group"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200">
+                <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-1h2v1zm0-2H9V7h2v4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">Habla con tu mayor virtual</p>
+                <p class="text-xs text-gray-500">Simula una conversación con un agente virtual</p>
+              </div>
+            </div>
+          </button>
           <button 
             onclick="showPQRForm()" 
             class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-green-400 transition-colors group"
@@ -86,7 +102,6 @@
               </div>
             </div>
           </button>
-
           <button 
             onclick="showInfoMenu()" 
             class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-blue-400 transition-colors group"
@@ -103,7 +118,6 @@
               </div>
             </div>
           </button>
-
           <button 
             onclick="showAdminMenu()" 
             class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-colors group"
@@ -117,23 +131,6 @@
               <div>
                 <p class="font-medium text-gray-800">Información Administrativa</p>
                 <p class="text-xs text-gray-500">Procesos administrativos</p>
-              </div>
-            </div>
-          </button>
-
-          <button 
-            onclick="showMayorVirtual()" 
-            class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-yellow-400 transition-colors group"
-          >
-            <div class="flex items-center space-x-3">
-              <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200">
-                <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-1h2v1zm0-2H9V7h2v4z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div>
-                <p class="font-medium text-gray-800">Habla con tu mayor virtual</p>
-                <p class="text-xs text-gray-500">Simula una conversación con un agente virtual</p>
               </div>
             </div>
           </button>
@@ -151,6 +148,25 @@
           <h4 class="font-bold text-gray-800">Mayor Virtual</h4>
         </div>
         <div id="mayor-chat-messages" class="flex-1 overflow-y-auto bg-white border rounded p-2 mb-2 text-left text-sm"></div>
+        <div class="flex items-center justify-between mb-2">
+          <label class="text-xs text-gray-600">Audio respuestas:</label>
+          <div class="flex items-center space-x-2">
+            <button 
+              id="voice-settings-btn" 
+              class="p-1 hover:bg-gray-200 rounded text-xs" 
+              title="Configurar voz"
+            >
+              ⚙️
+            </button>
+            <input 
+              type="checkbox" 
+              id="auto-speech-toggle" 
+              class="rounded" 
+              checked
+            />
+            <span class="text-xs text-gray-600">Auto</span>
+          </div>
+        </div>
         <form id="mayor-chat-form" class="flex gap-2" onsubmit="sendMayorMessage(event)">
           <input id="mayor-chat-input" type="text" class="flex-1 border rounded p-2 text-xs" placeholder="Escribe tu mensaje..." required />
           <button type="submit" class="bg-yellow-400 text-white px-4 py-2 rounded font-medium">Enviar</button>
@@ -329,6 +345,26 @@
   #chat-area.scrollable {
     overflow-y: auto;
   }
+  
+  /* Estilos para controles de audio */
+  .audio-controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .audio-controls button {
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  /* Animación para hover de los controles */
+  .group:hover .audio-controls {
+    opacity: 1 !important;
+  }
 </style>
 
 <script>
@@ -346,10 +382,104 @@ declare global {
     submitDocument: typeof submitDocument;
     showAcademicInfoResult: typeof showAcademicInfoResult;
     showAdminInfoResult: typeof showAdminInfoResult;
+    speakText: (text: string, messageId: string) => void;
+    toggleSpeech: (messageId: string) => void;
+    stopSpeech: (messageId: string) => void;
   }
 }
 
   let currentGender = 'male'; // male o female
+  
+  // Text-to-Speech variables y funciones
+  let currentSpeech: SpeechSynthesisUtterance | null = null;
+  let speechVoice: SpeechSynthesisVoice | null = null;
+  let speechRate = 1;
+  let speechPitch = 1;
+  let messageCounter = 0;
+  
+  // Inicializar configuración de voz
+  function initSpeechSettings() {
+    if ('speechSynthesis' in window) {
+      speechSynthesis.onvoiceschanged = () => {
+        const voices = speechSynthesis.getVoices();
+        // Buscar voz en español
+        speechVoice = voices.find(voice => 
+          voice.lang.includes('es') || 
+          voice.name.toLowerCase().includes('spanish') ||
+          voice.name.toLowerCase().includes('española')
+        ) || voices[0] || null;
+      };
+    }
+  }
+  
+  // Función para reproducir texto
+  function speakText(text: string, messageId: string) {
+    if (!('speechSynthesis' in window)) {
+      alert('Tu navegador no soporta síntesis de voz');
+      return;
+    }
+    
+    // Detener cualquier reproducción anterior
+    speechSynthesis.cancel();
+    
+    // Crear nueva utterance
+    const utterance = new SpeechSynthesisUtterance(text);
+    if (speechVoice) utterance.voice = speechVoice;
+    utterance.rate = speechRate;
+    utterance.pitch = speechPitch;
+    utterance.lang = 'es-ES';
+    
+    // Actualizar botón durante reproducción
+    const playBtn = document.getElementById(`play-${messageId}`);
+    const pauseBtn = document.getElementById(`pause-${messageId}`);
+    
+    utterance.onstart = () => {
+      currentSpeech = utterance;
+      if (playBtn) playBtn.style.display = 'none';
+      if (pauseBtn) pauseBtn.style.display = 'inline-block';
+    };
+    
+    utterance.onend = () => {
+      currentSpeech = null;
+      if (playBtn) playBtn.style.display = 'inline-block';
+      if (pauseBtn) pauseBtn.style.display = 'none';
+    };
+    
+    utterance.onerror = () => {
+      currentSpeech = null;
+      if (playBtn) playBtn.style.display = 'inline-block';
+      if (pauseBtn) pauseBtn.style.display = 'none';
+    };
+    
+    speechSynthesis.speak(utterance);
+  }
+  
+  // Función para pausar/reanudar
+  function toggleSpeech(messageId: string) {
+    if (speechSynthesis.speaking && !speechSynthesis.paused) {
+      speechSynthesis.pause();
+      const playBtn = document.getElementById(`play-${messageId}`);
+      const pauseBtn = document.getElementById(`pause-${messageId}`);
+      if (playBtn) playBtn.style.display = 'inline-block';
+      if (pauseBtn) pauseBtn.style.display = 'none';
+    } else if (speechSynthesis.paused) {
+      speechSynthesis.resume();
+      const playBtn = document.getElementById(`play-${messageId}`);
+      const pauseBtn = document.getElementById(`pause-${messageId}`);
+      if (playBtn) playBtn.style.display = 'none';
+      if (pauseBtn) pauseBtn.style.display = 'inline-block';
+    }
+  }
+  
+  // Función para detener
+  function stopSpeech(messageId: string) {
+    speechSynthesis.cancel();
+    currentSpeech = null;
+    const playBtn = document.getElementById(`play-${messageId}`);
+    const pauseBtn = document.getElementById(`pause-${messageId}`);
+    if (playBtn) playBtn.style.display = 'inline-block';
+    if (pauseBtn) pauseBtn.style.display = 'none';
+  }
   
   // Toggle chatbot
   const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -715,9 +845,55 @@ declare global {
     if (mayorChat) mayorChat.classList.remove('hidden');
     if (chatArea) chatArea.classList.add('scrollable');
     const messages = document.getElementById('mayor-chat-messages');
-    if (messages) messages.innerHTML = '<div class="mb-2 text-gray-700"><strong>Mayor Virtual:</strong> ¡Hola! Soy tu mayor virtual, ¿en qué puedo ayudarte?</div>';
+    if (messages) {
+      messageCounter++;
+      const welcomeMsg = '¡Hola! Soy tu mayor virtual, ¿en qué puedo ayudarte?';
+      const welcomeId = `msg-${messageCounter}`;
+      const cleanWelcome = welcomeMsg.replace(/'/g, "\\'");
+      messages.innerHTML = `
+        <div class="mb-2 text-gray-700 group" id="${welcomeId}">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <strong>Mayor Virtual:</strong> ${welcomeMsg}
+            </div>
+            <div class="audio-controls ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button 
+                id="play-${welcomeId}" 
+                onclick="speakText('${cleanWelcome}', '${welcomeId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Reproducir audio"
+              >
+                🔊
+              </button>
+              <button 
+                id="pause-${welcomeId}" 
+                onclick="toggleSpeech('${welcomeId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Pausar/Reanudar"
+                style="display: none;"
+              >
+                ⏸️
+              </button>
+              <button 
+                onclick="stopSpeech('${welcomeId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Detener"
+              >
+                ⏹️
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    
+    // Inicializar configuración de voz
+    initSpeechSettings();
   }
   window.showMayorVirtual = showMayorVirtual;
+  window.speakText = speakText;
+  window.toggleSpeech = toggleSpeech;
+  window.stopSpeech = stopSpeech;
   
   async function sendMayorMessage(event: Event) {
     event.preventDefault();
@@ -732,15 +908,143 @@ declare global {
     try {
       const res = await fetch('/mayor_virtual.json');
       const data = await res.json();
-      let respuesta = data[userMsg.toLowerCase()] || 'No tengo una respuesta para eso, intenta con otra pregunta.';
+      // Normaliza la pregunta del usuario
+      const normalize = (str: string) => str
+        .toLowerCase()
+        .replace(/[^a-z0-9áéíóúüñ\s]/gi, '') // quita signos de puntuación
+        .replace(/\s+/g, ' ') // quita espacios extra
+        .trim();
+      const userNorm = normalize(userMsg);
+      let respuesta = '';
+      // Busca coincidencia flexible
+      for (const key in data) {
+        if (normalize(key) === userNorm) {
+          respuesta = data[key];
+          break;
+        }
+        // Coincidencia parcial: si la pregunta del usuario contiene la clave o viceversa
+        if (userNorm.includes(normalize(key)) || normalize(key).includes(userNorm)) {
+          respuesta = data[key];
+        }
+      }
+      if (!respuesta) respuesta = 'No tengo una respuesta para eso, intenta con otra pregunta.';
       setTimeout(() => {
-        messages.innerHTML += `<div class='mb-2 text-gray-700'><strong>Mayor Virtual:</strong> ${respuesta}</div>`;
+        messageCounter++;
+        const responseId = `msg-${messageCounter}`;
+        const cleanResponse = respuesta.replace(/'/g, "\\'");
+        
+        // Agregar respuesta con controles de audio
+        messages.innerHTML += `
+          <div class='mb-2 text-gray-700 group' id="${responseId}">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <strong>Mayor Virtual:</strong> ${respuesta}
+              </div>
+              <div class="audio-controls ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <button 
+                  id="play-${responseId}" 
+                  onclick="speakText('${cleanResponse}', '${responseId}')" 
+                  class="p-1 hover:bg-gray-200 rounded text-xs" 
+                  title="Reproducir audio"
+                >
+                  🔊
+                </button>
+                <button 
+                  id="pause-${responseId}" 
+                  onclick="toggleSpeech('${responseId}')" 
+                  class="p-1 hover:bg-gray-200 rounded text-xs" 
+                  title="Pausar/Reanudar"
+                  style="display: none;"
+                >
+                  ⏸️
+                </button>
+                <button 
+                  onclick="stopSpeech('${responseId}')" 
+                  class="p-1 hover:bg-gray-200 rounded text-xs" 
+                  title="Detener"
+                >
+                  ⏹️
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Auto-reproducir si está habilitado
+        const autoSpeechToggle = document.getElementById('auto-speech-toggle') as HTMLInputElement | null;
+        if (autoSpeechToggle && autoSpeechToggle.checked) {
+          setTimeout(() => speakText(respuesta, responseId), 200);
+        }
+        
         messages.scrollTop = messages.scrollHeight;
       }, 500);
     } catch {
-      messages.innerHTML += `<div class='mb-2 text-red-600'><strong>Mayor Virtual:</strong> Error al consultar la base de respuestas.</div>`;
+      messageCounter++;
+      const errorId = `msg-${messageCounter}`;
+      const errorMsg = 'Error al consultar la base de respuestas.';
+      messages.innerHTML += `
+        <div class='mb-2 text-red-600 group' id="${errorId}">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <strong>Mayor Virtual:</strong> ${errorMsg}
+            </div>
+            <div class="audio-controls ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <button 
+                id="play-${errorId}" 
+                onclick="speakText('${errorMsg}', '${errorId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Reproducir audio"
+              >
+                🔊
+              </button>
+              <button 
+                id="pause-${errorId}" 
+                onclick="toggleSpeech('${errorId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Pausar/Reanudar"
+                style="display: none;"
+              >
+                ⏸️
+              </button>
+              <button 
+                onclick="stopSpeech('${errorId}')" 
+                class="p-1 hover:bg-gray-200 rounded text-xs" 
+                title="Detener"
+              >
+                ⏹️
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
     }
     messages.scrollTop = messages.scrollHeight;
   }
   window.sendMayorMessage = sendMayorMessage;
+  
+  // Inicializar configuración de voz cuando se carga la página
+  initSpeechSettings();
+  
+  // Configuración de voz (modal/panel simple)
+  setTimeout(() => {
+    const voiceSettingsBtn = document.getElementById('voice-settings-btn');
+    if (voiceSettingsBtn) {
+      voiceSettingsBtn.addEventListener('click', function() {
+        const settings = prompt(
+          'Configuración de Voz:\n\n' +
+          '1. Velocidad (0.5 - 2): ' + speechRate + '\n' +
+          '2. Tono (0.5 - 2): ' + speechPitch + '\n\n' +
+          'Ingresa nuevos valores separados por coma (velocidad,tono)\n' +
+          'Ejemplo: 1.2,1.1'
+        );
+        
+        if (settings) {
+          const [rate, pitch] = settings.split(',').map(v => parseFloat(v.trim()));
+          if (!isNaN(rate) && rate >= 0.5 && rate <= 2) speechRate = rate;
+          if (!isNaN(pitch) && pitch >= 0.5 && pitch <= 2) speechPitch = pitch;
+          alert(`Configuración actualizada:\nVelocidad: ${speechRate}\nTono: ${speechPitch}`);
+        }
+      });
+    }
+  }, 100);
 </script>
