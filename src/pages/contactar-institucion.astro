@@ -1,0 +1,503 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contactar la Institución - Colegio Militar General Santander">
+  <Header />
+  
+  <!-- Contact Institution Section -->
+  <section class="min-h-screen py-20 px-4" style="background: linear-gradient(135deg, #5771FE 0%, rgb(52, 183, 13) 25%, #5771FE 50%, rgb(52, 183, 13) 75%, #5771FE 100%);">
+    <div class="absolute inset-0 bg-black/10"></div>
+    
+    <div class="relative z-10 container mx-auto max-w-6xl">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <div class="w-24 h-24 mx-auto mb-6 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/30">
+          <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-1.56-1.56A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.539-1.54zm9.589-2.158l1.56-1.56A5.98 5.98 0 0014 4.382v1.618a3.996 3.996 0 00-2.531 2.957l1.278 1.278zm-7.973 2.973l-1.278-1.278a3.996 3.996 0 00-2.957 2.531H5.618A5.98 5.98 0 014.382 14l1.56-1.56zm2.226-4.123a4 4 0 012.002 0L10 6.83 8.998 7.809z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-playfair">
+          Contactar la Institución
+        </h1>
+        <p class="text-white/80 text-xl mb-2">Colegio Militar General Santander</p>
+        <p class="text-white/60 text-lg">"Patria, Superación y Orden"</p>
+        <div class="w-32 h-1 mx-auto mt-4" style="background-color: rgba(255, 255, 255, 0.5);"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Formulario Principal -->
+        <div class="lg:col-span-2">
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 border border-white/20">
+            <h2 class="text-2xl font-bold text-white mb-6 font-playfair flex items-center">
+              <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+              Formulario de Contacto
+            </h2>
+            
+            <form id="contact-form" class="space-y-6">
+              <!-- Tipo de consulta -->
+              <div>
+                <label class="block text-white font-medium mb-3">Tipo de Consulta</label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                  <button type="button" class="inquiry-type-btn active" data-type="admisiones">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"></path>
+                    </svg>
+                    <span class="text-xs">Admisiones</span>
+                  </button>
+                  <button type="button" class="inquiry-type-btn" data-type="academico">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+                    </svg>
+                    <span class="text-xs">Académico</span>
+                  </button>
+                  <button type="button" class="inquiry-type-btn" data-type="financiero">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"></path>
+                    </svg>
+                    <span class="text-xs">Financiero</span>
+                  </button>
+                  <button type="button" class="inquiry-type-btn" data-type="soporte">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-1.56-1.56A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.539-1.54zm9.589-2.158l1.56-1.56A5.98 5.98 0 0014 4.382v1.618a3.996 3.996 0 00-2.531 2.957l1.278 1.278zm-7.973 2.973l-1.278-1.278a3.996 3.996 0 00-2.957 2.531H5.618A5.98 5.98 0 014.382 14l1.56-1.56zm2.226-4.123a4 4 0 012.002 0L10 6.83 8.998 7.809z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-xs">Soporte IT</span>
+                  </button>
+                  <button type="button" class="inquiry-type-btn" data-type="disciplina">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-xs">Disciplina</span>
+                  </button>
+                  <button type="button" class="inquiry-type-btn" data-type="otro">
+                    <svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-xs">Otro</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Información personal -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-white font-medium mb-2">Nombre Completo</label>
+                  <input 
+                    type="text" 
+                    id="full-name"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                    placeholder="Tu nombre completo"
+                    required
+                  >
+                </div>
+                <div>
+                  <label class="block text-white font-medium mb-2">Documento de Identidad</label>
+                  <input 
+                    type="text" 
+                    id="document"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                    placeholder="Número de documento"
+                    required
+                  >
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-white font-medium mb-2">Correo Electrónico</label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                    placeholder="tu@email.com"
+                    required
+                  >
+                </div>
+                <div>
+                  <label class="block text-white font-medium mb-2">Teléfono</label>
+                  <input 
+                    type="tel" 
+                    id="phone"
+                    class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                    placeholder="+57 300 123 4567"
+                    required
+                  >
+                </div>
+              </div>
+
+              <!-- Relación con la institución -->
+              <div>
+                <label class="block text-white font-medium mb-2">Relación con la Institución</label>
+                <select id="relationship" class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white">
+                  <option value="" disabled selected>Selecciona tu relación</option>
+                  <option value="padre">Padre de Familia</option>
+                  <option value="estudiante">Estudiante Actual</option>
+                  <option value="aspirante">Aspirante</option>
+                  <option value="egresado">Egresado</option>
+                  <option value="empresa">Empresa/Institución</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <!-- Información adicional del estudiante -->
+              <div id="student-info" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="block text-white font-medium mb-2">Nombre del Estudiante</label>
+                    <input 
+                      type="text" 
+                      id="student-name"
+                      class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                      placeholder="Nombre del estudiante"
+                    >
+                  </div>
+                  <div>
+                    <label class="block text-white font-medium mb-2">Grado</label>
+                    <select id="grade" class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white">
+                      <option value="">Selecciona el grado</option>
+                      <option value="prejardi">Pre-jardín</option>
+                      <option value="jardin">Jardín</option>
+                      <option value="transicion">Transición</option>
+                      <option value="1">1° Primaria</option>
+                      <option value="2">2° Primaria</option>
+                      <option value="3">3° Primaria</option>
+                      <option value="4">4° Primaria</option>
+                      <option value="5">5° Primaria</option>
+                      <option value="6">6° Bachillerato</option>
+                      <option value="7">7° Bachillerato</option>
+                      <option value="8">8° Bachillerato</option>
+                      <option value="9">9° Bachillerato</option>
+                      <option value="10">10° Bachillerato</option>
+                      <option value="11">11° Bachillerato</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Asunto -->
+              <div>
+                <label class="block text-white font-medium mb-2">Asunto</label>
+                <input 
+                  type="text" 
+                  id="subject"
+                  class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300" 
+                  placeholder="Describe brevemente el tema de tu consulta"
+                  required
+                >
+              </div>
+
+              <!-- Mensaje -->
+              <div>
+                <label class="block text-white font-medium mb-2">Mensaje Detallado</label>
+                <textarea 
+                  id="message"
+                  rows="5" 
+                  class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:ring-2 focus:ring-white/50 focus:border-white/50 text-white placeholder-white/60 transition-all duration-300 resize-none" 
+                  placeholder="Escribe aquí tu consulta o solicitud detallada..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Prioridad -->
+              <div>
+                <label class="block text-white font-medium mb-3">Prioridad de la Consulta</label>
+                <div class="grid grid-cols-3 gap-3">
+                  <button type="button" class="priority-btn" data-priority="baja">
+                    <div class="w-3 h-3 bg-green-400 rounded-full mb-1"></div>
+                    <span class="text-xs">Baja</span>
+                  </button>
+                  <button type="button" class="priority-btn active" data-priority="normal">
+                    <div class="w-3 h-3 bg-yellow-400 rounded-full mb-1"></div>
+                    <span class="text-xs">Normal</span>
+                  </button>
+                  <button type="button" class="priority-btn" data-priority="alta">
+                    <div class="w-3 h-3 bg-red-400 rounded-full mb-1"></div>
+                    <span class="text-xs">Alta</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Preferencia de contacto -->
+              <div>
+                <label class="block text-white font-medium mb-3">Preferencia de Respuesta</label>
+                <div class="grid grid-cols-2 gap-3">
+                  <label class="flex items-center p-3 bg-white/10 border border-white/30 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+                    <input type="radio" name="contact-preference" value="email" class="mr-3" checked>
+                    <svg class="w-5 h-5 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                    </svg>
+                    <span class="text-white text-sm">Email</span>
+                  </label>
+                  <label class="flex items-center p-3 bg-white/10 border border-white/30 rounded-lg cursor-pointer hover:bg-white/20 transition-colors">
+                    <input type="radio" name="contact-preference" value="phone" class="mr-3">
+                    <svg class="w-5 h-5 mr-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                    </svg>
+                    <span class="text-white text-sm">Teléfono</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Botón de envío -->
+              <button 
+                type="submit" 
+                class="w-full py-4 px-6 bg-white/20 backdrop-blur-sm text-white rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-3"
+                onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.3)'" 
+                onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.2)'"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                </svg>
+                <span>Enviar Consulta</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Información de Contacto -->
+        <div class="lg:col-span-1 space-y-6">
+          
+          <!-- Información básica -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold text-white mb-4 font-playfair flex items-center">
+              <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+              Contacto Directo
+            </h3>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold">Teléfonos</h4>
+                  <p class="text-white/80 text-sm">(607) 7008460 Ext - 2006</p>
+                  <p class="text-white/80 text-sm">+57 301 718 9949</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold">Email</h4>
+                  <p class="text-white/80 text-sm">info@colmilgeneralsantander.edu.co</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold">Horarios</h4>
+                  <p class="text-white/80 text-sm">Lunes a Viernes</p>
+                  <p class="text-white/80 text-sm">7:00 AM - 5:30 PM</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-white font-semibold">Ubicación</h4>
+                  <p class="text-white/80 text-sm">Diagonal 32 #30a-05</p>
+                  <p class="text-white/80 text-sm">Salida a Pamplona, Bucaramanga</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Departamentos -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold text-white mb-4 font-playfair">Departamentos</h3>
+            
+            <div class="space-y-3">
+              <div class="p-3 bg-white/10 rounded-lg border border-white/20">
+                <h4 class="text-white font-semibold text-sm">Rectoría</h4>
+                <p class="text-white/70 text-xs">Dirección general</p>
+              </div>
+              <div class="p-3 bg-white/10 rounded-lg border border-white/20">
+                <h4 class="text-white font-semibold text-sm">Coordinación Académica</h4>
+                <p class="text-white/70 text-xs">Asuntos académicos</p>
+              </div>
+              <div class="p-3 bg-white/10 rounded-lg border border-white/20">
+                <h4 class="text-white font-semibold text-sm">Coordinación Disciplina</h4>
+                <p class="text-white/70 text-xs">Formación militar</p>
+              </div>
+              <div class="p-3 bg-white/10 rounded-lg border border-white/20">
+                <h4 class="text-white font-semibold text-sm">Secretaría Académica</h4>
+                <p class="text-white/70 text-xs">Certificados y documentos</p>
+              </div>
+              <div class="p-3 bg-white/10 rounded-lg border border-white/20">
+                <h4 class="text-white font-semibold text-sm">Administración</h4>
+                <p class="text-white/70 text-xs">Pagos y finanzas</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tiempo de respuesta -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6 border border-white/20">
+            <h3 class="text-xl font-bold text-white mb-4 font-playfair">Tiempo de Respuesta</h3>
+            
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-white/80 text-sm">Consultas Generales</span>
+                <span class="text-white font-semibold text-sm">24-48h</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/80 text-sm">Admisiones</span>
+                <span class="text-white font-semibold text-sm">2-3 días</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/80 text-sm">Soporte Técnico</span>
+                <span class="text-white font-semibold text-sm">1-2 días</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-white/80 text-sm">Urgencias</span>
+                <span class="text-white font-semibold text-sm">Mismo día</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .inquiry-type-btn, .priority-btn {
+    @apply flex flex-col items-center justify-center p-3 bg-white/10 border border-white/30 rounded-lg text-white/70 text-center transition-all duration-300 hover:bg-white/20 hover:text-white cursor-pointer;
+  }
+  
+  .inquiry-type-btn.active, .priority-btn.active {
+    @apply bg-white/20 text-white border-white/50;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+  }
+  
+  select option {
+    background-color: #1f2937;
+    color: white;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Manejo de tipos de consulta
+    const inquiryBtns = document.querySelectorAll('.inquiry-type-btn');
+    inquiryBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        inquiryBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Manejo de prioridad
+    const priorityBtns = document.querySelectorAll('.priority-btn');
+    priorityBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        priorityBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Mostrar/ocultar información del estudiante
+    const relationshipSelect = document.getElementById('relationship');
+    const studentInfo = document.getElementById('student-info');
+    
+    relationshipSelect.addEventListener('change', function() {
+      if (this.value === 'padre' || this.value === 'estudiante') {
+        studentInfo.classList.remove('hidden');
+      } else {
+        studentInfo.classList.add('hidden');
+      }
+    });
+
+    // Formulario de contacto
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Recopilar datos
+      const formData = {
+        inquiryType: document.querySelector('.inquiry-type-btn.active').dataset.type,
+        fullName: document.getElementById('full-name').value,
+        document: document.getElementById('document').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        relationship: document.getElementById('relationship').value,
+        studentName: document.getElementById('student-name').value,
+        grade: document.getElementById('grade').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value,
+        priority: document.querySelector('.priority-btn.active').dataset.priority,
+        contactPreference: document.querySelector('input[name="contact-preference"]:checked').value
+      };
+      
+      // Validar campos requeridos
+      const requiredFields = ['fullName', 'document', 'email', 'phone', 'relationship', 'subject', 'message'];
+      const missingFields = requiredFields.filter(field => !formData[field]);
+      
+      if (missingFields.length > 0) {
+        alert('Por favor, completa todos los campos requeridos.');
+        return;
+      }
+      
+      // Mostrar loading
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalContent = submitBtn.innerHTML;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        Enviando consulta...
+      `;
+      submitBtn.disabled = true;
+      
+      // Simular envío
+      setTimeout(() => {
+        alert(`¡Consulta enviada exitosamente!\n\nTipo: ${formData.inquiryType}\nPrioridad: ${formData.priority}\n\nRecibirás una respuesta en tu ${formData.contactPreference === 'email' ? 'correo electrónico' : 'teléfono'} en las próximas 24-48 horas.`);
+        
+        // Limpiar formulario
+        e.target.reset();
+        
+        // Restablecer estados
+        inquiryBtns.forEach(b => b.classList.remove('active'));
+        priorityBtns.forEach(b => b.classList.remove('active'));
+        inquiryBtns[0].classList.add('active');
+        priorityBtns[1].classList.add('active');
+        studentInfo.classList.add('hidden');
+        
+        // Restaurar botón
+        submitBtn.innerHTML = originalContent;
+        submitBtn.disabled = false;
+      }, 3000);
+    });
+  });
+</script>
