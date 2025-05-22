@@ -1,0 +1,151 @@
+---
+// Header component
+---
+
+<header class="bg-white shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="header">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo y nombre del colegio -->
+      <div class="flex items-center space-x-4">
+        <div class="w-16 h-16 bg-military-blue rounded-full flex items-center justify-center">
+          <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-military-blue font-playfair">
+            Colegio Militar General Santander
+          </h1>
+          <p class="text-sm text-gray-600 font-medium">
+            Patria, Superación y Orden
+          </p>
+        </div>
+      </div>
+
+      <!-- Navegación desktop -->
+      <nav class="hidden lg:flex items-center space-x-8">
+        <a href="#inicio" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Inicio
+        </a>
+        <a href="#nosotros" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Nosotros
+        </a>
+        <a href="#historia" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Historia
+        </a>
+        <a href="#niveles" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Niveles
+        </a>
+        <a href="#admisiones" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Admisiones
+        </a>
+        <a href="#contacto" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
+          Contacto
+        </a>
+        <a href="#contacto" class="bg-military-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium">
+          Información
+        </a>
+      </nav>
+
+      <!-- Botón menú móvil -->
+      <button class="lg:hidden flex flex-col space-y-1 p-2" id="mobile-menu-btn">
+        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div class="lg:hidden hidden" id="mobile-menu">
+      <div class="py-4 border-t border-gray-200">
+        <nav class="flex flex-col space-y-4">
+          <a href="#inicio" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Inicio
+          </a>
+          <a href="#nosotros" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Nosotros
+          </a>
+          <a href="#historia" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Historia
+          </a>
+          <a href="#niveles" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Niveles
+          </a>
+          <a href="#admisiones" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Admisiones
+          </a>
+          <a href="#contacto" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+            Contacto
+          </a>
+          <a href="#contacto" class="bg-military-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium mx-4">
+            Información
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // JavaScript para el menú móvil y efectos del header
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const header = document.getElementById('header');
+
+    // Toggle menú móvil
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Animar el botón hamburguesa
+      const spans = mobileMenuBtn.querySelectorAll('span');
+      if (mobileMenu.classList.contains('hidden')) {
+        spans[0].style.transform = 'rotate(0deg)';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'rotate(0deg)';
+      } else {
+        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+      }
+    });
+
+    // Efectos de scroll en el header
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 100) {
+        header.classList.add('bg-white/95', 'backdrop-blur-sm');
+        header.classList.remove('bg-white');
+      } else {
+        header.classList.add('bg-white');
+        header.classList.remove('bg-white/95', 'backdrop-blur-sm');
+      }
+    });
+
+    // Smooth scroll para los enlaces
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          const headerHeight = header.offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+        
+        // Cerrar menú móvil si está abierto
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const spans = mobileMenuBtn.querySelectorAll('span');
+          spans[0].style.transform = 'rotate(0deg)';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'rotate(0deg)';
+        }
+      });
+    });
+  });
+</script>
