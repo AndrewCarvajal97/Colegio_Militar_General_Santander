@@ -7,7 +7,7 @@
   <button 
     id="chatbot-toggle" 
     class="chatbot-button text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
-    style="background-color: rgb(52, 183, 13);"
+    style="background-color:transparent;"
   >
     <img 
       id="chatbot-icon" 
@@ -20,7 +20,7 @@
   <!-- Ventana del chatbot -->
   <div 
     id="chatbot-window" 
-    class="chatbot-window hidden absolute bottom-20 right-0 w-96 h96 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
+    class="chatbot-window hidden absolute bottom-20 right-0 w-96 max-h-[90vh] h-[38rem] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden"
   >
     <!-- Header del chatbot -->
     <div class="chatbot-header p-4 text-white flex items-center justify-between" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 100%);">
@@ -120,7 +120,59 @@
               </div>
             </div>
           </button>
+
+          <button 
+            onclick="showMayorVirtual()" 
+            class="w-full p-3 text-left rounded-lg border-2 border-gray-200 hover:border-yellow-400 transition-colors group"
+          >
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200">
+                <svg class="w-4 h-4 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-1h2v1zm0-2H9V7h2v4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-medium text-gray-800">Habla con tu mayor virtual</p>
+                <p class="text-xs text-gray-500">Simula una conversación con un agente virtual</p>
+              </div>
+            </div>
+          </button>
         </div>
+      </div>
+
+      <!-- Chat mayor virtual -->
+      <div id="mayor-virtual-chat" class="hidden flex flex-col h-full">
+        <div class="flex items-center mb-4">
+          <button onclick="showInitialView()" class="p-1 hover:bg-gray-200 rounded mr-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <h4 class="font-bold text-gray-800">Mayor Virtual</h4>
+        </div>
+        <div id="mayor-chat-messages" class="flex-1 overflow-y-auto bg-white border rounded p-2 mb-2 text-left text-sm"></div>
+        <form id="mayor-chat-form" class="flex gap-2" onsubmit="sendMayorMessage(event)">
+          <input id="mayor-chat-input" type="text" class="flex-1 border rounded p-2 text-xs" placeholder="Escribe tu mensaje..." required />
+          <button type="submit" class="bg-yellow-400 text-white px-4 py-2 rounded font-medium">Enviar</button>
+        </form>
+      </div>
+
+      <!-- Formulario de documento -->
+      <div id="document-form" class="hidden">
+        <div class="flex items-center mb-4">
+          <button onclick="showInitialView()" class="p-1 hover:bg-gray-200 rounded mr-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+          <h4 class="font-bold text-gray-800">Consulta de Estudiante</h4>
+        </div>
+        <form class="space-y-3" onsubmit="submitDocument(event)">
+          <input id="student-document" type="text" placeholder="Ingresa el documento del estudiante a consultar" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:border-transparent" required>
+          <button type="submit" class="w-full p-2 text-white rounded font-medium transition-colors" style="background-color: #5771FE;">
+            Consultar
+          </button>
+        </form>
       </div>
 
       <!-- Formulario PQR -->
@@ -289,6 +341,11 @@ declare global {
     submitPQR: typeof submitPQR;
     showAcademicInfo: typeof showAcademicInfo;
     showAdminInfo: typeof showAdminInfo;
+    showMayorVirtual: typeof showMayorVirtual;
+    sendMayorMessage: typeof sendMayorMessage;
+    submitDocument: typeof submitDocument;
+    showAcademicInfoResult: typeof showAcademicInfoResult;
+    showAdminInfoResult: typeof showAdminInfoResult;
   }
 }
 
@@ -363,7 +420,7 @@ declare global {
   window.showAdminMenu = showAdminMenu;
   
   function hideAllViews() {
-    const views = ['initial-view', 'pqr-form', 'info-menu', 'admin-menu', 'result-area'];
+    const views = ['initial-view', 'pqr-form', 'info-menu', 'admin-menu', 'result-area', 'mayor-virtual-chat', 'document-form'];
     views.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.classList.add('hidden');
@@ -371,7 +428,7 @@ declare global {
   }
   
   // Enviar PQR
-  function submitPQR(event) {
+  function submitPQR(event: Event) {
     event.preventDefault();
     hideAllViews();
     const resultArea = document.getElementById('result-area');
@@ -397,8 +454,54 @@ declare global {
   window.submitPQR = submitPQR;
   
   // Mostrar información académica
-  function showAcademicInfo(type) {
+  let nextInfoType: { type: string; mode: 'academic' | 'admin' } | null = null;
+  function showAcademicInfo(type: string) {
+    nextInfoType = { type, mode: 'academic' };
     hideAllViews();
+    const documentForm = document.getElementById('document-form');
+    const chatArea = document.getElementById('chat-area');
+    if (documentForm) documentForm.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
+  }
+  window.showAcademicInfo = showAcademicInfo;
+  
+  function showAdminInfo(type: string) {
+    nextInfoType = { type, mode: 'admin' };
+    hideAllViews();
+    const documentForm = document.getElementById('document-form');
+    const chatArea = document.getElementById('chat-area');
+    if (documentForm) documentForm.classList.remove('hidden');
+    if (chatArea) chatArea.classList.remove('scrollable');
+  }
+  window.showAdminInfo = showAdminInfo;
+  
+  function submitDocument(event: Event) {
+    event.preventDefault();
+    const docInput = document.getElementById('student-document') as HTMLInputElement | null;
+    const docValue = docInput ? docInput.value.trim() : '';
+    if (docValue === '1095834123') {
+      // Mostrar info real
+      if (nextInfoType && nextInfoType.mode === 'academic') {
+        showAcademicInfoResult(nextInfoType.type);
+      } else if (nextInfoType && nextInfoType.mode === 'admin') {
+        showAdminInfoResult(nextInfoType.type);
+      }
+    } else {
+      // Mostrar error
+      hideAllViews();
+      const resultArea = document.getElementById('result-area');
+      const chatArea = document.getElementById('chat-area');
+      const resultTitle = document.getElementById('result-title');
+      const resultContent = document.getElementById('result-content');
+      if (resultArea) resultArea.classList.remove('hidden');
+      if (chatArea) chatArea.classList.add('scrollable');
+      if (resultTitle) resultTitle.textContent = 'Error';
+      if (resultContent) resultContent.innerHTML = `<div class='text-center text-red-600 font-medium'>El usuario no se encuentra registrado en nuestra base de datos.</div>`;
+    }
+  }
+  window.submitDocument = submitDocument;
+  
+  function showAcademicInfoResult(type: string) {
     const resultArea = document.getElementById('result-area');
     const chatArea = document.getElementById('chat-area');
     const resultTitle = document.getElementById('result-title');
@@ -507,11 +610,10 @@ declare global {
     if (resultTitle) resultTitle.textContent = info.title;
     if (resultContent) resultContent.innerHTML = info.content;
   }
-  window.showAcademicInfo = showAcademicInfo;
+  window.showAcademicInfoResult = showAcademicInfoResult;
   
   // Mostrar información administrativa
-  function showAdminInfo(type) {
-    hideAllViews();
+  function showAdminInfoResult(type: string) {
     const resultArea = document.getElementById('result-area');
     const chatArea = document.getElementById('chat-area');
     const resultTitle = document.getElementById('result-title');
@@ -603,5 +705,42 @@ declare global {
     if (resultTitle) resultTitle.textContent = info.title;
     if (resultContent) resultContent.innerHTML = info.content;
   }
-  window.showAdminInfo = showAdminInfo;
+  window.showAdminInfoResult = showAdminInfoResult;
+  
+  // Chat mayor virtual
+  function showMayorVirtual() {
+    hideAllViews();
+    const mayorChat = document.getElementById('mayor-virtual-chat');
+    const chatArea = document.getElementById('chat-area');
+    if (mayorChat) mayorChat.classList.remove('hidden');
+    if (chatArea) chatArea.classList.add('scrollable');
+    const messages = document.getElementById('mayor-chat-messages');
+    if (messages) messages.innerHTML = '<div class="mb-2 text-gray-700"><strong>Mayor Virtual:</strong> ¡Hola! Soy tu mayor virtual, ¿en qué puedo ayudarte?</div>';
+  }
+  window.showMayorVirtual = showMayorVirtual;
+  
+  async function sendMayorMessage(event: Event) {
+    event.preventDefault();
+    const input = document.getElementById('mayor-chat-input') as HTMLInputElement | null;
+    const messages = document.getElementById('mayor-chat-messages');
+    if (!input || !messages) return;
+    const userMsg = input.value.trim();
+    if (!userMsg) return;
+    messages.innerHTML += `<div class='mb-2 text-blue-700 text-right'><strong>Tú:</strong> ${userMsg}</div>`;
+    input.value = '';
+    // Fetch respuestas
+    try {
+      const res = await fetch('/mayor_virtual.json');
+      const data = await res.json();
+      let respuesta = data[userMsg.toLowerCase()] || 'No tengo una respuesta para eso, intenta con otra pregunta.';
+      setTimeout(() => {
+        messages.innerHTML += `<div class='mb-2 text-gray-700'><strong>Mayor Virtual:</strong> ${respuesta}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+      }, 500);
+    } catch {
+      messages.innerHTML += `<div class='mb-2 text-red-600'><strong>Mayor Virtual:</strong> Error al consultar la base de respuestas.</div>`;
+    }
+    messages.scrollTop = messages.scrollHeight;
+  }
+  window.sendMayorMessage = sendMayorMessage;
 </script>
