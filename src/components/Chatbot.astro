@@ -94,7 +94,7 @@
             <div class="flex items-center space-x-3">
               <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-200">
                 <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29-3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
+                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c-1.255 0-2.443.29-3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
                 </svg>
               </div>
               <div>
@@ -280,6 +280,18 @@
 </style>
 
 <script>
+declare global {
+  interface Window {
+    showInitialView: typeof showInitialView;
+    showPQRForm: typeof showPQRForm;
+    showInfoMenu: typeof showInfoMenu;
+    showAdminMenu: typeof showAdminMenu;
+    submitPQR: typeof submitPQR;
+    showAcademicInfo: typeof showAcademicInfo;
+    showAdminInfo: typeof showAdminInfo;
+  }
+}
+
   let currentGender = 'male'; // male o female
   
   // Toggle chatbot
@@ -321,6 +333,7 @@
     if (initialView) initialView.classList.remove('hidden');
     if (chatArea) chatArea.classList.remove('scrollable');
   }
+  window.showInitialView = showInitialView;
   
   function showPQRForm() {
     hideAllViews();
@@ -329,6 +342,7 @@
     if (pqrForm) pqrForm.classList.remove('hidden');
     if (chatArea) chatArea.classList.remove('scrollable');
   }
+  window.showPQRForm = showPQRForm;
   
   function showInfoMenu() {
     hideAllViews();
@@ -337,6 +351,7 @@
     if (infoMenu) infoMenu.classList.remove('hidden');
     if (chatArea) chatArea.classList.remove('scrollable');
   }
+  window.showInfoMenu = showInfoMenu;
   
   function showAdminMenu() {
     hideAllViews();
@@ -345,6 +360,7 @@
     if (adminMenu) adminMenu.classList.remove('hidden');
     if (chatArea) chatArea.classList.remove('scrollable');
   }
+  window.showAdminMenu = showAdminMenu;
   
   function hideAllViews() {
     const views = ['initial-view', 'pqr-form', 'info-menu', 'admin-menu', 'result-area'];
@@ -378,6 +394,7 @@
       </div>
     `;
   }
+  window.submitPQR = submitPQR;
   
   // Mostrar información académica
   function showAcademicInfo(type) {
@@ -490,6 +507,7 @@
     if (resultTitle) resultTitle.textContent = info.title;
     if (resultContent) resultContent.innerHTML = info.content;
   }
+  window.showAcademicInfo = showAcademicInfo;
   
   // Mostrar información administrativa
   function showAdminInfo(type) {
@@ -585,4 +603,5 @@
     if (resultTitle) resultTitle.textContent = info.title;
     if (resultContent) resultContent.innerHTML = info.content;
   }
+  window.showAdminInfo = showAdminInfo;
 </script>
