@@ -1,5 +1,8 @@
 ---
 // Gallery component con filtros por categorías y paginación
+interface Props {
+  title?: string;
+}
 ---
 
 <section class="py-20 bg-gray-50">
@@ -60,291 +63,255 @@
       </button>
     </div>
 
-    <!-- Grid de la galería (2 filas máximo) -->
+    <!-- Grid de la galería -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="gallery-grid">
       
       <!-- Actividades Académicas -->
-      <div class="gallery-item academicas card-hover" data-category="academicas">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-blue-400 to-blue-600 relative overflow-hidden">
+      <div class="gallery-item academicas" data-category="academicas">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/1.webp" 
+              alt="Actividades académicas"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path>
-                </svg>
-                <p class="text-sm font-medium">Laboratorio de Ciencias</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Académico
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Clase de Química</h3>
-            <p class="text-sm text-gray-600">Estudiantes realizando experimentos en el laboratorio</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Actividades Educativas</h3>
+            <p class="text-sm text-gray-600">Desarrollo de competencias académicas</p>
           </div>
         </div>
       </div>
 
       <div class="gallery-item academicas" data-category="academicas">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-indigo-400 to-indigo-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/2.webp" 
+              alt="Clase interactiva"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1h-6a1 1 0 01-1-1V8z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-sm font-medium">Aula de Matemáticas</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Académico
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Clase Magistral</h3>
-            <p class="text-sm text-gray-600">Desarrollo de competencias matemáticas</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Aprendizaje Interactivo</h3>
+            <p class="text-sm text-gray-600">Metodologías educativas innovadoras</p>
           </div>
         </div>
       </div>
 
       <!-- Actividades Deportivas -->
       <div class="gallery-item deportivas" data-category="deportivas">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-green-400 to-green-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/3.webp" 
+              alt="Actividades deportivas"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2L3 7v11a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V7l-7-5z"></path>
-                </svg>
-                <p class="text-sm font-medium">Torneo de Fútbol</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Deportivo
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Intercolegiados 2024</h3>
-            <p class="text-sm text-gray-600">Participación en competencias deportivas</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Actividades Físicas</h3>
+            <p class="text-sm text-gray-600">Desarrollo deportivo integral</p>
           </div>
         </div>
       </div>
 
       <div class="gallery-item deportivas" data-category="deportivas">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-teal-400 to-teal-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/4.jpg" 
+              alt="Juegos deportivos"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-sm font-medium">Educación Física</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Deportivo
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Actividad Física</h3>
-            <p class="text-sm text-gray-600">Desarrollo de habilidades motoras</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Juegos y Competencias</h3>
+            <p class="text-sm text-gray-600">Fomento del espíritu deportivo</p>
           </div>
         </div>
       </div>
 
       <!-- Actividades Culturales -->
       <div class="gallery-item culturales" data-category="culturales">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-purple-400 to-purple-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/5.webp" 
+              alt="Actividades culturales"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"></path>
-                </svg>
-                <p class="text-sm font-medium">Banda Musical</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Cultural
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Presentación Musical</h3>
-            <p class="text-sm text-gray-600">Banda marcial en evento institucional</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Expresión Artística</h3>
+            <p class="text-sm text-gray-600">Desarrollo de talentos culturales</p>
           </div>
         </div>
       </div>
 
       <div class="gallery-item culturales" data-category="culturales">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-pink-400 to-pink-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel dia del niño/6.webp" 
+              alt="Eventos culturales"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-sm font-medium">Festival de Arte</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Cultural
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Exposición Artística</h3>
-            <p class="text-sm text-gray-600">Trabajos creativos de los estudiantes</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Actividades Recreativas</h3>
+            <p class="text-sm text-gray-600">Integración y desarrollo cultural</p>
           </div>
         </div>
       </div>
 
       <!-- Formación Militar -->
       <div class="gallery-item militares" data-category="militares">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-red-400 to-red-600 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel ejercicios de campo/1.webp" 
+              alt="Ejercicios militares"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-sm font-medium">Desfile Militar</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #dc3545;">
               Militar
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Formación Disciplinaria</h3>
-            <p class="text-sm text-gray-600">Actividades de instrucción militar</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Ejercicios de Campo</h3>
+            <p class="text-sm text-gray-600">Entrenamiento y formación militar</p>
           </div>
         </div>
       </div>
 
       <div class="gallery-item militares" data-category="militares">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-gray-500 to-gray-700 relative overflow-hidden">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel ejercicios de campo/2.webp" 
+              alt="Formación militar"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <p class="text-sm font-medium">Ceremonia de Grados</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #dc3545;">
               Militar
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Graduación Sub-Tenientes</h3>
-            <p class="text-sm text-gray-600">Promoción de bachilleres militares</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Instrucción Militar</h3>
+            <p class="text-sm text-gray-600">Desarrollo de habilidades tácticas</p>
           </div>
         </div>
       </div>
 
-      <!-- Elementos adicionales para páginas siguientes (inicialmente ocultos) -->
       <!-- Eventos Especiales -->
-      <div class="gallery-item eventos hidden" data-category="eventos" data-page="2">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 relative overflow-hidden">
+      <div class="gallery-item eventos" data-category="eventos">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/carrusel aniversario 59/1.webp" 
+              alt="Aniversario 59"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="text-sm font-medium">Aniversario 59</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Evento
             </div>
           </div>
-          <div class="p-4">
+          <div class="p-4 flex-1 flex flex-col justify-between">
             <h3 class="font-semibold text-gray-800 mb-2">59 Años de Historia</h3>
             <p class="text-sm text-gray-600">Celebración del aniversario institucional</p>
           </div>
         </div>
       </div>
 
-      <div class="gallery-item eventos hidden" data-category="eventos" data-page="2">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-indigo-500 to-blue-600 relative overflow-hidden">
+      <div class="gallery-item eventos" data-category="eventos">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/carrusel aniversario 59/2.webp" 
+              alt="Celebración aniversario"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"></path>
-                </svg>
-                <p class="text-sm font-medium">Reunión de Padres</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Evento
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Encuentro Familiar</h3>
-            <p class="text-sm text-gray-600">Integración comunidad educativa</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Celebración Institucional</h3>
+            <p class="text-sm text-gray-600">Momentos memorables del aniversario</p>
           </div>
         </div>
       </div>
 
-      <!-- Más elementos académicos para la segunda página -->
-      <div class="gallery-item academicas hidden" data-category="academicas" data-page="2">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-emerald-400 to-emerald-600 relative overflow-hidden">
+      <!-- Página 2 -->
+      <div class="gallery-item militares hidden" data-category="militares" data-page="2">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/Carrusel ejercicios de campo/3.webp" 
+              alt="Entrenamiento militar"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1h-6a1 1 0 01-1-1V8z"></path>
-                </svg>
-                <p class="text-sm font-medium">Biblioteca Digital</p>
-              </div>
-            </div>
-            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
-              Académico
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #dc3545;">
+              Militar
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Investigación</h3>
-            <p class="text-sm text-gray-600">Estudiantes en la biblioteca digital</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Entrenamiento Táctico</h3>
+            <p class="text-sm text-gray-600">Ejercicios de campo avanzados</p>
           </div>
         </div>
       </div>
 
-      <div class="gallery-item deportivas hidden" data-category="deportivas" data-page="2">
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
-          <div class="aspect-square bg-gradient-to-br from-orange-400 to-orange-600 relative overflow-hidden">
+      <div class="gallery-item eventos hidden" data-category="eventos" data-page="2">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group h-[360px] flex flex-col">
+          <div class="relative h-[240px] overflow-hidden">
+            <img 
+              src="/carrusel aniversario 59/3.webp" 
+              alt="Celebración aniversario"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="text-center text-white">
-                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                </svg>
-                <p class="text-sm font-medium">Baloncesto</p>
-              </div>
-            </div>
             <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
-              Deportivo
+              Evento
             </div>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">Liga Deportiva</h3>
-            <p class="text-sm text-gray-600">Competencia intercolegial de baloncesto</p>
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <h3 class="font-semibold text-gray-800 mb-2">Momentos Especiales</h3>
+            <p class="text-sm text-gray-600">Celebración del aniversario</p>
           </div>
         </div>
       </div>
+
     </div>
 
     <!-- Paginación -->
@@ -395,6 +362,23 @@
   </div>
 </section>
 
+<style>
+  .gallery-item {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
 <script>
   const filterButtons = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
@@ -405,9 +389,8 @@
   
   let currentPage = 1;
   let currentFilter = 'all';
-  const itemsPerPage = 8; // 2 filas de 4 columnas
+  const itemsPerPage = 8;
   
-  // Colores para los filtros con la nueva paleta
   const filterColors = {
     all: { bg: 'rgb(52, 183, 13)', text: 'white' },
     academicas: { bg: '#5771FE', text: 'white' },
@@ -430,9 +413,9 @@
     const filteredItems = getFilteredItems();
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     
-    // Ocultar todos los elementos
+    // Ocultar todos los elementos primero
     galleryItems.forEach(item => {
-      item.style.display = 'none';
+      item.classList.add('hidden');
     });
     
     // Mostrar elementos de la página actual
@@ -441,17 +424,16 @@
     const itemsToShow = filteredItems.slice(startIndex, endIndex);
     
     itemsToShow.forEach(item => {
-      item.style.display = 'block';
-      item.style.animation = 'fadeIn 0.5s ease-in-out';
+      item.classList.remove('hidden');
     });
     
     // Actualizar estado de botones de paginación
-    prevPageBtn.disabled = page === 1;
-    nextPageBtn.disabled = page === totalPages;
+    if (prevPageBtn) prevPageBtn.disabled = page === 1;
+    if (nextPageBtn) nextPageBtn.disabled = page === totalPages;
     
     // Actualizar botones de página
     pageButtons.forEach(btn => {
-      const btnPage = parseInt(btn.getAttribute('data-page'));
+      const btnPage = parseInt(btn.getAttribute('data-page') || '1');
       if (btnPage === page) {
         btn.style.backgroundColor = 'rgb(52, 183, 13)';
         btn.style.color = 'white';
@@ -464,18 +446,22 @@
     });
     
     // Mostrar/ocultar mensaje de "no resultados"
-    if (itemsToShow.length === 0) {
-      noResults.classList.remove('hidden');
-    } else {
-      noResults.classList.add('hidden');
+    if (noResults) {
+      if (itemsToShow.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
     }
     
     // Actualizar visibilidad de controles de paginación
     const paginationControls = document.querySelector('.flex.justify-center.items-center.space-x-4.mb-8');
-    if (totalPages <= 1) {
-      paginationControls.style.display = 'none';
-    } else {
-      paginationControls.style.display = 'flex';
+    if (paginationControls) {
+      if (totalPages <= 1) {
+        paginationControls.classList.add('hidden');
+      } else {
+        paginationControls.classList.remove('hidden');
+      }
     }
   }
   
@@ -488,36 +474,41 @@
   function updateFilterButtons(activeFilter) {
     filterButtons.forEach(btn => {
       const filter = btn.getAttribute('data-filter');
-      const colors = filterColors[filter];
-      
-      if (filter === activeFilter) {
-        btn.classList.add('active');
-        btn.style.backgroundColor = colors.bg;
-        btn.style.color = colors.text;
-        btn.style.borderColor = colors.bg;
-      } else {
-        btn.classList.remove('active');
-        btn.style.backgroundColor = 'white';
-        btn.style.color = '#374151';
-        btn.style.borderColor = '#e5e7eb';
+      if (filter) {
+        const colors = filterColors[filter];
+        
+        if (filter === activeFilter) {
+          btn.classList.add('active');
+          btn.style.backgroundColor = colors.bg;
+          btn.style.color = colors.text;
+          btn.style.borderColor = colors.bg;
+        } else {
+          btn.classList.remove('active');
+          btn.style.backgroundColor = 'white';
+          btn.style.color = '#374151';
+          btn.style.borderColor = '#e5e7eb';
+        }
       }
     });
   }
   
-  // Event listeners para los filtros
+  // Event listeners
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');
-      filterGallery(filter);
-      updateFilterButtons(filter);
+      if (filter) {
+        filterGallery(filter);
+        updateFilterButtons(filter);
+      }
     });
     
-    // Hover effects
     btn.addEventListener('mouseenter', () => {
       if (!btn.classList.contains('active')) {
         const filter = btn.getAttribute('data-filter');
-        const colors = filterColors[filter];
-        btn.style.borderColor = colors.bg;
+        if (filter) {
+          const colors = filterColors[filter];
+          btn.style.borderColor = colors.bg;
+        }
       }
     });
     
@@ -528,51 +519,39 @@
     });
   });
   
-  // Event listeners para la paginación
   pageButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const page = parseInt(btn.getAttribute('data-page'));
-      currentPage = page;
-      showPage(page);
+      const pageAttr = btn.getAttribute('data-page');
+      if (pageAttr) {
+        const page = parseInt(pageAttr);
+        currentPage = page;
+        showPage(page);
+      }
     });
   });
   
-  prevPageBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(currentPage);
-    }
-  });
+  if (prevPageBtn) {
+    prevPageBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    });
+  }
   
-  nextPageBtn.addEventListener('click', () => {
-    const filteredItems = getFilteredItems();
-    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      showPage(currentPage);
-    }
-  });
+  if (nextPageBtn) {
+    nextPageBtn.addEventListener('click', () => {
+      const filteredItems = getFilteredItems();
+      const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    });
+  }
   
   // Inicializar la galería
   document.addEventListener('DOMContentLoaded', () => {
     showPage(1);
   });
-  
-  // Animaciones CSS
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .gallery-item {
-      transition: all 0.3s ease;
-    }
-    
-    .gallery-item:hover {
-      transform: translateY(-5px);
-    }
-  `;
-  document.head.appendChild(style);
 </script>
