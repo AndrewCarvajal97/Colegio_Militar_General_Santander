@@ -2,13 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Chatbot from '../components/Chatbot.astro';
+import Carousel from '../components/Carousel.astro';
+import Gallery from '../components/Gallery.astro';
 ---
 
 <Layout title="Colegio Militar General Santander - Formando Líderes">
   <Header />
   
   <!-- Hero Section -->
-  <section id="inicio" class="relative min-h-screen flex items-center justify-center military-gradient">
+  <section id="inicio" class="relative min-h-screen flex items-center justify-center military-gradient pt-20">
     <div class="absolute inset-0 bg-black/20"></div>
     <div class="relative z-10 container mx-auto px-4 text-center text-white">
       <div class="animate-fade-in-up">
@@ -261,6 +264,12 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
+  <!-- Carrusel de Instalaciones -->
+  <Carousel />
+
+  <!-- Galería Institucional -->
+  <Gallery />
+
   <!-- Admisiones -->
   <section id="admisiones" class="py-20 bg-military-blue text-white">
     <div class="container mx-auto px-4">
@@ -469,6 +478,9 @@ import Footer from '../components/Footer.astro';
   </section>
 
   <Footer />
+  
+  <!-- Chatbot -->
+  <Chatbot />
 </Layout>
 
 <style>

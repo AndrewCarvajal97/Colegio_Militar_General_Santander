@@ -2,7 +2,69 @@
 // Header component
 ---
 
-<header class="bg-white shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="header">
+<!-- Barra superior con certificaciones -->
+<div class="bg-gray-800 text-white py-2">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between text-sm">
+      <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-2">
+          <span class="font-medium">Certificaciones:</span>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-1 bg-white/10 px-2 py-1 rounded">
+              <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-xs font-medium">ISO 9001:2015</span>
+            </div>
+            <div class="flex items-center space-x-1 bg-white/10 px-2 py-1 rounded">
+              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="text-xs font-medium">INCOTEC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 text-xs">
+        <span>📞 (607) 7008460</span>
+        <span>📧 info@colmilgeneralsantander.edu.co</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Barra superior con certificaciones -->
+<div class="bg-gray-100 border-b border-gray-200 py-2">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between text-sm">
+      <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-2">
+          <span class="text-gray-600">Certificaciones:</span>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-1 bg-white px-2 py-1 rounded border">
+              <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                <span class="text-white text-xs font-bold">ISO</span>
+              </div>
+              <span class="text-xs font-medium">9001:2015</span>
+            </div>
+            <div class="flex items-center space-x-1 bg-white px-2 py-1 rounded border">
+              <div class="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
+                <span class="text-white text-xs font-bold">IC</span>
+              </div>
+              <span class="text-xs font-medium">ICONTEC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 text-xs text-gray-600">
+        <span>📞 (607) 7008460</span>
+        <span>📧 info@colmilgeneralsantander.edu.co</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="bg-white shadow-lg fixed w-full top-10 z-50 transition-all duration-300" id="header">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between py-4">
       <!-- Logo y nombre del colegio -->
@@ -128,7 +190,7 @@
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          const headerHeight = header.offsetHeight;
+          const headerHeight = header.offsetHeight + 40; // Incluir barra de certificaciones
           const targetPosition = targetElement.offsetTop - headerHeight;
           
           window.scrollTo({
