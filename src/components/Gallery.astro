@@ -1,14 +1,14 @@
 ---
-// Gallery component con filtros por categorías
+// Gallery component con filtros por categorías y paginación
 ---
 
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold font-playfair text-military-blue mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold font-playfair mb-4" style="color: #5771FE;">
         Galería Institucional
       </h2>
-      <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
+      <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
       <p class="text-gray-600 max-w-2xl mx-auto mb-8">
         Explora los momentos más destacados de nuestra comunidad educativa
       </p>
@@ -24,40 +24,44 @@
         Todas
       </button>
       <button 
-        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-400"
+        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200"
         data-filter="academicas"
+        style="hover: border-color: #5771FE;"
       >
         Actividades Académicas
       </button>
       <button 
-        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200 hover:border-purple-400"
+        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200"
         data-filter="deportivas"
+        style="hover: border-color: rgb(52, 183, 13);"
       >
         Deportivas
       </button>
       <button 
         class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200"
         data-filter="culturales"
-        style="border-color: #5771FE;"
+        style="hover: border-color: #5771FE;"
       >
         Culturales
       </button>
       <button 
-        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200 hover:border-red-400"
+        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200"
         data-filter="militares"
+        style="hover: border-color: #dc3545;"
       >
         Formación Militar
       </button>
       <button 
-        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200 hover:border-yellow-400"
+        class="filter-btn px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border-2 border-gray-200"
         data-filter="eventos"
+        style="hover: border-color: rgb(52, 183, 13);"
       >
         Eventos Especiales
       </button>
     </div>
 
-    <!-- Grid de la galería -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="gallery-grid">
+    <!-- Grid de la galería (2 filas máximo) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="gallery-grid">
       
       <!-- Actividades Académicas -->
       <div class="gallery-item academicas card-hover" data-category="academicas">
@@ -72,7 +76,7 @@
                 <p class="text-sm font-medium">Laboratorio de Ciencias</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Académico
             </div>
           </div>
@@ -95,7 +99,7 @@
                 <p class="text-sm font-medium">Aula de Matemáticas</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-blue-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Académico
             </div>
           </div>
@@ -166,7 +170,7 @@
                 <p class="text-sm font-medium">Banda Musical</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-purple-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Cultural
             </div>
           </div>
@@ -189,7 +193,7 @@
                 <p class="text-sm font-medium">Festival de Arte</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-purple-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
               Cultural
             </div>
           </div>
@@ -213,7 +217,7 @@
                 <p class="text-sm font-medium">Desfile Militar</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #dc3545;">
               Militar
             </div>
           </div>
@@ -236,7 +240,7 @@
                 <p class="text-sm font-medium">Ceremonia de Grados</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #dc3545;">
               Militar
             </div>
           </div>
@@ -247,8 +251,9 @@
         </div>
       </div>
 
+      <!-- Elementos adicionales para páginas siguientes (inicialmente ocultos) -->
       <!-- Eventos Especiales -->
-      <div class="gallery-item eventos" data-category="eventos">
+      <div class="gallery-item eventos hidden" data-category="eventos" data-page="2">
         <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
           <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 relative overflow-hidden">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
@@ -260,7 +265,7 @@
                 <p class="text-sm font-medium">Aniversario 59</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Evento
             </div>
           </div>
@@ -271,7 +276,7 @@
         </div>
       </div>
 
-      <div class="gallery-item eventos" data-category="eventos">
+      <div class="gallery-item eventos hidden" data-category="eventos" data-page="2">
         <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
           <div class="aspect-square bg-gradient-to-br from-indigo-500 to-blue-600 relative overflow-hidden">
             <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
@@ -283,7 +288,7 @@
                 <p class="text-sm font-medium">Reunión de Padres</p>
               </div>
             </div>
-            <div class="absolute top-3 left-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs font-medium">
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
               Evento
             </div>
           </div>
@@ -293,6 +298,88 @@
           </div>
         </div>
       </div>
+
+      <!-- Más elementos académicos para la segunda página -->
+      <div class="gallery-item academicas hidden" data-category="academicas" data-page="2">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
+          <div class="aspect-square bg-gradient-to-br from-emerald-400 to-emerald-600 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm8 0a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1h-6a1 1 0 01-1-1V8z"></path>
+                </svg>
+                <p class="text-sm font-medium">Biblioteca Digital</p>
+              </div>
+            </div>
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: #5771FE;">
+              Académico
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Investigación</h3>
+            <p class="text-sm text-gray-600">Estudiantes en la biblioteca digital</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item deportivas hidden" data-category="deportivas" data-page="2">
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg group">
+          <div class="aspect-square bg-gradient-to-br from-orange-400 to-orange-600 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <svg class="w-12 h-12 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <p class="text-sm font-medium">Baloncesto</p>
+              </div>
+            </div>
+            <div class="absolute top-3 left-3 text-white px-2 py-1 rounded text-xs font-medium" style="background-color: rgb(52, 183, 13);">
+              Deportivo
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Liga Deportiva</h3>
+            <p class="text-sm text-gray-600">Competencia intercolegial de baloncesto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginación -->
+    <div class="flex justify-center items-center space-x-4 mb-8">
+      <button 
+        id="prev-page" 
+        class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-white border-2 border-gray-200 text-gray-700 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        style="hover: border-color: rgb(52, 183, 13);"
+        disabled
+      >
+        <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        </svg>
+        Anterior
+      </button>
+      
+      <div class="flex items-center space-x-2">
+        <button class="page-btn w-10 h-10 rounded-full font-medium transition-all duration-300 text-white" 
+                style="background-color: rgb(52, 183, 13);" 
+                data-page="1">1</button>
+        <button class="page-btn w-10 h-10 rounded-full font-medium transition-all duration-300 bg-white border-2 border-gray-200 text-gray-700 hover:shadow-lg" 
+                style="hover: border-color: rgb(52, 183, 13);" 
+                data-page="2">2</button>
+      </div>
+      
+      <button 
+        id="next-page" 
+        class="px-4 py-2 rounded-lg font-medium transition-all duration-300 bg-white border-2 border-gray-200 text-gray-700 hover:shadow-lg"
+        style="hover: border-color: rgb(52, 183, 13);"
+      >
+        Siguiente
+        <svg class="w-5 h-5 inline ml-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
     </div>
 
     <!-- Mensaje cuando no hay resultados -->
@@ -312,38 +399,90 @@
   const filterButtons = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
   const noResults = document.getElementById('no-results');
+  const pageButtons = document.querySelectorAll('.page-btn');
+  const prevPageBtn = document.getElementById('prev-page');
+  const nextPageBtn = document.getElementById('next-page');
   
-  // Colores para los filtros
+  let currentPage = 1;
+  let currentFilter = 'all';
+  const itemsPerPage = 8; // 2 filas de 4 columnas
+  
+  // Colores para los filtros con la nueva paleta
   const filterColors = {
     all: { bg: 'rgb(52, 183, 13)', text: 'white' },
-    academicas: { bg: '#3b82f6', text: 'white' },
+    academicas: { bg: '#5771FE', text: 'white' },
     deportivas: { bg: 'rgb(52, 183, 13)', text: 'white' },
     culturales: { bg: '#5771FE', text: 'white' },
     militares: { bg: '#dc3545', text: 'white' },
-    eventos: { bg: '#eab308', text: 'white' }
+    eventos: { bg: 'rgb(52, 183, 13)', text: 'white' }
   };
   
-  function filterGallery(category) {
-    let visibleItems = 0;
+  function getFilteredItems() {
+    if (currentFilter === 'all') {
+      return Array.from(galleryItems);
+    }
+    return Array.from(galleryItems).filter(item => 
+      item.getAttribute('data-category') === currentFilter
+    );
+  }
+  
+  function showPage(page) {
+    const filteredItems = getFilteredItems();
+    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     
+    // Ocultar todos los elementos
     galleryItems.forEach(item => {
-      const itemCategory = item.getAttribute('data-category');
-      
-      if (category === 'all' || itemCategory === category) {
-        item.style.display = 'block';
-        item.style.animation = 'fadeIn 0.5s ease-in-out';
-        visibleItems++;
+      item.style.display = 'none';
+    });
+    
+    // Mostrar elementos de la página actual
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const itemsToShow = filteredItems.slice(startIndex, endIndex);
+    
+    itemsToShow.forEach(item => {
+      item.style.display = 'block';
+      item.style.animation = 'fadeIn 0.5s ease-in-out';
+    });
+    
+    // Actualizar estado de botones de paginación
+    prevPageBtn.disabled = page === 1;
+    nextPageBtn.disabled = page === totalPages;
+    
+    // Actualizar botones de página
+    pageButtons.forEach(btn => {
+      const btnPage = parseInt(btn.getAttribute('data-page'));
+      if (btnPage === page) {
+        btn.style.backgroundColor = 'rgb(52, 183, 13)';
+        btn.style.color = 'white';
+        btn.style.borderColor = 'rgb(52, 183, 13)';
       } else {
-        item.style.display = 'none';
+        btn.style.backgroundColor = 'white';
+        btn.style.color = '#374151';
+        btn.style.borderColor = '#e5e7eb';
       }
     });
     
     // Mostrar/ocultar mensaje de "no resultados"
-    if (visibleItems === 0) {
+    if (itemsToShow.length === 0) {
       noResults.classList.remove('hidden');
     } else {
       noResults.classList.add('hidden');
     }
+    
+    // Actualizar visibilidad de controles de paginación
+    const paginationControls = document.querySelector('.flex.justify-center.items-center.space-x-4.mb-8');
+    if (totalPages <= 1) {
+      paginationControls.style.display = 'none';
+    } else {
+      paginationControls.style.display = 'flex';
+    }
+  }
+  
+  function filterGallery(category) {
+    currentFilter = category;
+    currentPage = 1;
+    showPage(1);
   }
   
   function updateFilterButtons(activeFilter) {
@@ -387,6 +526,36 @@
         btn.style.borderColor = '#e5e7eb';
       }
     });
+  });
+  
+  // Event listeners para la paginación
+  pageButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const page = parseInt(btn.getAttribute('data-page'));
+      currentPage = page;
+      showPage(page);
+    });
+  });
+  
+  prevPageBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      showPage(currentPage);
+    }
+  });
+  
+  nextPageBtn.addEventListener('click', () => {
+    const filteredItems = getFilteredItems();
+    const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+    }
+  });
+  
+  // Inicializar la galería
+  document.addEventListener('DOMContentLoaded', () => {
+    showPage(1);
   });
   
   // Animaciones CSS

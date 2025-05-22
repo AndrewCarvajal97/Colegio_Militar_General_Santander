@@ -6,12 +6,12 @@
   <!-- Botón del chatbot -->
   <button 
     id="chatbot-toggle" 
-    class="chatbot-button bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+    class="chatbot-button text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
     style="background-color: rgb(52, 183, 13);"
   >
     <img 
       id="chatbot-icon" 
-      src="/icon2023.png" 
+      src="/icon2023.webp" 
       alt="Asistente Virtual" 
       class="w-12 h-12 rounded-full"
     />
@@ -25,7 +25,7 @@
     <!-- Header del chatbot -->
     <div class="chatbot-header p-4 text-white flex items-center justify-between" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 100%);">
       <div class="flex items-center space-x-3">
-        <img id="chatbot-header-icon" src="/icon2023.png" alt="Asistente" class="w-10 h-10 rounded-full border-2 border-white">
+        <img id="chatbot-header-icon" src="/icon2023.webp" alt="Asistente" class="w-10 h-10 rounded-full border-2 border-white">
         <div>
           <h3 class="font-bold text-sm">Asistente Virtual CMGS</h3>
           <p class="text-xs opacity-90">En línea</p>
@@ -285,7 +285,7 @@
   // Cambiar género del asistente
   document.getElementById('gender-toggle').addEventListener('click', function() {
     currentGender = currentGender === 'male' ? 'female' : 'male';
-    const iconSrc = currentGender === 'male' ? '/icon2023.png' : '/icon2025.png';
+    const iconSrc = currentGender === 'male' ? '/icon2023.webp' : '/icon2025.webp';
     
     document.getElementById('chatbot-icon').src = iconSrc;
     document.getElementById('chatbot-header-icon').src = iconSrc;

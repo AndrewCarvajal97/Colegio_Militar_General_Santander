@@ -1,159 +1,145 @@
 ---
-// Header component
+// Header component mejorado
 ---
 
-<!-- Barra superior con certificaciones -->
-<div class="bg-gray-800 text-white py-2">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between text-sm">
-      <div class="flex items-center space-x-6">
-        <div class="flex items-center space-x-2">
-          <span class="font-medium">Certificaciones:</span>
-          <div class="flex items-center space-x-4">
-            <div class="flex items-center space-x-1 bg-white/10 px-2 py-1 rounded">
-              <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-xs font-medium">ISO 9001:2015</span>
-            </div>
-            <div class="flex items-center space-x-1 bg-white/10 px-2 py-1 rounded">
-              <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              <span class="text-xs font-medium">INCOTEC</span>
+<!-- Header completo fijo incluyendo certificaciones -->
+<div class="fixed w-full top-0 z-50 bg-white shadow-lg transition-all duration-300" id="complete-header">
+  <!-- Barra superior con certificaciones -->
+  <div class="bg-gray-100 border-b border-gray-200 py-2">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <span class="text-gray-600">Certificaciones:</span>
+            <div class="flex items-center space-x-4">
+              <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded border">
+                <img src="/iso-icon.svg" alt="ISO" class="w-6 h-6" />
+                <div class="flex items-center space-x-1">
+                  <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                    <span class="text-white text-xs font-bold">ISO</span>
+                  </div>
+                  <span class="text-xs font-medium">9001:2015</span>
+                </div>
+              </div>
+              <div class="flex items-center space-x-2 bg-white px-3 py-1 rounded border">
+                <img src="/icontec-icon.svg" alt="ICONTEC" class="w-6 h-6" />
+                <div class="flex items-center space-x-1">
+                  <div class="w-6 h-6 rounded flex items-center justify-center" style="background-color: rgb(52, 183, 13);">
+                    <span class="text-white text-xs font-bold">IC</span>
+                  </div>
+                  <span class="text-xs font-medium">ICONTEC</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="flex items-center space-x-4 text-xs">
-        <span>📞 (607) 7008460</span>
-        <span>📧 info@colmilgeneralsantander.edu.co</span>
+        <div class="flex items-center space-x-4 text-xs text-gray-600">
+          <span>📞 (607) 7008460</span>
+          <span>📧 info@colmilgeneralsantander.edu.co</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Barra superior con certificaciones -->
-<div class="bg-gray-100 border-b border-gray-200 py-2">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between text-sm">
-      <div class="flex items-center space-x-6">
-        <div class="flex items-center space-x-2">
-          <span class="text-gray-600">Certificaciones:</span>
-          <div class="flex items-center space-x-4">
-            <div class="flex items-center space-x-1 bg-white px-2 py-1 rounded border">
-              <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
-                <span class="text-white text-xs font-bold">ISO</span>
-              </div>
-              <span class="text-xs font-medium">9001:2015</span>
-            </div>
-            <div class="flex items-center space-x-1 bg-white px-2 py-1 rounded border">
-              <div class="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
-                <span class="text-white text-xs font-bold">IC</span>
-              </div>
-              <span class="text-xs font-medium">ICONTEC</span>
-            </div>
+  <!-- Navbar principal -->
+  <div class="bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between py-4">
+        <!-- Logo y nombre del colegio -->
+        <div class="flex items-center space-x-4">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center" >
+            <img src="/label-removebg-preview.webp" alt="">
+          </div>
+          <div>
+            <h1 class="text-xl font-bold font-playfair" style="color: #5771FE;">
+              Colegio Militar General Santander
+            </h1>
+            <p class="text-sm text-gray-600 font-medium">
+              Patria, Superación y Orden
+            </p>
           </div>
         </div>
-      </div>
-      <div class="flex items-center space-x-4 text-xs text-gray-600">
-        <span>📞 (607) 7008460</span>
-        <span>📧 info@colmilgeneralsantander.edu.co</span>
-      </div>
-    </div>
-  </div>
-</div>
 
-<header class="bg-white shadow-lg fixed w-full top-10 z-50 transition-all duration-300" id="header">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between py-4">
-      <!-- Logo y nombre del colegio -->
-      <div class="flex items-center space-x-4">
-        <div class="w-16 h-16 bg-military-blue rounded-full flex items-center justify-center">
-          <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        <div>
-          <h1 class="text-xl font-bold text-military-blue font-playfair">
-            Colegio Militar General Santander
-          </h1>
-          <p class="text-sm text-gray-600 font-medium">
-            Patria, Superación y Orden
-          </p>
-        </div>
-      </div>
-
-      <!-- Navegación desktop -->
-      <nav class="hidden lg:flex items-center space-x-8">
-        <a href="#inicio" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Inicio
-        </a>
-        <a href="#nosotros" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Nosotros
-        </a>
-        <a href="#historia" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Historia
-        </a>
-        <a href="#niveles" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Niveles
-        </a>
-        <a href="#admisiones" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Admisiones
-        </a>
-        <a href="#contacto" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium">
-          Contacto
-        </a>
-        <a href="#contacto" class="bg-military-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium">
-          Información
-        </a>
-      </nav>
-
-      <!-- Botón menú móvil -->
-      <button class="lg:hidden flex flex-col space-y-1 p-2" id="mobile-menu-btn">
-        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-        <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
-      </button>
-    </div>
-
-    <!-- Menú móvil -->
-    <div class="lg:hidden hidden" id="mobile-menu">
-      <div class="py-4 border-t border-gray-200">
-        <nav class="flex flex-col space-y-4">
-          <a href="#inicio" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+        <!-- Navegación desktop -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="#inicio" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Inicio
           </a>
-          <a href="#nosotros" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+          <a href="#nosotros" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Nosotros
           </a>
-          <a href="#historia" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+          <a href="#historia" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Historia
           </a>
-          <a href="#niveles" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+          <a href="#niveles" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Niveles
           </a>
-          <a href="#admisiones" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+          <a href="#admisiones" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Admisiones
           </a>
-          <a href="#contacto" class="text-gray-700 hover:text-military-blue transition-colors duration-300 font-medium px-4 py-2">
+          <a href="#contacto" class="nav-link text-gray-700 font-medium transition-colors duration-300">
             Contacto
           </a>
-          <a href="#contacto" class="bg-military-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-medium mx-4">
+          <a href="#contacto" class="text-white px-6 py-2 rounded-lg font-medium transition-colors duration-300" 
+             style="background-color: rgb(52, 183, 13);" 
+             onmouseover="this.style.backgroundColor='rgb(42, 153, 11)'" 
+             onmouseout="this.style.backgroundColor='rgb(52, 183, 13)'">
             Información
           </a>
         </nav>
+
+        <!-- Botón menú móvil -->
+        <button class="lg:hidden flex flex-col space-y-1 p-2" id="mobile-menu-btn">
+          <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+          <span class="w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <div class="lg:hidden hidden" id="mobile-menu">
+        <div class="py-4 border-t border-gray-200">
+          <nav class="flex flex-col space-y-4">
+            <a href="#inicio" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Inicio
+            </a>
+            <a href="#nosotros" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Nosotros
+            </a>
+            <a href="#historia" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Historia
+            </a>
+            <a href="#niveles" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Niveles
+            </a>
+            <a href="#admisiones" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Admisiones
+            </a>
+            <a href="#contacto" class="nav-link text-gray-700 font-medium px-4 py-2 transition-colors duration-300">
+              Contacto
+            </a>
+            <a href="#contacto" class="text-white px-6 py-2 rounded-lg font-medium mx-4 transition-colors duration-300" style="background-color: rgb(52, 183, 13);">
+              Información
+            </a>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
-</header>
+</div>
+
+<style>
+  .nav-link:hover {
+    color: #5771FE !important;
+  }
+</style>
 
 <script>
   // JavaScript para el menú móvil y efectos del header
   document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const header = document.getElementById('header');
+    const completeHeader = document.getElementById('complete-header');
 
     // Toggle menú móvil
     mobileMenuBtn.addEventListener('click', function() {
@@ -172,14 +158,12 @@
       }
     });
 
-    // Efectos de scroll en el header
+    // Efectos de scroll en el header (opcional)
     window.addEventListener('scroll', function() {
       if (window.scrollY > 100) {
-        header.classList.add('bg-white/95', 'backdrop-blur-sm');
-        header.classList.remove('bg-white');
+        completeHeader.classList.add('shadow-xl');
       } else {
-        header.classList.add('bg-white');
-        header.classList.remove('bg-white/95', 'backdrop-blur-sm');
+        completeHeader.classList.remove('shadow-xl');
       }
     });
 
@@ -190,7 +174,7 @@
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
-          const headerHeight = header.offsetHeight + 40; // Incluir barra de certificaciones
+          const headerHeight = completeHeader.offsetHeight;
           const targetPosition = targetElement.offsetTop - headerHeight;
           
           window.scrollTo({
