@@ -1,7 +1,94 @@
 {
-  "hola": "¡Hola! Soy tu mayor virtual, ¿en qué puedo ayudarte?",
-  "¿cómo solicito un certificado?": "Para solicitar un certificado debes dirigirte a la secretaría académica o usar la opción de documentos en el chatbot.",
-  "¿cuál es el horario de clases?": "El horario de clases es de lunes a viernes de 7:00 a.m. a 2:30 p.m.",
-  "gracias": "¡Con gusto! Si tienes otra pregunta, aquí estaré.",
-  "adiós": "¡Hasta luego! Recuerda que siempre puedes volver a consultarme."
+  "intenciones": [
+    {
+      "tag": "saludo",
+      "patrones": ["hola", "buenos dias", "buenas tardes", "buenas noches", "que tal", "como estas"],
+      "respuestas": [
+        "¡Hola! Soy tu mayor virtual, ¿en qué puedo ayudarte?",
+        "¡Hola! ¿Cómo puedo asistirte hoy?",
+        "¡Saludos! ¿En qué te puedo colaborar?"
+      ]
+    },
+    {
+      "tag": "despedida",
+      "patrones": ["adios", "hasta luego", "nos vemos", "chau", "bye", "me voy"],
+      "respuestas": [
+        "¡Hasta luego! Recuerda que siempre puedes volver a consultarme.",
+        "Nos vemos pronto. ¡Éxitos!",
+        "¡Adiós! Que tengas un excelente día."
+      ]
+    },
+    {
+      "tag": "agradecimiento",
+      "patrones": ["gracias", "muy amable", "te agradezco", "mil gracias", "gracias por la ayuda"],
+      "respuestas": [
+        "¡Con gusto! Si tienes otra pregunta, aquí estaré.",
+        "Siempre feliz de ayudarte.",
+        "¡Para eso estoy! Pregunta lo que necesites."
+      ]
+    },
+    {
+      "tag": "certificados",
+      "patrones": ["como solicito un certificado", "quiero un certificado", "necesito un certificado", "donde saco un certificado"],
+      "respuestas": [
+        "Para solicitar un certificado debes dirigirte a la secretaria academica o usar la opcion de documentos en el chatbot.",
+        "Puedes pedir tu certificado desde la seccion de documentos o acercandote a la secretaria.",
+        "La solicitud de certificados se hace por secretaria o desde el menu de certificados."
+      ]
+    },
+    {
+      "tag": "horarios",
+      "patrones": ["cual es el horario", "horario de clases", "cuando son las clases", "a que hora inician las clases"],
+      "respuestas": [
+        "El horario de clases es de lunes a viernes de 7:00 a.m. a 2:30 p.m.",
+        "Las clases inician a las 7:00 a.m. y terminan a las 2:30 p.m.",
+        "Nuestro horario es de lunes a viernes de 7:00 a.m. a 2:30 p.m."
+      ]
+    },
+    {
+      "tag": "inscripciones",
+      "patrones": ["como me inscribo", "donde me inscribo", "quiero inscribirme", "proceso de inscripcion", "cuando son las inscripciones"],
+      "respuestas": [
+        "Puedes inscribirte en la pagina oficial del colegio o acercandote a la oficina de admisiones.",
+        "El proceso de inscripcion se realiza en linea o presencialmente en secretaria.",
+        "Las inscripciones estan abiertas en la seccion de admisiones del sitio web."
+      ]
+    },
+    {
+      "tag": "contacto",
+      "patrones": ["como me comunico", "contacto del colegio", "telefono del colegio", "correo del colegio"],
+      "respuestas": [
+        "Puedes comunicarte con nosotros al 310 123 4567 o al correo info@colegiogeneralsantander.edu.co",
+        "Nuestro numero de contacto es 310 123 4567 y el correo es info@colegiogeneralsantander.edu.co",
+        "Puedes escribirnos al correo institucional o llamar directamente al telefono del colegio."
+      ]
+    },
+    {
+      "tag": "docentes",
+      "patrones": ["quienes son los docentes", "como se llaman los profesores", "lista de profesores"],
+      "respuestas": [
+        "Puedes ver la lista completa de docentes en la seccion de 'Nosotros' en la pagina web del colegio.",
+        "Nuestros docentes estan disponibles en el directorio institucional.",
+        "Consulta los nombres de los profesores en el mural informativo o en la pagina oficial."
+      ]
+    },
+    {
+      "tag": "actividades",
+      "patrones": ["que actividades hay", "actividades programadas", "eventos del colegio", "calendario de actividades"],
+      "respuestas": [
+        "Puedes consultar el calendario de actividades en la seccion de 'Eventos' en nuestra pagina web.",
+        "Las actividades programadas se encuentran en el calendario institucional.",
+        "Revisa la seccion de eventos para conocer todas las actividades que tenemos planeadas."
+      ]
+    },
+    {
+      "tag": "ayuda",
+      "patrones": ["necesito ayuda", "tengo un problema", "no entiendo", "me puedes ayudar"],
+      "respuestas": [
+        "Claro, estoy aquí para ayudarte. ¿Cuál es tu duda?",
+        "Por supuesto, dime en qué puedo asistirte.",
+        "Estoy aquí para resolver tus inquietudes. ¿Qué necesitas?"
+      ]
+    }
+  ]
 }

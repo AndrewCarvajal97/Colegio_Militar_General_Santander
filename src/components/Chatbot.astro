@@ -920,25 +920,31 @@ declare global {
     try {
       const res = await fetch('/mayor_virtual.json');
       const data = await res.json();
-      // Normaliza la pregunta del usuario
-      const normalize = (str: string) => str
+
+      const normalize = (str) => str
         .toLowerCase()
-        .replace(/[^a-z0-9áéíóúüñ\s]/gi, '') // quita signos de puntuación
-        .replace(/\s+/g, ' ') // quita espacios extra
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9üñ\s]/gi, '')
+        .replace(/\s+/g, ' ')
         .trim();
+
       const userNorm = normalize(userMsg);
       let respuesta = '';
-      // Busca coincidencia flexible
-      for (const key in data) {
-        if (normalize(key) === userNorm) {
-          respuesta = data[key];
-          break;
+
+      // Recorre cada intención y sus patrones
+      for (const intencion of data.intenciones) {
+        for (const patron of intencion.patrones) {
+          const patronNorm = normalize(patron);
+          if (userNorm === patronNorm || userNorm.includes(patronNorm) || patronNorm.includes(userNorm)) {
+            // Selecciona una respuesta aleatoria
+            const respuestas = intencion.respuestas;
+            respuesta = respuestas[Math.floor(Math.random() * respuestas.length)];
+            break;
+          }
         }
-        // Coincidencia parcial: si la pregunta del usuario contiene la clave o viceversa
-        if (userNorm.includes(normalize(key)) || normalize(key).includes(userNorm)) {
-          respuesta = data[key];
-        }
+        if (respuesta) break;
       }
+
       if (!respuesta) respuesta = 'No tengo una respuesta para eso, intenta con otra pregunta.';
       setTimeout(() => {
         messageCounter++;
