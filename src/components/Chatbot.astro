@@ -570,8 +570,26 @@ declare global {
   }
   
   // Enviar PQR
-  function submitPQR(event: Event) {
+  async function submitPQR(event) {
     event.preventDefault();
+
+    // Obtener los campos del formulario PQR
+    const form = event.target;
+    const nombres = form.querySelector('input[placeholder="Nombres"]')?.value || '';
+    const apellidos = form.querySelector('input[placeholder="Apellidos"]')?.value || '';
+    const email = form.querySelector('input[type="email"]')?.value || '';
+    const telefono = form.querySelector('input[type="tel"]')?.value || '';
+    const tipoSolicitud = form.querySelector('select:nth-of-type(1)')?.value || '';
+    const area = form.querySelector('select:nth-of-type(2)')?.value || '';
+    const descripcion = form.querySelector('textarea')?.value || '';
+
+    // Validar campos requeridos
+    if (!nombres || !apellidos || !email || !telefono || !tipoSolicitud || !area || !descripcion) {
+      alert('Por favor, completa todos los campos del formulario PQR.');
+      return;
+    }
+
+    // Mostrar loading en el área de resultados
     hideAllViews();
     const resultArea = document.getElementById('result-area');
     const chatArea = document.getElementById('chat-area');
@@ -579,19 +597,69 @@ declare global {
     const resultContent = document.getElementById('result-content');
     if (resultArea) resultArea.classList.remove('hidden');
     if (chatArea) chatArea.classList.add('scrollable');
-    if (resultTitle) resultTitle.textContent = 'PQR Enviada';
+    if (resultTitle) resultTitle.textContent = 'Enviando PQR...';
     if (resultContent) resultContent.innerHTML = `
       <div class="text-center p-4">
-        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-          <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3 animate-spin">
+          <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+            <circle class="opacity-25" cx="10" cy="10" r="8" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 10a6 6 0 0112 0H4z"></path>
           </svg>
         </div>
-        <p class="font-medium text-green-800 mb-2">¡PQR enviada exitosamente!</p>
-        <p class="text-sm text-gray-600 mb-3">Número de radicado: <strong>PQR-${Date.now()}</strong></p>
-        <p class="text-xs text-gray-500">Recibirás una respuesta en un plazo máximo de 15 días hábiles al correo electrónico proporcionado.</p>
+        <p class="font-medium text-yellow-800 mb-2">Enviando tu PQR...</p>
       </div>
     `;
+
+    // Enviar correo usando EmailJS
+    import('../services/emailService.client.js').then(({ sendEmail }) => {
+      const templateId = 'template_pqr'; // Cambia esto por el ID real de tu plantilla en EmailJS
+
+      return sendEmail({
+        templateId,
+        templateParams: {
+          to_email: "pablocarvajal09@gmail.com", // Destinatario fijo
+          nombres,
+          apellidos,
+          email,
+          telefono,
+          tipo_solicitud: tipoSolicitud,
+          area,
+          descripcion
+        }
+      });
+    })
+    .then(() => {
+      if (resultTitle) resultTitle.textContent = 'PQR Enviada';
+      if (resultContent) resultContent.innerHTML = `
+        <div class="text-center p-4">
+          <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <p class="font-medium text-green-800 mb-2">¡PQR enviada exitosamente!</p>
+          <p class="text-sm text-gray-600 mb-3">Número de radicado: <strong>PQR-${Date.now()}</strong></p>
+          <p class="text-xs text-gray-500">Recibirás una respuesta en un plazo máximo de 15 días hábiles al correo electrónico proporcionado.</p>
+        </div>
+      `;
+      // Limpiar formulario
+      form.reset();
+    })
+    .catch((err) => {
+      if (resultTitle) resultTitle.textContent = 'Error al enviar PQR';
+      if (resultContent) resultContent.innerHTML = `
+        <div class="text-center p-4">
+          <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+          <p class="font-medium text-red-800 mb-2">Hubo un error al enviar tu PQR.</p>
+          <p class="text-xs text-gray-500">Por favor, intenta nuevamente o contacta a soporte.</p>
+        </div>
+      `;
+      console.error(err);
+    });
   }
   window.submitPQR = submitPQR;
   
