@@ -89,6 +89,30 @@
         "Por supuesto, dime en qué puedo asistirte.",
         "Estoy aquí para resolver tus inquietudes. ¿Qué necesitas?"
       ]
+    },
+    {
+      "tag": "faq",
+      "patrones": [
+        "en que puedes ayudarme",
+        "en que me puedes ayudar",
+        "que haces",
+        "quiero hablar con un asesor",
+        "asesor",
+        "quiero comunicarme con un asesor",
+        "quien eres",
+        "que eres",
+        "que puedes hacer",
+        "ayuda general",
+        "informacion general",
+        "preguntas frecuentes"
+      ],
+      "respuestas": [
+        "¡Estoy aquí para ayudarte con información sobre el colegio, procesos de inscripción, horarios, certificados y mucho más!",
+        "Puedo responder preguntas sobre servicios, inscripciones, horarios, certificados y contacto institucional.",
+        "Si deseas hablar con un asesor humano, haz clic aquí: <a href='https://wa.me/573101234567' target='_blank'>Contactar por WhatsApp</a>",
+        "Soy el Mayor Virtual, tu asistente para resolver dudas sobre el colegio. ¿En qué puedo ayudarte hoy?",
+        "Puedes preguntarme sobre inscripciones, horarios, certificados, actividades y más."
+      ]
     }
   ]
 }
