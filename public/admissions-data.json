@@ -1,0 +1,87 @@
+{
+  "admissions": {
+    "title": "Proceso de Admisiones",
+    "subtitle": "Información completa para formar parte del Colegio Militar General Santander",
+    "description": "La siguiente información está dirigida a aquellas familias que desean formar parte del Colegio Militar General Santander y tiene como objeto orientar el proceso de admisiones de aspirantes a cadetes de la Institución educativa.",
+    
+    "grados": {
+      "title": "Grados Disponibles",
+      "description": "Para ello la Institución ofrece cupos para los siguientes grados:",
+      "icon": "academic-cap",
+      "items": [
+        {
+          "level": "Preescolar",
+          "grades": "Pre-jardín, Jardín, Transición",
+          "color": "green"
+        },
+        {
+          "level": "Básica Primaria", 
+          "grades": "1° - 5°",
+          "color": "blue"
+        },
+        {
+          "level": "Básica Secundaria",
+          "grades": "6° - 9°", 
+          "color": "purple"
+        },
+        {
+          "level": "Educación Media",
+          "grades": "10° - 11°",
+          "color": "red"
+        }
+      ]
+    },
+
+    "requisitos": {
+      "title": "Requisitos de Inscripción",
+      "description": "Pasos necesarios para aspirantes",
+      "icon": "clipboard-document-list",
+      "items": [
+        "Compra de formulario de inscripción e inicio de proceso académico.",
+        "Descargar y diligenciar el formato de referencia del colegio de procedencia.",
+        "Solicitar en secretaria el listado completo de documentos adicionales."
+      ],
+      "downloadButton": {
+        "text": "Descargar Formato de Admisión",
+        "file": "/documentos/formato-admision.pdf"
+      }
+    },
+
+    "parteMilitar": {
+      "title": "Parte Militar - Grado 9°",
+      "description": "Cabe recalcar que estos requerimientos son tanto para cadetes de nuevo ingreso como antiguos en la institución.",
+      "icon": "shield-check",
+      "items": [
+        "Dos registros civiles originales",
+        "Cuatro fotos 2.5x4.5 a color con saco y corbata.",
+        "Dos fotocopias del documento de identidad ampliada al 150% y laminada.",
+        "Formulario inscripción militar y formato de compromiso.",
+        "Fotocopia informe final de logros académicos del grado octavo"
+      ]
+    },
+
+    "examenes": {
+      "title": "Exámenes Médicos",
+      "description": "Exámenes requeridos para todos los aspirantes",
+      "icon": "heart",
+      "items": [
+        "Oftalmología",
+        "Otorrino", 
+        "Audiometría",
+        "Radiografía pulmonar",
+        "Factor RH – Tipo de sangre"
+      ]
+    },
+
+    "entrevistas": {
+      "title": "Entrevistas",
+      "description": "Serán citados a entrevista conforme sean entregados y revisados los documentos en la oficina de secretaría académica.",
+      "icon": "chat-bubble-left-right",
+      "items": [
+        "Entrevista con el Coordinador Académico",
+        "Entrevista con el Coordinador de Convivencia", 
+        "Entrevista con el Rector"
+      ]
+    }
+  }
+}

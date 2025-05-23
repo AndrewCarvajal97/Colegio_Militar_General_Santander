@@ -6,6 +6,7 @@ import Chatbot from '../components/Chatbot.astro';
 import Carousel from '../components/Carousel.astro';
 import Gallery from '../components/Gallery.astro';
 import DirectiveTeam from '../components/DirectiveTeam.astro';
+import AdmissionsProcess from '../components/AdmissionsProcess.astro';
 ---
 
 <Layout title="Colegio Militar General Santander - Formando Líderes">
@@ -301,88 +302,8 @@ import DirectiveTeam from '../components/DirectiveTeam.astro';
 
   
 
-  <!-- Admisiones -->
-  <section id="admisiones" class="py-20 text-white" style="background-color: #5771FE;">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4">
-          Proceso de Admisiones
-        </h2>
-        <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
-        <p class="text-xl text-blue-100 max-w-3xl mx-auto">
-          Información dirigida a familias que desean formar parte del Colegio Militar General Santander
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 class="text-3xl font-bold mb-6 font-playfair">Requisitos para Aspirantes</h3>
-          <div class="space-y-4">
-            <div class="flex items-start space-x-4">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgb(52, 183, 13);">
-                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <p class="text-blue-100">Los requerimientos aplican tanto para cadetes de nuevo ingreso como antiguos en la institución</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgb(52, 183, 13);">
-                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <p class="text-blue-100">Documentación completa y actualizada según los niveles educativos</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgb(52, 183, 13);">
-                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <p class="text-blue-100">Entrevista con la familia una vez revisados los documentos</p>
-            </div>
-            <div class="flex items-start space-x-4">
-              <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1" style="background-color: rgb(52, 183, 13);">
-                <svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <p class="text-blue-100">Compromiso con los valores institucionales y la disciplina militar</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-          <h3 class="text-2xl font-bold mb-6 font-playfair">Grados Disponibles</h3>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white/10 p-4 rounded-lg text-center">
-              <h4 class="font-semibold mb-2">Preescolar</h4>
-              <p class="text-sm text-blue-100">Pre-jardín a Transición</p>
-            </div>
-            <div class="bg-white/10 p-4 rounded-lg text-center">
-              <h4 class="font-semibold mb-2">Primaria</h4>
-              <p class="text-sm text-blue-100">1° a 5° grado</p>
-            </div>
-            <div class="bg-white/10 p-4 rounded-lg text-center">
-              <h4 class="font-semibold mb-2">Básica</h4>
-              <p class="text-sm text-blue-100">6° a 9° grado</p>
-            </div>
-            <div class="bg-white/10 p-4 rounded-lg text-center">
-              <h4 class="font-semibold mb-2">Media</h4>
-              <p class="text-sm text-blue-100">10° y 11° grado</p>
-            </div>
-          </div>
-          
-          <div class="mt-8 text-center">
-            <a href="#contacto" class="text-black px-8 py-3 rounded-lg font-bold transition-colors duration-300 inline-block" style="background-color: rgb(52, 183, 13);" onmouseover="this.style.backgroundColor='rgb(42, 153, 11)'" onmouseout="this.style.backgroundColor='rgb(52, 183, 13)'">
-              Solicitar Información
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Proceso de Admisiones Moderno -->
+  <AdmissionsProcess />
 
   <!-- Contacto -->
   <section id="contacto" class="py-20 bg-gray-50">
