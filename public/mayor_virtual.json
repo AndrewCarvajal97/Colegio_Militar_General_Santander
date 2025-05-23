@@ -113,6 +113,18 @@
         "Soy el Mayor Virtual, tu asistente para resolver dudas sobre el colegio. ¿En qué puedo ayudarte hoy?",
         "Puedes preguntarme sobre inscripciones, horarios, certificados, actividades y más."
       ]
+    },
+    {
+      "tag": "matriculaciones",
+      "patrones": [
+        "como me matriculo",
+        "donde me matriculo",
+        "cuando hay matriculas",
+        "requisitos de matricula"
+      ],
+      "respuestas": [
+        "Puede encontrar toda la información de matrículas en nuestra página web en el apartado de contacto."
+      ]
     }
   ]
 }
