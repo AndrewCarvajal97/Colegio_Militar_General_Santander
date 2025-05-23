@@ -11,14 +11,14 @@
   <!-- Botón del chatbot -->
   <button 
     id="chatbot-toggle" 
-    class="chatbot-button text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
-    style="background-color:transparent;"
+    class="chatbot-button text-white p-2 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+    style="background-color:transparent; width: 5.5rem; height: 5.5rem;"
   >
     <img 
       id="chatbot-icon" 
       src="/icon2023.webp" 
       alt="Asistente Virtual" 
-      class="w-12 h-12 rounded-full"
+      class="w-20 h-20 rounded-full object-cover"
     />
   </button>
 
@@ -216,19 +216,19 @@
         
         <form class="space-y-3" onsubmit="submitPQR(event)">
           <div class="grid grid-cols-2 gap-2">
-            <input type="text" placeholder="Nombres" class="text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
-            <input type="text" placeholder="Apellidos" class="text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+            <input type="text" placeholder="Nombres" id="nombres" class="text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+            <input type="text" placeholder="Apellidos" id="apellidos" class="text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
           </div>
-          <input type="email" placeholder="Correo electrónico" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
-          <input type="tel" placeholder="Teléfono" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
-          <select class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+          <input type="email" placeholder="Correo electrónico" id="email" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+          <input type="tel" placeholder="Teléfono" id="telefono" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+          <select id="tipoSolicitud" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
             <option value="">Tipo de solicitud</option>
             <option value="peticion">Petición</option>
             <option value="queja">Queja</option>
             <option value="reclamo">Reclamo</option>
             <option value="sugerencia">Sugerencia</option>
           </select>
-          <select class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
+          <select id="area" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-green-400 focus:border-transparent" required>
             <option value="">Área relacionada</option>
             <option value="academica">Académica</option>
             <option value="administrativa">Administrativa</option>
@@ -236,7 +236,7 @@
             <option value="financiera">Financiera</option>
             <option value="servicios">Servicios Generales</option>
           </select>
-          <textarea placeholder="Descripción detallada de su solicitud..." class="w-full text-xs p-2 border rounded h-16 focus:ring-2 focus:ring-green-400 focus:border-transparent" required></textarea>
+          <textarea id="descripcion" placeholder="Descripción detallada de su solicitud..." class="w-full text-xs p-2 border rounded h-16 focus:ring-2 focus:ring-green-400 focus:border-transparent" required></textarea>
           <button type="submit" class="w-full p-2 text-white rounded font-medium transition-colors" style="background-color: rgb(52, 183, 13);">
             Enviar PQR
           </button>
