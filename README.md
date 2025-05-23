@@ -1,6 +1,7 @@
 # Colegio Militar General Santander - Sitio Web Completo con Chatbot
 
-Este proyecto es una recreación avanzada del sitio web del Colegio Militar General Santander, desarrollado con Astro y Tailwind CSS, que incluye un chatbot interactivo y funcionalidades completas.
+Este proyecto es una recreación avanzada del sitio web del Colegio Militar General Santander, desarrollado con Astro y Tailwind CSS, que incluye un chatbot interactivo y funcionalidades completas.sadfsdf
+
 
 ## 🏫 Acerca del Colegio
 
