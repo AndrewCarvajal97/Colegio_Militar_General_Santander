@@ -611,17 +611,21 @@ declare global {
     const apellidoInput = form.querySelector('input[placeholder="Apellidos"]') as HTMLInputElement;
     const telefonoInput = form.querySelector('input[placeholder="Teléfono"]') as HTMLInputElement;
     const correoInput = form.querySelector('input[placeholder="Correo electrónico"]') as HTMLInputElement;
+    const tipoSolicitudInput = form.querySelector('#tipoSolicitud') as HTMLSelectElement;
+    const areaInput = form.querySelector('#area') as HTMLSelectElement;
+    const descripcionInput = form.querySelector('#descripcion') as HTMLTextAreaElement;
     const nombre = nombreInput.value.trim();
     const apellido = apellidoInput.value.trim();
     const telefono = telefonoInput.value.trim();
     const correo = correoInput.value.trim();
+    const tipoSolicitud = tipoSolicitudInput ? tipoSolicitudInput.value : '';
+    const area = areaInput ? areaInput.value : '';
+    const descripcion = descripcionInput ? descripcionInput.value : '';
     // Expresiones regulares
     const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{3,10}$/;
-    const soloNumeros = /^\d{1,10}$/;
+    const soloNumerosEstricto = /^\d{1,10}$/;
     const correoValido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     let errorMsg = '';
-    // Validación de teléfono: solo números, máximo 10 dígitos, sin letras
-    const soloNumerosEstricto = /^\d{1,10}$/;
     if (!soloLetras.test(nombre)) {
       errorMsg = 'El nombre debe tener solo letras, entre 3 y 10 caracteres.';
       nombreInput.focus();
@@ -660,21 +664,22 @@ declare global {
       </div>
     `;
 
+    // Generar número de radicado único
+    const pqrNumber = `PQR-${Date.now()}`;
+
     // Enviar correo usando EmailJS
     import('../services/emailService.client.js').then(({ sendEmail }) => {
       const templateId = 'template_pqr'; // Cambia esto por el ID real de tu plantilla en EmailJS
-
       return sendEmail({
         templateId,
         templateParams: {
-          to_email: "pablocarvajal09@gmail.com", // Destinatario fijo
-          nombres,
-          apellidos,
-          email,
-          telefono,
-          tipo_solicitud: tipoSolicitud,
-          area,
-          descripcion
+          from_name: nombre, // Nombres
+          from_email: correo, // Correo electrónico
+          phone: telefono, // Teléfono
+          request_type: tipoSolicitud, // Tipo de solicitud
+          area: area, // Área relacionada
+          pqr_number: pqrNumber, // Número de radicado
+          description: descripcion // Descripción
         }
       });
     })
@@ -688,7 +693,7 @@ declare global {
             </svg>
           </div>
           <p class="font-medium text-green-800 mb-2">¡PQR enviada exitosamente!</p>
-          <p class="text-sm text-gray-600 mb-3">Número de radicado: <strong>PQR-${Date.now()}</strong></p>
+          <p class="text-sm text-gray-600 mb-3">Número de radicado: <strong>${pqrNumber}</strong></p>
           <p class="text-xs text-gray-500">Recibirás una respuesta en un plazo máximo de 15 días hábiles al correo electrónico proporcionado.</p>
         </div>
       `;
