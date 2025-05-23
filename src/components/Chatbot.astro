@@ -185,7 +185,7 @@
           </button>
           <h4 class="font-bold text-gray-800">Consulta de Estudiante</h4>
         </div>
-        <form class="space-y-3" onsubmit="submitDocument(event)">
+        <form class="space-y-3" id="document-form-form" onsubmit="submitDocument(event)">
           <label class="block text-xs text-gray-700 font-medium">Tipo de documento</label>
           <select id="tipo-documento" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:border-transparent mb-1" required>
             <option value="">Seleccione tipo de documento</option>
@@ -194,6 +194,9 @@
             <option value="pep">PEP</option>
           </select>
           <input id="student-document" type="text" placeholder="Ingresa el documento del estudiante a consultar" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:border-transparent" required>
+          <div id="clave-secreta-step" class="hidden">
+            <input id="clave-secreta" type="password" placeholder="Clave secreta proporcionada por el colegio" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-yellow-400 focus:border-transparent mt-2">
+          </div>
           <button type="submit" class="w-full p-2 text-white rounded font-medium transition-colors" style="background-color: #5771FE;">
             Consultar
           </button>
@@ -498,7 +501,7 @@ declare global {
       const playBtn = document.getElementById(`play-${messageId}`);
       const pauseBtn = document.getElementById(`pause-${messageId}`);
       if (playBtn) playBtn.style.display = 'none';
-      if (pauseBtn) pauseBtn.style.display = 'inline-block';
+      if (pauseBtn) playBtn.style.display = 'inline-block';
     }
   }
   
@@ -534,9 +537,9 @@ declare global {
   // Cambiar icono de género al hacer click
   document.addEventListener('DOMContentLoaded', () => {
   const genderToggle = document.getElementById('gender-toggle');
-  const genderIcon = document.getElementById('gender-icon');
-  const headerIcon = document.getElementById('chatbot-header-icon');
-  const chatbotIcon = document.getElementById('chatbot-icon');
+  const genderIcon = document.getElementById('gender-icon') as HTMLImageElement | null;
+  const headerIcon = document.getElementById('chatbot-header-icon') as HTMLImageElement | null;
+  const chatbotIcon = document.getElementById('chatbot-icon') as HTMLImageElement | null;
   let isMale = true;
   if (genderToggle && genderIcon && headerIcon && chatbotIcon) {
     genderToggle.addEventListener('click', () => {
@@ -744,15 +747,41 @@ declare global {
     event.preventDefault();
     const docInput = document.getElementById('student-document') as HTMLInputElement | null;
     const docValue = docInput ? docInput.value.trim() : '';
+    const claveStep = document.getElementById('clave-secreta-step');
+    const claveInput = document.getElementById('clave-secreta') as HTMLInputElement | null;
+    // Si el campo de clave está oculto, mostrarlo y no continuar
+    if (claveStep && claveStep.classList.contains('hidden')) {
+      claveStep.classList.remove('hidden');
+      if (claveInput) claveInput.focus();
+      return;
+    }
+    // Validar que la clave fue ingresada
+    const clave = claveInput ? claveInput.value.trim() : '';
+    if (!clave) {
+      if (claveInput) claveInput.focus();
+      alert('Por favor ingresa la clave secreta proporcionada por el colegio.');
+      return;
+    }
+    if (clave !== '1234') {
+      hideAllViews();
+      const resultArea = document.getElementById('result-area');
+      const chatArea = document.getElementById('chat-area');
+      const resultTitle = document.getElementById('result-title');
+      const resultContent = document.getElementById('result-content');
+      if (resultArea) resultArea.classList.remove('hidden');
+      if (chatArea) chatArea.classList.add('scrollable');
+      if (resultTitle) resultTitle.textContent = 'Clave incorrecta';
+      if (resultContent) resultContent.innerHTML = `<div class='text-center text-red-600 font-medium'>La clave secreta es incorrecta. Comunícate con el colegio para obtener acceso.</div>`;
+      return;
+    }
+    // Si la clave es correcta, continuar como antes
     if (docValue === '1095834123') {
-      // Mostrar info real
       if (nextInfoType && nextInfoType.mode === 'academic') {
         showAcademicInfoResult(nextInfoType.type);
       } else if (nextInfoType && nextInfoType.mode === 'admin') {
         showAdminInfoResult(nextInfoType.type);
       }
     } else {
-      // Mostrar error
       hideAllViews();
       const resultArea = document.getElementById('result-area');
       const chatArea = document.getElementById('chat-area');
@@ -765,6 +794,17 @@ declare global {
     }
   }
   window.submitDocument = submitDocument;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const docForm = document.getElementById('document-form-form') as HTMLFormElement | null;
+    const claveStep = document.getElementById('clave-secreta-step');
+    if (docForm && claveStep) {
+      claveStep.classList.add('hidden');
+      docForm.addEventListener('reset', () => {
+        claveStep.classList.add('hidden');
+      });
+    }
+  });
   
   function showAcademicInfoResult(type: string) {
     const resultArea = document.getElementById('result-area');
