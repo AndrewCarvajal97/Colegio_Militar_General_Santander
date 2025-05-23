@@ -1,23 +1,15 @@
 ---
-// Carousel component para mostrar imágenes de la escuela
-
-// Importar las imágenes
-const images = [
-  { src: "/Carrusel principal/1.webp", title: "Aulas Especializadas", description: "Espacios modernos equipados con tecnología de última generación" },
-  { src: "/carrusel aniversario 59/3.webp", title: "Polideportivo", description: "Instalaciones deportivas completas para la formación física" },
-  { src: "/Carrusel ejercicios de campo/1.webp", title: "Ejercicios de Campo", description: "Formación práctica en situaciones reales" },
-  { src: "/Carrusel dia del niño/1.webp", title: "Eventos Especiales", description: "Celebraciones y actividades para toda la comunidad" }
-];
+// Carousel component para mostrar grupos de imágenes desde JSON
 ---
 
 <section class="py-16 bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold font-playfair text-military-blue mb-4">
+      <h2 id="carousel-title" class="text-3xl md:text-4xl font-bold font-playfair text-military-blue mb-4">
         Nuestras Instalaciones
       </h2>
       <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6"></div>
-      <p class="text-gray-600 max-w-2xl mx-auto">
+      <p id="carousel-subtitle" class="text-gray-600 max-w-2xl mx-auto">
         Conoce nuestras modernas instalaciones diseñadas para la formación integral de nuestros cadetes
       </p>
     </div>
@@ -26,27 +18,7 @@ const images = [
     <div class="relative max-w-6xl mx-auto">
       <div class="carousel-container overflow-hidden rounded-2xl shadow-2xl">
         <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="carousel-track">
-          {images.map((image, index) => (
-            <div class="carousel-slide w-full flex-shrink-0 relative">
-              <div class="aspect-video relative overflow-hidden">
-                <img 
-                  src={image.src} 
-                  alt={image.title}
-                  class="absolute inset-0 w-full h-full object-cover"
-                />
-                <div class="absolute inset-0 bg-black/50"></div>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center text-white p-8 max-w-3xl mx-auto">
-                    <h3 class="text-4xl md:text-5xl font-bold mb-6 text-shadow-lg">{image.title}</h3>
-                    <p class="text-lg md:text-xl text-shadow-md">{image.description}</p>
-                  </div>
-                </div>
-              </div>
-              <div class="absolute bottom-4 bg-black/50 text-white px-3 py-1 rounded text-sm">
-                {image.title}
-              </div>
-            </div>
-          ))}
+          <!-- Las imágenes se cargarán dinámicamente desde el JSON -->
         </div>
       </div>
 
@@ -70,93 +42,229 @@ const images = [
       </button>
 
       <!-- Indicadores -->
-      <div class="flex justify-center space-x-2 mt-6">
-        {images.map((_, index) => (
-          <button 
-            class={`carousel-indicator w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-military-blue' : 'bg-gray-300 hover:bg-gray-400'}`} 
-            data-slide={index}
-          ></button>
-        ))}
+      <div class="flex justify-center space-x-2 mt-6" id="carousel-indicators">
+        <!-- Los indicadores se generarán dinámicamente -->
       </div>
     </div>
 
-    <!-- Thumbnails -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
-      {images.map((image, index) => (
-        <button 
-          class={`thumbnail-btn aspect-video rounded-lg overflow-hidden border-2 ${index === 0 ? 'border-military-blue' : 'border-transparent'} hover:border-military-blue transition-colors`} 
-          data-slide={index}
-        >
-          <div class="w-full h-full relative">
-            <img 
-              src={image.src} 
-              alt={image.title}
-              class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-              <span class="text-white text-sm font-medium">{image.title}</span>
-            </div>
-          </div>
-        </button>
-      ))}
+    <!-- Grupos de instalaciones (Thumbnails) -->
+    <div class="mt-12">
+      <h3 class="text-2xl font-bold font-playfair text-center mb-8 text-military-blue">
+        Explora nuestras instalaciones
+      </h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto" id="group-thumbnails">
+        <!-- Los thumbnails de grupos se cargarán dinámicamente -->
+      </div>
     </div>
   </div>
 </section>
 
 <script>
+  // Variables globales del carrusel
+  let carouselData = null;
+  let currentGroup = 0;
   let currentSlide = 0;
-  let startX: number | null = null;
-  const totalSlides = document.querySelectorAll('.carousel-slide').length;
-  const track = document.getElementById('carousel-track') as HTMLElement;
-  const indicators = document.querySelectorAll('.carousel-indicator');
-  const thumbnails = document.querySelectorAll('.thumbnail-btn');
-  
-  // Verificar que los elementos existan antes de usarlos
-  if (!track || !indicators.length || !thumbnails.length) {
-    console.error('No se encontraron elementos necesarios del carrusel');
-  } else {
-    function updateCarousel() {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  let totalSlides = 0;
+  let autoPlay = null;
+  let startX = null;
+
+  // Cargar datos del JSON
+  async function loadCarouselData() {
+    try {
+      const response = await fetch('/carousel-data.json');
+      carouselData = await response.json();
       
-      // Actualizar indicadores
-      indicators.forEach((indicator, index) => {
-        if (index === currentSlide) {
-          indicator.classList.remove('bg-gray-300');
-          indicator.classList.add('bg-military-blue');
-        } else {
-          indicator.classList.remove('bg-military-blue');
-          indicator.classList.add('bg-gray-300');
-        }
-      });
+      // Actualizar título y subtítulo
+      document.getElementById('carousel-title').textContent = carouselData.title;
+      document.getElementById('carousel-subtitle').textContent = carouselData.subtitle;
       
-      // Actualizar thumbnails
-      thumbnails.forEach((thumb, index) => {
-        if (index === currentSlide) {
-          thumb.classList.add('border-military-blue');
-          thumb.classList.remove('border-transparent');
-        } else {
-          thumb.classList.remove('border-military-blue');
-          thumb.classList.add('border-transparent');
-        }
-      });
+      // Inicializar carrusel con el primer grupo
+      generateGroupThumbnails();
+      loadGroup(0);
+      
+    } catch (error) {
+      console.error('Error al cargar datos del carrusel:', error);
+      // Fallback en caso de error
+      showFallbackContent();
     }
+  }
+
+  // Generar thumbnails de grupos
+  function generateGroupThumbnails() {
+    const container = document.getElementById('group-thumbnails');
+    if (!container || !carouselData) return;
     
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateCarousel();
+    container.innerHTML = carouselData.groups.map((group, index) => `
+      <button 
+        class="group-thumbnail-btn group-thumb-${index} ${
+          index === 0 ? 'active' : ''
+        } aspect-video rounded-lg overflow-hidden border-2 transition-all duration-300 hover:border-military-blue hover:scale-105" 
+        data-group="${index}"
+        onclick="loadGroup(${index})"
+      >
+        <div class="w-full h-full relative">
+          <img 
+            src="${group.thumbnail}" 
+            alt="${group.title}"
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/40 flex items-center justify-center transition-all duration-300 group-hover:bg-black/20">
+            <div class="text-center text-white p-2">
+              <h4 class="font-bold text-sm md:text-base mb-1">${group.title}</h4>
+              <p class="text-xs opacity-90 hidden md:block">${group.description}</p>
+            </div>
+          </div>
+        </div>
+      </button>
+    `).join('');
+  }
+
+  // Cargar grupo específico
+  function loadGroup(groupIndex) {
+    if (!carouselData || groupIndex < 0 || groupIndex >= carouselData.groups.length) return;
+    
+    currentGroup = groupIndex;
+    currentSlide = 0;
+    
+    const group = carouselData.groups[groupIndex];
+    totalSlides = group.images.length;
+    
+    // Generar slides del carrusel
+    generateCarouselSlides(group.images);
+    
+    // Generar indicadores
+    generateIndicators();
+    
+    // Actualizar thumbnails activos
+    updateGroupThumbnails();
+    
+    // Reiniciar carrusel
+    updateCarousel();
+    restartAutoPlay();
+  }
+
+  // Generar slides del carrusel
+  function generateCarouselSlides(images) {
+    const track = document.getElementById('carousel-track');
+    if (!track) return;
+    
+    track.innerHTML = images.map(image => `
+      <div class="carousel-slide w-full flex-shrink-0 relative">
+        <div class="aspect-video relative overflow-hidden">
+          <img 
+            src="${image.src}" 
+            alt="${image.alt}"
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/30"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white p-8 max-w-3xl mx-auto">
+              <h3 class="text-3xl md:text-4xl font-bold mb-4 text-shadow-lg">${image.title}</h3>
+              <p class="text-lg md:text-xl text-shadow-md">${image.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Generar indicadores
+  function generateIndicators() {
+    const container = document.getElementById('carousel-indicators');
+    if (!container) return;
+    
+    container.innerHTML = Array.from({ length: totalSlides }, (_, index) => `
+      <button 
+        class="carousel-indicator w-3 h-3 rounded-full transition-all duration-300 ${
+          index === 0 ? 'bg-military-blue' : 'bg-gray-300 hover:bg-gray-400'
+        }" 
+        data-slide="${index}"
+        onclick="goToSlide(${index})"
+      ></button>
+    `).join('');
+  }
+
+  // Actualizar thumbnails de grupos
+  function updateGroupThumbnails() {
+    document.querySelectorAll('.group-thumbnail-btn').forEach((btn, index) => {
+      if (index === currentGroup) {
+        btn.classList.add('active', 'border-military-blue');
+        btn.classList.remove('border-transparent');
+      } else {
+        btn.classList.remove('active', 'border-military-blue');
+        btn.classList.add('border-transparent');
+      }
+    });
+  }
+
+  // Actualizar carrusel
+  function updateCarousel() {
+    const track = document.getElementById('carousel-track');
+    if (!track) return;
+    
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    // Actualizar indicadores
+    document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+      if (index === currentSlide) {
+        indicator.classList.remove('bg-gray-300');
+        indicator.classList.add('bg-military-blue');
+      } else {
+        indicator.classList.remove('bg-military-blue');
+        indicator.classList.add('bg-gray-300');
+      }
+    });
+  }
+
+  // Navegación del carrusel
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  }
+
+  function goToSlide(slideIndex) {
+    currentSlide = slideIndex;
+    updateCarousel();
+  }
+
+  // Auto-play
+  function restartAutoPlay() {
+    if (autoPlay) clearInterval(autoPlay);
+    autoPlay = setInterval(nextSlide, 5000);
+  }
+
+  function pauseAutoPlay() {
+    if (autoPlay) clearInterval(autoPlay);
+  }
+
+  // Fallback content
+  function showFallbackContent() {
+    console.warn('Usando contenido de respaldo para el carrusel');
+    const track = document.getElementById('carousel-track');
+    if (track) {
+      track.innerHTML = `
+        <div class="carousel-slide w-full flex-shrink-0 relative">
+          <div class="aspect-video relative bg-gray-200 flex items-center justify-center">
+            <p class="text-gray-500 text-xl">Error al cargar las instalaciones</p>
+          </div>
+        </div>
+      `;
     }
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    // Cargar datos del JSON
+    loadCarouselData();
     
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateCarousel();
-    }
-    
-    function goToSlide(slideIndex) {
-      currentSlide = slideIndex;
-      updateCarousel();
-    }
-    
-    // Event listeners
+    // Controles de navegación
     const nextBtn = document.getElementById('next-btn');
     const prevBtn = document.getElementById('prev-btn');
     
@@ -165,32 +273,14 @@ const images = [
       prevBtn.addEventListener('click', prevSlide);
     }
     
-    // Indicadores
-    indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => goToSlide(index));
-    });
-    
-    // Thumbnails
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', () => goToSlide(index));
-    });
-    
-    // Auto-play
-    let autoPlay = setInterval(nextSlide, 5000);
-    
     // Pausar auto-play en hover
     const carouselContainer = document.querySelector('.carousel-container');
     
     if (carouselContainer) {
-      carouselContainer.addEventListener('mouseenter', () => {
-        clearInterval(autoPlay);
-      });
+      carouselContainer.addEventListener('mouseenter', pauseAutoPlay);
+      carouselContainer.addEventListener('mouseleave', restartAutoPlay);
       
-      carouselContainer.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(nextSlide, 5000);
-      });
-      
-      // Touch/swipe support para móviles
+      // Touch/swipe support
       carouselContainer.addEventListener('touchstart', (e) => {
         if (e instanceof TouchEvent) {
           startX = e.touches[0].clientX;
@@ -203,7 +293,7 @@ const images = [
         const endX = e.changedTouches[0].clientX;
         const diff = startX - endX;
         
-        if (Math.abs(diff) > 50) { // Minimum swipe distance
+        if (Math.abs(diff) > 50) {
           if (diff > 0) {
             nextSlide();
           } else {
@@ -214,7 +304,11 @@ const images = [
         startX = null;
       });
     }
-  }
+  });
+
+  // Hacer funciones globales para onclick
+  window.loadGroup = loadGroup;
+  window.goToSlide = goToSlide;
 </script>
 
 <style>
@@ -227,11 +321,22 @@ const images = [
   }
   
   .text-shadow-lg {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
   
   .text-shadow-md {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  }
+  
+  .group-thumbnail-btn.active {
+    border-color: #1e40af !important;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+  }
+  
+  .group-thumbnail-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
   
   @media (max-width: 768px) {
@@ -239,5 +344,19 @@ const images = [
     .absolute.right-4 {
       display: none;
     }
+    
+    .group-thumbnail-btn {
+      aspect-ratio: 4/3;
+    }
+  }
+  
+  /* Animación de carga */
+  .carousel-slide {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 </style>
