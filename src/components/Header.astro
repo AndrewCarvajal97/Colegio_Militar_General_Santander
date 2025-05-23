@@ -24,38 +24,71 @@
         </div>
 
         <!-- Navegación desktop -->
-        <nav class="hidden lg:flex items-center space-x-6">
-          <a href="#inicio" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Inicio
-          </a>
-          <a href="#nosotros" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Nosotros
-          </a>
-          <a href="#historia" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Historia
-          </a>
-          <a href="#niveles" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Niveles
-          </a>
-          <a href="#admisiones" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Admisiones
-          </a>
-          <a href="#contacto" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-3 py-2 rounded-lg">
-            Contacto
-          </a>
-          <a href="#contacto" class="text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105" 
-             style="background-color: rgb(52, 183, 13);" 
-             onmouseover="this.style.backgroundColor='rgb(42, 153, 11)'" 
-             onmouseout="this.style.backgroundColor='rgb(52, 183, 13)'">
-            Información
-          </a>
-          <button id="phidias-login-btn" class="text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105" 
-                  style="background-color: #5771FE;" 
-                  onmouseover="this.style.backgroundColor='#4c63d2'" 
-                  onmouseout="this.style.backgroundColor='#5771FE'">
-            Phidias
-          </button>
-        </nav>
+        <div class="hidden lg:flex items-center space-x-3">
+          <nav class="flex items-center space-x-2">
+            <a href="#inicio" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Inicio
+            </a>
+            <a href="#nosotros" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Nosotros
+            </a>
+            <a href="#directivos" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Directivos
+            </a>
+            <a href="#historia" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Historia
+            </a>
+            <a href="#niveles" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Niveles
+            </a>
+            <a href="#admisiones" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Admisiones
+            </a>
+            <a href="#contacto" class="nav-link text-gray-700 font-medium transition-colors duration-300 px-2 py-2 rounded-lg text-sm">
+              Contacto
+            </a>
+            <a href="#contacto" class="text-white px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 text-sm ml-2" 
+               style="background-color: rgb(52, 183, 13);" 
+               onmouseover="this.style.backgroundColor='rgb(42, 153, 11)'" 
+               onmouseout="this.style.backgroundColor='rgb(52, 183, 13)'">
+              Info
+            </a>
+            <button id="phidias-login-btn" class="text-white px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 text-sm" 
+                    style="background-color: #5771FE;" 
+                    onmouseover="this.style.backgroundColor='#4c63d2'" 
+                    onmouseout="this.style.backgroundColor='#5771FE'">
+              Phidias
+            </button>
+          </nav>
+          
+          <!-- Sección de Apoyos -->
+          <div class="apoyos-section flex items-center ml-2 pl-2">
+            <div class="flex flex-col items-center">
+              <h3 class="text-xs font-medium text-gray-500 mb-1 uppercase tracking-wide">
+                Apoyos
+              </h3>
+              <div class="flex gap-1.5">
+                <!-- Fila única horizontal -->
+                <div class="apoyo-logo" data-tooltip="COOSAMIR">
+                  <img src="/Apoyo/coosamir.webp" alt="COOSAMIR" 
+                       class="w-6 h-6 object-contain cursor-pointer">
+                </div>
+                <div class="apoyo-logo" data-tooltip="FUNDAMIR">
+                  <img src="/Apoyo/fundamir.webp" alt="FUNDAMIR" 
+                       class="w-6 h-6 object-contain cursor-pointer">
+                </div>
+                <div class="apoyo-logo" data-tooltip="Ministerio de Defensa">
+                  <img src="/Apoyo/mindefensa.webp" alt="Ministerio de Defensa" 
+                       class="w-6 h-6 object-contain cursor-pointer">
+                </div>
+                <div class="apoyo-logo" data-tooltip="Ministerio de Educación">
+                  <img src="/Apoyo/mineducacion.webp" alt="Ministerio de Educación" 
+                       class="w-6 h-6 object-contain cursor-pointer">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- Botón menú móvil -->
         <button class="lg:hidden flex flex-col space-y-1 p-2" id="mobile-menu-btn">
@@ -74,6 +107,9 @@
             </a>
             <a href="#nosotros" class="nav-link text-gray-700 font-medium px-4 py-3 transition-colors duration-300 rounded-lg mx-2">
               Nosotros
+            </a>
+            <a href="#directivos" class="nav-link text-gray-700 font-medium px-4 py-3 transition-colors duration-300 rounded-lg mx-2">
+              Directivos
             </a>
             <a href="#historia" class="nav-link text-gray-700 font-medium px-4 py-3 transition-colors duration-300 rounded-lg mx-2">
               Historia
@@ -266,6 +302,103 @@
     max-height: 100px;
   }
   
+  /* Estilos para la sección de Apoyos */
+  .apoyos-section {
+    position: relative;
+  }
+  
+  .apoyos-section::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 24px;
+    background: linear-gradient(to bottom, transparent, #e5e7eb, transparent);
+  }
+  
+  .apoyo-logo {
+    position: relative;
+    border-radius: 3px;
+    padding: 2px;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .apoyo-logo:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: #5771FE;
+    box-shadow: 0 2px 8px rgba(87, 113, 254, 0.15);
+    transform: translateY(-1px);
+  }
+  
+  .apoyo-logo img {
+    filter: brightness(0.9) contrast(1.1);
+    transition: filter 0.2s ease;
+  }
+  
+  .apoyo-logo:hover img {
+    filter: brightness(1) contrast(1.2);
+  }
+  
+  /* Tooltip personalizado - más compacto */
+  .apoyo-logo::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(15, 23, 42, 0.95);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .apoyo-logo::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-1px);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid rgba(15, 23, 42, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+  }
+  
+  .apoyo-logo:hover::after,
+  .apoyo-logo:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Remover la animación de pulso que puede causar problemas de altura */
+  .apoyos-section h3 {
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+  }
+  
   /* Responsive mejoras */
   @media (max-width: 768px) {
     #certifications-bar {
@@ -278,6 +411,67 @@
     
     #certifications-bar .hidden {
       display: none !important;
+    }
+  }
+  
+  /* Mejoras para pantallas muy grandes */
+  @media (min-width: 1536px) {
+    .apoyo-logo {
+      padding: 3px;
+    }
+    
+    .apoyo-logo img {
+      width: 28px !important;
+      height: 28px !important;
+    }
+  }
+  
+  /* Ajustes para pantallas de tamaño medio */
+  @media (max-width: 1280px) {
+    .apoyos-section {
+      margin-left: 8px;
+      padding-left: 8px;
+    }
+    
+    .apoyo-logo {
+      padding: 1.5px;
+    }
+    
+    .apoyo-logo img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    
+    .apoyos-section h3 {
+      font-size: 9px;
+    }
+    
+    /* Navegación más compacta en pantallas medianas */
+    nav a {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+      font-size: 0.8rem !important;
+    }
+  }
+  
+  /* Ajustes específicos para pantallas 1024px-1280px */
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .hidden.lg\:flex {
+      gap: 0.5rem;
+    }
+    
+    nav {
+      gap: 0.25rem;
+    }
+    
+    .apoyos-section {
+      margin-left: 6px;
+      padding-left: 6px;
+    }
+    
+    .apoyo-logo img {
+      width: 18px !important;
+      height: 18px !important;
     }
   }
 </style>
@@ -441,6 +635,20 @@
           spans[1].style.opacity = '1';
           spans[2].style.transform = 'rotate(0deg)';
         }
+      });
+    });
+    
+    // Analytics para logos de apoyo (opcional)
+    document.querySelectorAll('.apoyo-logo').forEach(logo => {
+      logo.addEventListener('click', function() {
+        const tooltip = this.getAttribute('data-tooltip');
+        console.log(`Usuario hizo clic en apoyo: ${tooltip}`);
+        
+        // Aquí puedes añadir lógica para abrir enlaces o mostrar más información
+        // Por ejemplo:
+        // if (tooltip === 'COOSAMIR') {
+        //   window.open('https://coosamir.com', '_blank');
+        // }
       });
     });
   });

@@ -1,0 +1,283 @@
+---
+// SideMenu.astro - Menú lateral izquierdo con redes sociales y partners
+---
+
+<div id="side-menu" class="fixed left-0 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
+  <!-- Contenedor principal del menú -->
+  <div class="bg-white shadow-lg rounded-r-2xl py-4 px-2 border-l-4 border-blue-600">
+    
+    <!-- Sección de Redes Sociales -->
+    <div class="flex flex-col items-center gap-3 mb-6">
+      <h3 class="text-xs font-semibold text-gray-700 writing-mode-vertical transform rotate-180 mb-2">
+        SÍGUENOS
+      </h3>
+      
+      <!-- Facebook -->
+      <a href="#" 
+         class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-600 transition-all duration-300 hover:scale-110"
+         title="Facebook">
+        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
+          FB
+        </div>
+      </a>
+
+      <!-- Instagram -->
+      <a href="#" 
+         class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-110"
+         title="Instagram">
+        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
+          IG
+        </div>
+      </a>
+
+      <!-- TikTok -->
+      <a href="#" 
+         class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-black transition-all duration-300 hover:scale-110"
+         title="TikTok">
+        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
+          TT
+        </div>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/573017189949" 
+         target="_blank"
+         class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-green-500 transition-all duration-300 hover:scale-110"
+         title="WhatsApp">
+        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
+          WA
+        </div>
+      </a>
+    </div>
+
+    <!-- Línea separadora -->
+    <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-6"></div>
+
+    <!-- Sección de Partners -->
+    <div class="flex flex-col items-center gap-3">
+      <h3 class="text-xs font-semibold text-gray-700 writing-mode-vertical transform rotate-180 mb-2">
+        PARTNERS
+      </h3>
+      
+      <!-- Santillana -->
+      <a href="#" 
+         class="partner-icon group flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 hover:bg-red-600 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-red-200"
+         title="Santillana">
+        <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center text-xs text-white group-hover:text-white">
+          SA
+        </div>
+      </a>
+
+      <!-- Compartir -->
+      <a href="#" 
+         class="partner-icon group flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 hover:bg-blue-600 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-blue-200"
+         title="Compartir">
+        <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center text-xs text-white group-hover:text-white">
+          CO
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Botón toggle para móvil -->
+<button id="toggle-side-menu" 
+        class="fixed left-2 top-1/2 transform -translate-y-1/2 z-50 lg:hidden bg-white shadow-lg rounded-full p-2 border-2 border-gray-200 hover:border-blue-600 transition-all duration-300">
+  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+
+<!-- Overlay para móvil -->
+<div id="side-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden lg:hidden"></div>
+
+<!-- Menú móvil -->
+<div id="side-menu-mobile" 
+     class="fixed left-0 top-0 h-full w-64 bg-white shadow-2xl z-40 transform -translate-x-full transition-transform duration-300 lg:hidden">
+  
+  <!-- Header del menú móvil -->
+  <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-green-500">
+    <h2 class="text-white font-semibold">Síguenos</h2>
+    <button id="close-side-menu" class="text-white hover:text-gray-200 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Contenido del menú móvil -->
+  <div class="p-6">
+    <!-- Redes Sociales en móvil -->
+    <div class="mb-8">
+      <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+        <span class="w-2 h-6 bg-gradient-to-b from-blue-600 to-green-500 rounded mr-3"></span>
+        Redes Sociales
+      </h3>
+      
+      <div class="grid grid-cols-2 gap-4">
+        <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors">
+          <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm mr-3">
+            FB
+          </div>
+          <span class="text-sm font-medium text-gray-700">Facebook</span>
+        </a>
+
+        <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-pink-50 transition-colors">
+          <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-sm mr-3">
+            IG
+          </div>
+          <span class="text-sm font-medium text-gray-700">Instagram</span>
+        </a>
+
+        <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+          <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-sm mr-3">
+            TT
+          </div>
+          <span class="text-sm font-medium text-gray-700">TikTok</span>
+        </a>
+
+        <a href="https://wa.me/573017189949" target="_blank" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-green-50 transition-colors">
+          <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mr-3">
+            WA
+          </div>
+          <span class="text-sm font-medium text-gray-700">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Partners en móvil -->
+    <div>
+      <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+        <span class="w-2 h-6 bg-gradient-to-b from-red-600 to-blue-600 rounded mr-3"></span>
+        Nuestros Partners
+      </h3>
+      
+      <div class="space-y-3">
+        <a href="#" class="mobile-partner-item flex items-center p-4 rounded-lg bg-gray-50 hover:bg-red-50 transition-colors border-l-4 border-red-600">
+          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center text-white font-semibold mr-4">
+            SA
+          </div>
+          <div>
+            <span class="text-sm font-medium text-gray-800">Santillana</span>
+            <p class="text-xs text-gray-500">Editorial educativa</p>
+          </div>
+        </a>
+
+        <a href="#" class="mobile-partner-item flex items-center p-4 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors border-l-4 border-blue-600">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold mr-4">
+            CO
+          </div>
+          <div>
+            <span class="text-sm font-medium text-gray-800">Compartir</span>
+            <p class="text-xs text-gray-500">Plataforma educativa</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Texto vertical para desktop */
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  /* Animaciones personalizadas */
+  .social-icon:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .partner-icon:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Efectos de hover mejorados */
+  .mobile-social-item:hover {
+    transform: translateX(5px);
+  }
+
+  .mobile-partner-item:hover {
+    transform: translateX(5px);
+  }
+
+  /* Asegurar que no interfiera con el chatbot */
+  #side-menu {
+    max-width: 80px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    #side-menu {
+      display: none;
+    }
+  }
+
+  /* Estilo para cuando el menú móvil está abierto */
+  .side-menu-open {
+    transform: translateX(0) !important;
+  }
+</style>
+
+<script>
+  // Funcionalidad para el menú móvil
+  function initSideMenu() {
+    const toggleBtn = document.getElementById('toggle-side-menu');
+    const closeBtn = document.getElementById('close-side-menu');
+    const overlay = document.getElementById('side-menu-overlay');
+    const mobileMenu = document.getElementById('side-menu-mobile');
+
+    function openMenu() {
+      mobileMenu?.classList.add('side-menu-open');
+      overlay?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      mobileMenu?.classList.remove('side-menu-open');
+      overlay?.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners
+    toggleBtn?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    // Analytics para redes sociales (opcional)
+    document.querySelectorAll('.social-icon, .mobile-social-item').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const platform = e.currentTarget.getAttribute('title') || 'Social';
+        console.log(`Usuario hizo clic en: ${platform}`);
+        
+        // Aquí puedes agregar tracking de Google Analytics si lo deseas
+        // gtag('event', 'social_click', { platform: platform });
+      });
+    });
+
+    // Analytics para partners (opcional)
+    document.querySelectorAll('.partner-icon, .mobile-partner-item').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const partner = e.currentTarget.getAttribute('title') || 'Partner';
+        console.log(`Usuario hizo clic en partner: ${partner}`);
+        
+        // gtag('event', 'partner_click', { partner: partner });
+      });
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSideMenu);
+  } else {
+    initSideMenu();
+  }
+</script>

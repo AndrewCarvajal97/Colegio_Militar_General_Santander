@@ -1,0 +1,326 @@
+---
+// DirectiveTeam.astro - Componente para mostrar el equipo directivo
+---
+
+<section id="directivos" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4" style="color: #5771FE;">
+        Equipo Directivo
+      </h2>
+      <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Liderazgo comprometido con la excelencia académica y formación integral de nuestros cadetes
+      </p>
+    </div>
+
+    <!-- Grid de directivos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      
+      <!-- Rector -->
+      <div class="directive-card group">
+        <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <!-- Imagen -->
+          <div class="relative h-64 overflow-hidden">
+            <img src="/Apoyo/Rector.webp" 
+                 alt="CT. (RA) Pedro Alexander Gómez Peñaloza" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- Overlay con gradiente -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Badge de rango -->
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white" 
+                 style="background-color: #5771FE;">
+              CT. (RA)
+            </div>
+          </div>
+          
+          <!-- Contenido -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold font-playfair mb-2" style="color: #5771FE;">
+              Pedro Alexander Gómez Peñaloza
+            </h3>
+            <p class="text-sm font-semibold mb-3" style="color: rgb(52, 183, 13);">
+              Rector CMGS
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Líder institucional comprometido con la formación integral y la excelencia académica del Colegio Militar General Santander.
+            </p>
+            
+            <!-- Línea decorativa -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-4"></div>
+            
+            <!-- Badge institucional -->
+            <div class="flex items-center justify-center mt-4">
+              <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                Máxima Autoridad Académica
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coordinador de Convivencia -->
+      <div class="directive-card group">
+        <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <!-- Imagen -->
+          <div class="relative h-64 overflow-hidden">
+            <img src="/Apoyo/Coordinador Convivencia.webp" 
+                 alt="CR. (RA) Carlos Mario De León Peña" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- Overlay con gradiente -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Badge de rango -->
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white" 
+                 style="background-color: #dc3545;">
+              CR. (RA)
+            </div>
+          </div>
+          
+          <!-- Contenido -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold font-playfair mb-2" style="color: #5771FE;">
+              Carlos Mario De León Peña
+            </h3>
+            <p class="text-sm font-semibold mb-3" style="color: rgb(52, 183, 13);">
+              Coordinador de Convivencia
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Responsable de la disciplina, valores y convivencia institucional, garantizando un ambiente formativo óptimo.
+            </p>
+            
+            <!-- Línea decorativa -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-4"></div>
+            
+            <!-- Badge institucional -->
+            <div class="flex items-center justify-center mt-4">
+              <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                Formación Disciplinaria
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coordinadora Académica -->
+      <div class="directive-card group">
+        <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <!-- Imagen -->
+          <div class="relative h-64 overflow-hidden">
+            <img src="/Apoyo/Coordinadora Academica.webp" 
+                 alt="Gloria Arleth Gomez Fuentes" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- Overlay con gradiente -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Badge civil -->
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white" 
+                 style="background-color: rgb(52, 183, 13);">
+              CIVIL
+            </div>
+          </div>
+          
+          <!-- Contenido -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold font-playfair mb-2" style="color: #5771FE;">
+              Gloria Arleth Gomez Fuentes
+            </h3>
+            <p class="text-sm font-semibold mb-3" style="color: rgb(52, 183, 13);">
+              Coordinadora Académica
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Lidera los procesos académicos, curriculares y pedagógicos, asegurando la calidad educativa institucional.
+            </p>
+            
+            <!-- Línea decorativa -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-4"></div>
+            
+            <!-- Badge institucional -->
+            <div class="flex items-center justify-center mt-4">
+              <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                Excelencia Académica
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secretario Académico -->
+      <div class="directive-card group">
+        <div class="relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+          <!-- Imagen -->
+          <div class="relative h-64 overflow-hidden">
+            <img src="/Apoyo/Secretario academico.webp" 
+                 alt="SM. (RA) Federnan Díaz Penagos" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            <!-- Overlay con gradiente -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <!-- Badge de rango -->
+            <div class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold text-white" 
+                 style="background-color: #5771FE;">
+              SM. (RA)
+            </div>
+          </div>
+          
+          <!-- Contenido -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold font-playfair mb-2" style="color: #5771FE;">
+              Federnan Díaz Penagos
+            </h3>
+            <p class="text-sm font-semibold mb-3" style="color: rgb(52, 183, 13);">
+              Secretario Académico
+            </p>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Gestiona los registros académicos, certificaciones y documentación oficial de la institución educativa.
+            </p>
+            
+            <!-- Línea decorativa -->
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mt-4"></div>
+            
+            <!-- Badge institucional -->
+            <div class="flex items-center justify-center mt-4">
+              <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-medium text-gray-600">
+                Gestión Académica
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mensaje institucional -->
+    <div class="mt-16 text-center">
+      <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto border-t-4" style="border-color: #5771FE;">
+        <div class="flex items-center justify-center mb-6">
+          <div class="w-16 h-16 rounded-full flex items-center justify-center" style="background-color: rgba(87, 113, 254, 0.1);">
+            <svg class="w-8 h-8" style="color: #5771FE;" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+        </div>
+        <h3 class="text-2xl font-bold font-playfair mb-4" style="color: #5771FE;">
+          Compromiso con la Excelencia
+        </h3>
+        <p class="text-gray-700 text-lg leading-relaxed">
+          Nuestro equipo directivo trabaja día a día para mantener los más altos estándares de calidad educativa, 
+          formando líderes íntegros bajo los principios de <strong>"Patria, Superación y Orden"</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones para las tarjetas de directivos */
+  .directive-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .directive-card:nth-child(1) { animation-delay: 0.1s; }
+  .directive-card:nth-child(2) { animation-delay: 0.2s; }
+  .directive-card:nth-child(3) { animation-delay: 0.3s; }
+  .directive-card:nth-child(4) { animation-delay: 0.4s; }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Efectos hover mejorados */
+  .directive-card:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  /* Responsive improvements */
+  @media (max-width: 768px) {
+    .directive-card h3 {
+      font-size: 1.125rem;
+    }
+    
+    .directive-card .relative.h-64 {
+      height: 12rem;
+    }
+  }
+  
+  /* Animación de scroll reveal */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Mejoras en los badges */
+  .directive-card .absolute.top-4 {
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Efectos de hover en imágenes */
+  .directive-card img {
+    filter: brightness(1) contrast(1.1);
+    transition: all 0.5s ease;
+  }
+  
+  .directive-card:hover img {
+    filter: brightness(1.1) contrast(1.2) saturate(1.1);
+  }
+  
+  /* Líneas decorativas animadas */
+  .directive-card .w-full.h-px {
+    background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .directive-card:hover .w-full.h-px {
+    opacity: 1;
+    background: linear-gradient(90deg, transparent, #5771FE, transparent);
+  }
+</style>
+
+<script>
+  // Animación de scroll reveal para la sección
+  function initDirectivesAnimation() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    // Observar elementos para animar
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+    scrollElements.forEach(el => observer.observe(el));
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDirectivesAnimation);
+  } else {
+    initDirectivesAnimation();
+  }
+
+  // Analytics para clicks en directivos (opcional)
+  document.querySelectorAll('.directive-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const name = this.querySelector('h3').textContent.trim();
+      console.log(`Usuario hizo clic en directivo: ${name}`);
+      
+      // Aquí puedes agregar lógica adicional como mostrar más información
+      // o abrir un modal con detalles del directivo
+    });
+  });
+</script>
