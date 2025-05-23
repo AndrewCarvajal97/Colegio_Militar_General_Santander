@@ -10,34 +10,67 @@ import Gallery from '../components/Gallery.astro';
 <Layout title="Colegio Militar General Santander - Formando Líderes">
   <Header />
   
-  <!-- Hero Section -->
-  <section id="inicio" class="relative min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 50%, #dc3545 100%); padding-top: 120px;">
-    <div class="absolute inset-0 bg-black/20"></div>
-    <div class="relative z-10 container mx-auto px-4 text-center text-white">
+  <!-- Hero Section with Video -->
+  <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="padding-top: 120px;">
+    <!-- Video Background Container -->
+    <div id="video-container" class="absolute inset-0 w-full h-full z-10">
+      <!-- Preloader -->
+      <div id="video-preloader" class="absolute inset-0 bg-gray-900 flex items-center justify-center z-20">
+        <div class="text-center text-white">
+          <div class="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p class="text-lg font-semibold">Cargando experiencia...</p>
+          <p class="text-sm text-gray-300 mt-2">Preparando contenido institucional</p>
+        </div>
+      </div>
+      
+      <!-- Vimeo Video Background -->
+      <div class="absolute inset-0 w-full h-full">
+        <iframe 
+          id="hero-video"
+          src="https://player.vimeo.com/video/1087000149?h=a7816f7589&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=0&muted=1&controls=0&background=1&byline=0&title=0&portrait=0"
+          frameborder="0" 
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+          class="absolute inset-0 w-full h-full"
+          style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.05);"
+          title="Video Institucional CMGS"
+        ></iframe>
+      </div>
+      
+      <!-- Video Overlay for transition -->
+      <div id="video-overlay" class="absolute inset-0 bg-black/0 transition-all duration-1000"></div>
+    </div>
+    
+    <!-- Fallback Gradient (hidden initially) -->
+    <div id="fallback-gradient" class="absolute inset-0 hidden" style="background: linear-gradient(135deg, rgb(52, 183, 13) 0%, #5771FE 50%, #dc3545 100%);">
+      <div class="absolute inset-0 bg-black/20"></div>
+    </div>
+    
+    <!-- Content Container -->
+    <div id="hero-content" class="relative z-30 container mx-auto px-4 text-center text-white opacity-0 transition-all duration-1000">
       <div class="animate-fade-in-up">
         <div class="mb-8">
-          <div class="w-32 h-32 mx-auto mb-6 mt-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/30">
+          <div class="w-32 h-32 mx-auto mt-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-4 border-white/30">
             <img src="/label-removebg-preview.webp" alt="escudo del colegio">
           </div>
-          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-4">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-4 text-shadow-lg">
             Colegio Militar
             <span class="block text-yellow-300">General Santander</span>
           </h1>
           <div class="w-32 h-1 bg-yellow-300 mx-auto mb-6"></div>
-          <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
+          <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-shadow-md">
             "Patria, Superación y Orden"
           </p>
-          <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+          <p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 text-shadow-sm">
             59 años formando líderes con responsabilidad social. Institución educativa con énfasis militar 
             que ofrece formación integral desde Preescolar hasta Media Vocacional.
           </p>
         </div>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#admisiones" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+          <a href="#admisiones" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg">
             Proceso de Admisiones
           </a>
-          <a href="#nosotros" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300">
+          <a href="#nosotros" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300 shadow-lg">
             Conoce Más
           </a>
         </div>
@@ -45,17 +78,19 @@ import Gallery from '../components/Gallery.astro';
     </div>
     
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+    <div id="scroll-indicator" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 opacity-0 transition-all duration-1000">
       <div class="animate-bounce">
-        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 text-white filter drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </div>
     </div>
   </section>
+  <!-- Carrusel de Instalaciones -->
+  <Carousel />
 
   <!-- Estadísticas -->
-  <section class="py-16 bg-gray-50">
+  <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div class="card-hover p-6 bg-white rounded-lg shadow-lg">
@@ -78,123 +113,7 @@ import Gallery from '../components/Gallery.astro';
     </div>
   </section>
 
-  <!-- Nosotros -->
-  <section id="nosotros" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4" style="color: #5771FE;">
-          Nuestra Institución
-        </h2>
-        <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Una institución con énfasis militar que ofrece formación integral basada en valores y excelencia académica.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Misión</h3>
-          <p class="text-gray-700 text-lg leading-relaxed mb-8">
-            El Colegio Militar General Santander es una institución con énfasis militar, que ofrece los niveles de 
-            Preescolar, Primaria, Básica y Media Vocacional, inspirados en el lema "Patria, Superación y Orden", 
-            basados en un modelo pedagógico constructivista y una formación con carácter disciplinario, 
-            dirigido a todo el oriente colombiano.
-          </p>
-          
-          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Visión</h3>
-          <p class="text-gray-700 text-lg leading-relaxed">
-            El Colegio Militar "General Santander" para el año {new Date().getFullYear()} será una institución reconocida por su alto nivel 
-            de formación en los niveles de Preescolar, Primaria, Básica y Media Vocacional, y su compromiso con la 
-            cultura del mejoramiento continuo; por medio de un equipo humano competente, capacitado y comprometido 
-            con la satisfacción de la comunidad educativa.
-          </p>
-        </div>
-        
-        <div class="bg-gray-50 p-8 rounded-2xl">
-          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Política de Calidad</h3>
-          <p class="text-gray-700 text-lg leading-relaxed mb-6">
-            El COLEGIO MILITAR GENERAL SANTANDER está comprometido con la eficacia y el mejoramiento continuo de sus procesos, 
-            en consonancia con el plan estratégico organizacional, con el fin de lograr la satisfacción de las necesidades 
-            y expectativas de sus partes interesadas.
-          </p>
-          <div class="text-white p-6 rounded-lg text-center" style="background-color: #5771FE;">
-            <p class="text-lg font-semibold">
-              "Formando líderes con responsabilidad social bajo el lema: Patria, Superación y Orden"
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Historia -->
-  <section id="historia" class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4" style="color: #5771FE;">
-          Nuestra Historia
-        </h2>
-        <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          59 años de trayectoria formando líderes con valores militares y excelencia académica
-        </p>
-      </div>
-
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          <div class="space-y-8">
-            <div class="border-l-4 pl-6" style="border-color: #5771FE;">
-              <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Fundación - 1965</h3>
-              <p class="text-gray-700 leading-relaxed">
-                El Colegio Militar General Santander fue fundado en 1965 por 24 militares retirados que pertenecen 
-                a la cooperativa COOSAMIR. El Colegio es una institución de carácter privado al servicio de la juventud 
-                santandereana en la ciudad de Bucaramanga, rindiéndole así un merecido homenaje al padre de la educación 
-                colombiana, el General Francisco de Paula Santander.
-              </p>
-            </div>
-
-            <div class="border-l-4 pl-6" style="border-color: rgb(52, 183, 13);">
-              <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Primeros Años</h3>
-              <p class="text-gray-700 leading-relaxed">
-                El primer Rector fue el Señor Capitán GUSTAVO VILLALOBOS SERPA quien inició el primer año de labores 
-                con cuatro grupos de bachilleres y un reducido número de alumnos. En 1969, bajo la rectoría del Profesor 
-                HUMBERTO GOMEZ NIGRINIS, se logró la completa aprobación de estudios y la primera promoción de 35 bachilleres 
-                con el grado de Sub-Tenientes de reserva.
-              </p>
-            </div>
-
-            <div class="border-l-4 pl-6" style="border-color: #5771FE;">
-              <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Crecimiento y Consolidación</h3>
-              <p class="text-gray-700 leading-relaxed">
-                Durante este tiempo la Institución vivió una época de oro conociéndose en todo el Departamento de Santander 
-                por su lema "Patria, Superación y Orden". En 1974, el Licenciado MANUEL ENRIQUE ORTEGA creó y obtuvo 
-                la aprobación para la Sección Primaria, ampliando la cobertura educativa de la institución.
-              </p>
-            </div>
-
-            <div class="border-l-4 pl-6" style="border-color: rgb(52, 183, 13);">
-              <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Era Moderna</h3>
-              <p class="text-gray-700 leading-relaxed">
-                En 1994, bajo la dirección del Sociólogo JORGE EDMUNDO CAPACHO, el colegio entra en una etapa de progreso 
-                y modernización. Se inauguró el Polideportivo, el Laboratorio de Informática, la red de audiovisuales, 
-                y se incluyeron actividades lúdicas, artísticas y culturales. En 1999 se abrió el nivel de transición 
-                y se impulsó la coeducación.
-              </p>
-            </div>
-
-            <div class="border-l-4 pl-6" style="border-color: #5771FE;">
-              <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Actualidad</h3>
-              <p class="text-gray-700 leading-relaxed">
-                A partir del 1 de mayo de 2021 asume por primera vez un exalumno del colegio militar, el Señor Mayor 
-                William Parada Gómez, con 21 años de carrera militar, de la promoción 1988, con el propósito de hacer 
-                de esta amada institución educativa el referente a nivel nacional de los colegios militares.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- Niveles Educativos -->
   <section id="niveles" class="py-20 bg-white">
@@ -255,18 +174,127 @@ import Gallery from '../components/Gallery.astro';
           </div>
           <h3 class="text-2xl font-bold mb-4 font-playfair" style="color: #5771FE;">Media Vocacional</h3>
           <p class="text-gray-600 leading-relaxed">
-            Bachilleres graduados con el grado de Sub-Tenientes de reserva, preparados para la educación superior.
+            Bachilleres graduados con el grado de Sub-Tenientes de reserva, preparados para la educación superior con certificado de técnico .
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Carrusel de Instalaciones -->
-  <Carousel />
+  
 
+  <!-- Nosotros -->
+  <section id="nosotros" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4" style="color: #5771FE;">
+          Nuestra Institución
+        </h2>
+        <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Una institución con énfasis militar que ofrece formación integral basada en valores y excelencia académica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Misión</h3>
+          <p class="text-gray-700 text-lg leading-relaxed mb-8">
+            El Colegio Militar General Santander es una institución con énfasis militar, que ofrece los niveles de 
+            Preescolar, Primaria, Básica y Media Vocacional, inspirados en el lema "Patria, Superación y Orden", 
+            basados en un modelo pedagógico constructivista y una formación con carácter disciplinario, 
+            dirigido a todo el oriente colombiano.
+          </p>
+          
+          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Visión</h3>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            El Colegio Militar "General Santander" para el año {new Date().getFullYear()} será una institución reconocida por su alto nivel 
+            de formación en los niveles de Preescolar, Primaria, Básica y Media Vocacional, y su compromiso con la 
+            cultura del mejoramiento continuo; por medio de un equipo humano competente, capacitado y comprometido 
+            con la satisfacción de la comunidad educativa.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-8 rounded-2xl">
+          <h3 class="text-3xl font-bold mb-6 font-playfair" style="color: #5771FE;">Política de Calidad</h3>
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">
+            El COLEGIO MILITAR GENERAL SANTANDER está comprometido con la eficacia y el mejoramiento continuo de sus procesos, 
+            en consonancia con el plan estratégico organizacional, con el fin de lograr la satisfacción de las necesidades 
+            y expectativas de sus partes interesadas.
+          </p>
+          <div class="text-white p-6 rounded-lg text-center" style="background-color: #5771FE;">
+            <p class="text-lg font-semibold">
+              "Formando líderes con responsabilidad social bajo el lema: Patria, Superación y Orden"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Galería Institucional -->
   <Gallery />
+
+  <!-- Historia -->
+  <section id="historia" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-4" style="color: #5771FE;">
+        Nuestra Historia
+      </h2>
+      <div class="w-24 h-1 mx-auto mb-6" style="background-color: rgb(52, 183, 13);"></div>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        59 años de trayectoria formando líderes con valores militares y excelencia académica
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div class="space-y-10">
+          <div class="border-l-4 pl-6" style="border-color: #5771FE;">
+            <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Fundación y Primeros Años (1965 - 1974)</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Fundado en 1965 por 24 militares retirados de la cooperativa COOSAMIR, el Colegio Militar General Santander nació en Bucaramanga con el propósito de rendir homenaje al General Francisco de Paula Santander. El primer rector, Capitán Gustavo Villalobos Serpa, inició labores con cuatro grupos de bachilleres. En 1968, el sacerdote Sady Tobón logró la aprobación del ciclo básico. En 1969, bajo la rectoría del profesor Humberto Gómez Nigrinis, se graduó la primera promoción de 35 bachilleres como Sub-Tenientes de reserva. En 1974, el licenciado Manuel Enrique Ortega creó y obtuvo la aprobación para la sección primaria.
+            </p>
+          </div>
+
+          <div class="border-l-4 pl-6" style="border-color: rgb(52, 183, 13);">
+            <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Consolidación Institucional (1975 - 1989)</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Entre 1975 y 1980, el licenciado Héctor Gabriel Moreno Vargas promovió la integración con exalumnos y la participación deportiva nacional. En 1980 asumió el mayor Pompeyo Ledesma Arenas, destacándose por su compromiso pedagógico. En 1989, bajo la dirección del mayor Hernán Fernández Rodríguez, se adelantó una reestructuración institucional para la aprobación oficial del Ministerio de Educación.
+            </p>
+          </div>
+
+          <div class="border-l-4 pl-6" style="border-color: #5771FE;">
+            <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Expansión y Modernización (1990 - 2002)</h3>
+            <p class="text-gray-700 leading-relaxed">
+              En 1990, el licenciado Alfonso Noriega amplió la sección primaria y abrió una nueva sede. En 1994, el sociólogo Jorge Edmundo Capacho lideró una transformación institucional: se construyó el polideportivo, el laboratorio de informática y se implementaron actividades lúdicas y artísticas. En 1999 se abrió el nivel de transición y se inició la coeducación con la inclusión de niñas.
+            </p>
+          </div>
+
+          <div class="border-l-4 pl-6" style="border-color: rgb(52, 183, 13);">
+            <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Reestructuración Académica (2003 - 2016)</h3>
+            <p class="text-gray-700 leading-relaxed">
+              En 2003, el ingeniero Alejandro Parra Santos asumió la rectoría con el reto de unificar jornadas, modernizar el pensum y fortalecer competencias. En 2004, el mayor Hernando Benítez Contreras fue nombrado Director General, adecuando el colegio a la normativa del Ministerio de Defensa. Estas reformas fortalecieron la identidad militar y académica de la institución.
+            </p>
+          </div>
+
+          <div class="border-l-4 pl-6" style="border-color: #5771FE;">
+            <h3 class="text-2xl font-bold mb-3 font-playfair" style="color: #5771FE;">Hacia la Excelencia (2017 - Presente)</h3>
+            <p class="text-gray-700 leading-relaxed">
+              En 2017, la Magíster Ruth Castellanos Rincón asumió la rectoría, destacándose por su enfoque investigativo y metodológico. En 2018, el coronel Alfonso Yunda Martínez impulsó mejoras en gestión, atención a cadetes y fortalecimiento del trabajo en equipo. Desde el 1 de mayo de 2021, el Mayor William Parada Gómez, exalumno de la promoción 1988 con 21 años de carrera militar, lidera la institución con la visión de convertirla en referente nacional de los colegios militares.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+
+  
+
+  
 
   <!-- Admisiones -->
   <section id="admisiones" class="py-20 text-white" style="background-color: #5771FE;">
@@ -550,3 +578,385 @@ import Gallery from '../components/Gallery.astro';
     });
   });
 </script>
+
+<!-- Video Management Script -->
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  // Video Hero Section Management
+  document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del DOM
+    const videoContainer = document.getElementById('video-container');
+    const videoPreloader = document.getElementById('video-preloader');
+    const heroVideo = document.getElementById('hero-video');
+    const videoOverlay = document.getElementById('video-overlay');
+    const heroContent = document.getElementById('hero-content');
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    const fallbackGradient = document.getElementById('fallback-gradient');
+    
+    // Variables de control
+    let videoPlayer;
+    let videoLoaded = false;
+    let contentShown = false;
+    let videoStarted = false;
+    
+    // Timeout IDs para poder cancelarlos si es necesario
+    let contentTimeoutId;
+    let preloaderTimeoutId;
+    let initTimeoutId;
+    
+    // Configuración del reproductor Vimeo
+    function initializeVimeoPlayer() {
+      try {
+        // Crear instancia del player con el iframe
+        videoPlayer = new Vimeo.Player(heroVideo);
+        
+        // Configurar eventos del reproductor
+        videoPlayer.ready().then(function() {
+          console.log('✅ Video Vimeo cargado correctamente');
+          videoLoaded = true;
+          hidePreloader();
+          startVideoSequence();
+          
+          // Asegurar que el video esté reproduciéndose
+          return videoPlayer.play();
+        }).then(function() {
+          console.log('▶️ Video iniciado');
+          videoStarted = true;
+        }).catch(function(error) {
+          console.error('❌ Error al cargar/reproducir video Vimeo:', error);
+          handleVideoError();
+        });
+        
+        // Evento cuando el video termina
+        videoPlayer.on('ended', function() {
+          console.log('🎬 Video terminado - se mantiene pausado');
+        });
+        
+        // Evento de error
+        videoPlayer.on('error', function(error) {
+          console.error('❌ Error durante reproducción:', error);
+          handleVideoError();
+        });
+        
+        // Evento cuando empieza a reproducir
+        videoPlayer.on('play', function() {
+          console.log('🎥 Video reproduciendo');
+          videoStarted = true;
+        });
+        
+      } catch (error) {
+        console.error('❌ Error al inicializar Vimeo Player:', error);
+        handleVideoError();
+      }
+    }
+    
+    // Ocultar preloader
+    function hidePreloader() {
+      if (videoPreloader) {
+        videoPreloader.style.opacity = '0';
+        setTimeout(() => {
+          videoPreloader.style.display = 'none';
+        }, 500);
+      }
+    }
+    
+    // Iniciar secuencia del video
+    function startVideoSequence() {
+      if (!videoLoaded) return;
+      
+      console.log('🎥 Iniciando secuencia del video...');
+      
+      // Detectar si el usuario está en mobile para ajustar timing
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      const introTime = isMobile ? 6000 : 10000; // 6s móvil, 10s desktop
+      
+      console.log(`📱 Dispositivo: ${isMobile ? 'Móvil' : 'Desktop'} - Intro: ${introTime/1000}s`);
+      
+      // Después del tiempo especificado: difuminar video y mostrar contenido
+      contentTimeoutId = setTimeout(() => {
+        showContentOverVideo();
+      }, introTime);
+    }
+    
+    // Mostrar contenido sobre el video difuminado
+    function showContentOverVideo() {
+      if (contentShown) return;
+      
+      console.log('📝 Mostrando contenido sobre video difuminado...');
+      contentShown = true;
+      
+      // Animar video al fondo con blur
+      if (videoContainer) {
+        videoContainer.style.zIndex = '5';
+        videoContainer.style.transition = 'all 1s ease-in-out';
+      }
+      
+      if (videoOverlay) {
+        videoOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        videoOverlay.style.backdropFilter = 'blur(4px)';
+        videoOverlay.style.webkitBackdropFilter = 'blur(4px)';
+      }
+      
+      if (heroVideo) {
+        heroVideo.style.filter = 'blur(2px) brightness(0.7)';
+        heroVideo.style.transform = 'scale(1.08)';
+      }
+      
+      // Mostrar contenido con animación
+      if (heroContent) {
+        heroContent.style.opacity = '1';
+        heroContent.style.transform = 'translateY(0)';
+      }
+      
+      // Mostrar indicador de scroll
+      if (scrollIndicator) {
+        setTimeout(() => {
+          scrollIndicator.style.opacity = '1';
+        }, 800);
+      }
+    }
+    
+    // Manejar errores del video
+    function handleVideoError() {
+      console.warn('⚠️ Fallback: Usando degradado en lugar del video');
+      
+      // Ocultar elementos del video
+      if (videoContainer) {
+        videoContainer.style.display = 'none';
+      }
+      
+      // Mostrar degradado de respaldo
+      if (fallbackGradient) {
+        fallbackGradient.classList.remove('hidden');
+        fallbackGradient.style.zIndex = '5';
+      }
+      
+      // Mostrar contenido inmediatamente
+      if (heroContent) {
+        heroContent.style.opacity = '1';
+        heroContent.style.zIndex = '10';
+      }
+      
+      if (scrollIndicator) {
+        scrollIndicator.style.opacity = '1';
+      }
+      
+      // Ocultar preloader
+      hidePreloader();
+    }
+    
+    // Preloader timeout (fallback si el video no carga)
+    preloaderTimeoutId = setTimeout(() => {
+      if (!videoLoaded) {
+        console.warn('⏰ Timeout: Video tardó demasiado en cargar');
+        handleVideoError();
+      }
+    }, 10000); // 10 segundos máximo de espera
+    
+    // Detectar si el usuario hace scroll durante la intro
+    let hasScrolled = false;
+    function handleScroll() {
+      if (!hasScrolled && window.scrollY > 100) {
+        hasScrolled = true;
+        console.log('📜 Usuario hizo scroll, mostrando contenido...');
+        
+        // Cancelar timeout si aún no se ha ejecutado
+        if (contentTimeoutId) {
+          clearTimeout(contentTimeoutId);
+        }
+        
+        // Mostrar contenido inmediatamente
+        if (!contentShown) {
+          showContentOverVideo();
+        }
+      }
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Inicializar después de un pequeño delay
+    initTimeoutId = setTimeout(() => {
+      initializeVimeoPlayer();
+    }, 1000); // 1 segundo para asegurar que el iframe se haya cargado
+    
+    // Fallback adicional: Si después de 3 segundos no hay video, mostrar contenido
+    setTimeout(() => {
+      if (!videoStarted && !contentShown) {
+        console.log('⚡ Fallback rápido: Mostrando contenido sin esperar video');
+        showContentOverVideo();
+      }
+    }, 3000);
+    
+    // Cleanup en caso de que el usuario salga de la página
+    window.addEventListener('beforeunload', function() {
+      if (contentTimeoutId) clearTimeout(contentTimeoutId);
+      if (preloaderTimeoutId) clearTimeout(preloaderTimeoutId);
+      if (initTimeoutId) clearTimeout(initTimeoutId);
+      if (videoPlayer) {
+        try {
+          videoPlayer.pause();
+        } catch (e) {
+          console.log('Video cleanup:', e);
+        }
+      }
+    });
+    
+    // Debug: Información del estado
+    setTimeout(() => {
+      console.log('🔍 Estado del video:', {
+        videoLoaded,
+        videoStarted,
+        contentShown,
+        hasScrolled
+      });
+    }, 5000);
+  });
+</script>
+
+<!-- Estilos adicionales para el video hero -->
+<style>
+  /* Text shadows para mejor legibilidad sobre video */
+  .text-shadow-lg {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  .text-shadow-md {
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.6);
+  }
+  
+  .text-shadow-sm {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Efecto de video background con iframe de Vimeo - MANTENER GRANDE */
+  #hero-video {
+    object-fit: cover;
+    transition: filter 1s ease-in-out, transform 1s ease-in-out;
+    pointer-events: none; /* Evitar interacción con el video */
+  }
+  
+  /* Preloader mejorado */
+  #video-preloader {
+    backdrop-filter: blur(10px);
+    transition: opacity 0.5s ease-in-out;
+    z-index: 30;
+  }
+  
+  /* Contenido hero con transición mejorada */
+  #hero-content {
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+    backdrop-filter: blur(1px);
+  }
+  
+  /* Overlay del video con mejor transición */
+  #video-overlay {
+    pointer-events: none;
+    transition: all 1.2s ease-in-out;
+  }
+  
+  /* Mejoras responsivas para el video */
+  @media (max-width: 768px) {
+    #hero-content h1 {
+      font-size: 2.5rem !important;
+    }
+    
+    #hero-content p {
+      font-size: 1rem !important;
+    }
+    
+    /* En móviles, text shadow más fuerte */
+    .text-shadow-lg {
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.95), 0 0 25px rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  /* Asegurar que el video container cubra toda la pantalla */
+  #video-container {
+    min-height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Fallback gradient con la misma altura */
+  #fallback-gradient {
+    min-height: 100vh;
+  }
+  
+  /* Mejorar los botones sobre video */
+  #hero-content a {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  #hero-content a:hover {
+    backdrop-filter: blur(15px);
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  /* Scroll indicator mejorado */
+  #scroll-indicator {
+    transition: opacity 1s ease-in-out;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Animación del preloader */
+  @keyframes videoPreloaderPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+  
+  #video-preloader > div {
+    animation: videoPreloaderPulse 2s ease-in-out infinite;
+  }
+  
+  /* Mejora del logo sobre video */
+  #hero-content .w-32.h-32 {
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Línea divisora con mejor visibilidad */
+  #hero-content .w-32.h-1 {
+    box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
+  }
+  
+  /* Transición suave para el contenido */
+  @keyframes heroContentAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  #hero-content.show {
+    animation: heroContentAppear 1.5s ease-out;
+  }
+  
+  /* Optimización para Safari */
+  @supports (-webkit-backdrop-filter: blur(10px)) {
+    #hero-content a {
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    #video-overlay {
+      -webkit-backdrop-filter: blur(4px);
+    }
+  }
+  
+  /* Fix para Chrome en algunos casos */
+  #video-container {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Asegurar que no haya scroll horizontal */
+  body {
+    overflow-x: hidden;
+  }
+</style>

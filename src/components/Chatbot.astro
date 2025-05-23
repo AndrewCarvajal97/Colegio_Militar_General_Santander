@@ -368,6 +368,8 @@
 </style>
 
 <script>
+
+  
 declare global {
   interface Window {
     showInitialView: typeof showInitialView;
@@ -388,7 +390,7 @@ declare global {
   }
 }
 
-  let currentGender = 'male'; // male o female
+  let currentGender = 'female'; // male o female
   
   // Text-to-Speech variables y funciones
   let currentSpeech: SpeechSynthesisUtterance | null = null;
@@ -396,18 +398,28 @@ declare global {
   let speechRate = 1;
   let speechPitch = 1;
   let messageCounter = 0;
+
+      
   
   // Inicializar configuración de voz
   function initSpeechSettings() {
+
+   
     if ('speechSynthesis' in window) {
       speechSynthesis.onvoiceschanged = () => {
         const voices = speechSynthesis.getVoices();
-        // Buscar voz en español
+
         speechVoice = voices.find(voice => 
-          voice.lang.includes('es') || 
-          voice.name.toLowerCase().includes('spanish') ||
-          voice.name.toLowerCase().includes('española')
-        ) || voices[0] || null;
+          (voice.lang.includes('es') || voice.name.toLowerCase().includes('spanish')) &&
+          (voice.name.toLowerCase().includes('female') ||
+          voice.name.toLowerCase().includes('mujer') ||
+          voice.name.toLowerCase().includes('carmen') ||
+          voice.name.toLowerCase().includes('soledad') ||
+          voice.name.toLowerCase().includes('ines'))
+        ) 
+        || voices.find(voice => voice.lang.includes('es')) 
+        || voices[0] 
+        || null;
       };
     }
   }
