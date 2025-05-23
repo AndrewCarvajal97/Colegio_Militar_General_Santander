@@ -3,6 +3,11 @@
 ---
 
 <div id="chatbot-container" class="fixed bottom-4 right-4 z-50">
+<!-- Burbuja de bienvenida -->
+<div id="chatbot-bubble" class="absolute bottom-20 right-16 bg-white border border-gray-300 px-6 py-3 rounded-2xl shadow-lg text-base text-gray-800 flex items-center gap-3 animate-bounce max-w-md z-50" style="min-width: 260px;">
+  <span id="bubble-typing"></span>
+  <span class="ml-2"></span>
+</div>
   <!-- Botón del chatbot -->
   <button 
     id="chatbot-toggle" 
@@ -143,7 +148,7 @@
           <button onclick="showInitialView()" class="p-1 hover:bg-gray-200 rounded mr-2">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
-            </svg>
+          </svg>
           </button>
           <h4 class="font-bold text-gray-800">Mayor Virtual</h4>
         </div>
@@ -184,6 +189,13 @@
           <h4 class="font-bold text-gray-800">Consulta de Estudiante</h4>
         </div>
         <form class="space-y-3" onsubmit="submitDocument(event)">
+          <label class="block text-xs text-gray-700 font-medium">Tipo de documento</label>
+          <select id="tipo-documento" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:border-transparent mb-1" required>
+            <option value="">Seleccione tipo de documento</option>
+            <option value="cedula">Cédula</option>
+            <option value="tarjeta">Tarjeta de Identidad</option>
+            <option value="pep">PEP</option>
+          </select>
           <input id="student-document" type="text" placeholder="Ingresa el documento del estudiante a consultar" class="w-full text-xs p-2 border rounded focus:ring-2 focus:ring-blue-400 focus:border-transparent" required>
           <button type="submit" class="w-full p-2 text-white rounded font-medium transition-colors" style="background-color: #5771FE;">
             Consultar
@@ -291,7 +303,7 @@
           <button onclick="showInitialView()" class="p-1 hover:bg-gray-200 rounded mr-2">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path>
-            </svg>
+          </svg>
           </button>
           <h4 class="font-bold text-gray-800" id="result-title">Información</h4>
         </div>
@@ -365,6 +377,16 @@
   .group:hover .audio-controls {
     opacity: 1 !important;
   }
+
+  #chatbot-bubble {
+  white-space: pre-line;
+  min-width: 260px;
+  max-width: 350px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 </style>
 
 <script>
@@ -572,24 +594,41 @@ declare global {
   // Enviar PQR
   async function submitPQR(event) {
     event.preventDefault();
-
-    // Obtener los campos del formulario PQR
-    const form = event.target;
-    const nombres = form.querySelector('input[placeholder="Nombres"]')?.value || '';
-    const apellidos = form.querySelector('input[placeholder="Apellidos"]')?.value || '';
-    const email = form.querySelector('input[type="email"]')?.value || '';
-    const telefono = form.querySelector('input[type="tel"]')?.value || '';
-    const tipoSolicitud = form.querySelector('select:nth-of-type(1)')?.value || '';
-    const area = form.querySelector('select:nth-of-type(2)')?.value || '';
-    const descripcion = form.querySelector('textarea')?.value || '';
-
-    // Validar campos requeridos
-    if (!nombres || !apellidos || !email || !telefono || !tipoSolicitud || !area || !descripcion) {
-      alert('Por favor, completa todos los campos del formulario PQR.');
+    // Obtener los campos de nombre y apellido
+    const form = event.target as HTMLFormElement;
+    const nombreInput = form.querySelector('input[placeholder="Nombres"]') as HTMLInputElement;
+    const apellidoInput = form.querySelector('input[placeholder="Apellidos"]') as HTMLInputElement;
+    const telefonoInput = form.querySelector('input[placeholder="Teléfono"]') as HTMLInputElement;
+    const correoInput = form.querySelector('input[placeholder="Correo electrónico"]') as HTMLInputElement;
+    const nombre = nombreInput.value.trim();
+    const apellido = apellidoInput.value.trim();
+    const telefono = telefonoInput.value.trim();
+    const correo = correoInput.value.trim();
+    // Expresiones regulares
+    const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{3,10}$/;
+    const soloNumeros = /^\d{1,10}$/;
+    const correoValido = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    let errorMsg = '';
+    // Validación de teléfono: solo números, máximo 10 dígitos, sin letras
+    const soloNumerosEstricto = /^\d{1,10}$/;
+    if (!soloLetras.test(nombre)) {
+      errorMsg = 'El nombre debe tener solo letras, entre 3 y 10 caracteres.';
+      nombreInput.focus();
+    } else if (!soloLetras.test(apellido)) {
+      errorMsg = 'El apellido debe tener solo letras, entre 3 y 10 caracteres.';
+      apellidoInput.focus();
+    } else if (!soloNumerosEstricto.test(telefono)) {
+      errorMsg = 'El teléfono debe contener solo números (sin espacios ni letras) y máximo 10 dígitos.';
+      telefonoInput.focus();
+    } else if (!correoValido.test(correo)) {
+      errorMsg = 'El correo debe tener un formato válido (ejemplo@dominio.com).';
+      correoInput.focus();
+    }
+    if (errorMsg) {
+      alert(errorMsg);
       return;
     }
-
-    // Mostrar loading en el área de resultados
+    // Continuar con el envío del formulario
     hideAllViews();
     const resultArea = document.getElementById('result-area');
     const chatArea = document.getElementById('chat-area');
@@ -1052,6 +1091,7 @@ declare global {
                   ⏹️
                 </button>
               </div>
+              
             </div>
           </div>
         `;
@@ -1110,6 +1150,20 @@ declare global {
   
   // Inicializar configuración de voz cuando se carga la página
   initSpeechSettings();
+      document.addEventListener("DOMContentLoaded", () => {
+    const bubble = document.getElementById("chatbot-bubble");
+    const toggle = document.getElementById("chatbot-toggle");
+
+    // Ocultar burbuja automáticamente después de 6 segundos
+    setTimeout(() => {
+      bubble?.remove();
+    }, 6000);
+
+    // También ocultarla al abrir el chatbot
+    toggle?.addEventListener("click", () => {
+      bubble?.remove();
+    });
+  });
   
   // Configuración de voz (modal/panel simple)
   setTimeout(() => {
@@ -1133,4 +1187,21 @@ declare global {
       });
     }
   }, 100);
+
+  document.addEventListener("DOMContentLoaded", () => {
+  const bubbleTyping = document.getElementById("bubble-typing");
+  const fullText = "Si necesitas ayuda puedes hablar conmigo 😊😊";
+  let i = 0;
+  function typeWriter() {
+    if (bubbleTyping && i < fullText.length) {
+      bubbleTyping.textContent += fullText.charAt(i);
+      i++;
+      setTimeout(typeWriter, 40); // velocidad de escritura
+    }
+  }
+  if (bubbleTyping) {
+    bubbleTyping.textContent = "";
+    typeWriter();
+  }
+});
 </script>

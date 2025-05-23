@@ -2,10 +2,13 @@
 // SideMenu.astro - Menú lateral izquierdo con redes sociales y partners
 ---
 
-<div id="side-menu" class="fixed left-0 top-1/2 transform -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
-  <!-- Contenedor principal del menú -->
-  <div class="bg-white shadow-lg rounded-r-2xl py-4 px-2 border-l-4 border-blue-600">
-    
+<div id="side-menu" class="side-menu-hover fixed left-0 top-1/2 transform -translate-y-[35%] z-40 hidden lg:flex flex-col gap-3 group">
+  <!-- Pestaña visible siempre -->
+  <div class="side-menu-tab bg-blue-600 text-white flex items-center justify-center rounded-r-2xl w-5 h-24 cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-50 group-hover:hidden">
+    <span class="text-xs font-bold rotate-180 writing-mode-vertical">REDES</span>
+  </div>
+  <!-- Contenedor principal del menú, oculto por defecto y visible en hover -->
+  <div class="side-menu-content bg-white shadow-lg rounded-r-2xl py-4 px-2 border-l-4 border-blue-600 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 relative">
     <!-- Sección de Redes Sociales -->
     <div class="flex flex-col items-center gap-3 mb-6">
       <h3 class="text-xs font-semibold text-gray-700 writing-mode-vertical transform rotate-180 mb-2">
@@ -16,37 +19,26 @@
       <a href="#" 
          class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-blue-600 transition-all duration-300 hover:scale-110"
          title="Facebook">
-        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
-          FB
-        </div>
+        <img src="/icon Facebook.png" alt="Facebook" class="w-6 h-6 object-contain" />
       </a>
-
       <!-- Instagram -->
       <a href="#" 
          class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-110"
          title="Instagram">
-        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
-          IG
-        </div>
+        <img src="/instagram.png" alt="Instagram" class="w-6 h-6 object-contain" />
       </a>
-
       <!-- TikTok -->
       <a href="#" 
          class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-black transition-all duration-300 hover:scale-110"
          title="TikTok">
-        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
-          TT
-        </div>
+        <img src="/tiktok.jpg" alt="TikTok" class="w-6 h-6 object-contain" />
       </a>
-
       <!-- WhatsApp -->
       <a href="https://wa.me/573017189949" 
          target="_blank"
          class="social-icon group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-green-500 transition-all duration-300 hover:scale-110"
          title="WhatsApp">
-        <div class="w-6 h-6 bg-gray-400 rounded-sm flex items-center justify-center text-xs text-white group-hover:text-white">
-          WA
-        </div>
+        <img src="/whatsapp.png" alt="WhatsApp" class="w-6 h-6 object-contain" />
       </a>
     </div>
 
@@ -63,18 +55,13 @@
       <a href="#" 
          class="partner-icon group flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 hover:bg-red-600 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-red-200"
          title="Santillana">
-        <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center text-xs text-white group-hover:text-white">
-          SA
-        </div>
+        <img src="/santillana.png" alt="Santillana" class="w-8 h-8 object-contain" />
       </a>
-
       <!-- Compartir -->
       <a href="#" 
          class="partner-icon group flex items-center justify-center w-12 h-12 rounded-lg bg-gray-100 hover:bg-blue-600 transition-all duration-300 hover:scale-110 border-2 border-transparent hover:border-blue-200"
          title="Compartir">
-        <div class="w-8 h-8 bg-gray-400 rounded flex items-center justify-center text-xs text-white group-hover:text-white">
-          CO
-        </div>
+        <img src="/compartirSantillana.png" alt="Compartir" class="w-8 h-8 object-contain" />
       </a>
     </div>
   </div>
@@ -105,30 +92,19 @@
       </h3>
       <div class="grid grid-cols-2 gap-4">
         <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors">
-          <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm mr-3">
-            FB
-          </div>
+          <img src="/icon Facebook.png" alt="Facebook" class="w-8 h-8 object-contain mr-3" />
           <span class="text-sm font-medium text-gray-700">Facebook</span>
         </a>
-
         <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-pink-50 transition-colors">
-          <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-sm mr-3">
-            IG
-          </div>
+          <img src="/instagram.png" alt="Instagram" class="w-8 h-8 object-contain mr-3" />
           <span class="text-sm font-medium text-gray-700">Instagram</span>
         </a>
-
         <a href="#" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
-          <div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-sm mr-3">
-            TT
-          </div>
+          <img src="/tiktok.jpg" alt="TikTok" class="w-8 h-8 object-contain mr-3" />
           <span class="text-sm font-medium text-gray-700">TikTok</span>
         </a>
-
         <a href="https://wa.me/573017189949" target="_blank" class="mobile-social-item flex items-center p-3 rounded-lg bg-gray-50 hover:bg-green-50 transition-colors">
-          <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-sm mr-3">
-            WA
-          </div>
+          <img src="/whatsapp.png" alt="WhatsApp" class="w-8 h-8 object-contain mr-3" />
           <span class="text-sm font-medium text-gray-700">WhatsApp</span>
         </a>
       </div>
@@ -141,19 +117,14 @@
       </h3>
       <div class="space-y-3">
         <a href="#" class="mobile-partner-item flex items-center p-4 rounded-lg bg-gray-50 hover:bg-red-50 transition-colors border-l-4 border-red-600">
-          <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center text-white font-semibold mr-4">
-            SA
-          </div>
+          <img src="/santillana.png" alt="Santillana" class="w-10 h-10 object-contain mr-4" />
           <div>
             <span class="text-sm font-medium text-gray-800">Santillana</span>
             <p class="text-xs text-gray-500">Editorial educativa</p>
           </div>
         </a>
-
         <a href="#" class="mobile-partner-item flex items-center p-4 rounded-lg bg-gray-50 hover:bg-blue-50 transition-colors border-l-4 border-blue-600">
-          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold mr-4">
-            CO
-          </div>
+          <img src="/compartirSantillana.png" alt="Compartir" class="w-10 h-10 object-contain mr-4" />
           <div>
             <span class="text-sm font-medium text-gray-800">Compartir</span>
             <p class="text-xs text-gray-500">Plataforma educativa</p>
