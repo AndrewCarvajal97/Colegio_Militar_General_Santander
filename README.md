@@ -237,7 +237,7 @@ Para modificar el contenido o diseño:
 - **Dirección:** Diagonal 32 #30a-05, Bucaramanga
 - **Teléfono:** (607) 7008460 Ext - 2006
 - **Móvil:** +57 301 718 9949
-- **Email:** info@colmilgeneralsantander.edu.co
+- **Email:** secretaria@colmil.com.co
 
 ## 🏆 Lema Institucional
 

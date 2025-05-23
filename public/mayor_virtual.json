@@ -58,8 +58,8 @@
       "tag": "contacto",
       "patrones": ["como me comunico", "contacto del colegio", "telefono del colegio", "correo del colegio"],
       "respuestas": [
-        "Puedes comunicarte con nosotros al 310 123 4567 o al correo info@colegiogeneralsantander.edu.co",
-        "Nuestro numero de contacto es 310 123 4567 y el correo es info@colegiogeneralsantander.edu.co",
+        "Puedes comunicarte con nosotros al 310 123 4567 o al correo secretaria@colmil.com.co",
+        "Nuestro numero de contacto es 310 123 4567 y el correo es secretaria@colmil.com.co",
         "Puedes escribirnos al correo institucional o llamar directamente al telefono del colegio."
       ]
     },
