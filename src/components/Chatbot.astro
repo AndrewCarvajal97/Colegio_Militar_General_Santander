@@ -44,10 +44,7 @@
           class="p-2 hover:bg-white/20 rounded-full transition-colors"
           title="Cambiar asistente"
         >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
-            <path fill-rule="evenodd" d="M3 8a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-          </svg>
+          <img id="gender-icon" src="/hombre.png" alt="Hombre" class="w-7 h-7 object-contain" />
         </button>
         <!-- Botón cerrar -->
         <button 
@@ -534,17 +531,31 @@ declare global {
   }
   
   // Cambiar género del asistente
+  // Cambiar icono de género al hacer click
+  document.addEventListener('DOMContentLoaded', () => {
   const genderToggle = document.getElementById('gender-toggle');
-  if (genderToggle) {
-    genderToggle.addEventListener('click', function() {
-      currentGender = currentGender === 'male' ? 'female' : 'male';
-      const iconSrc = currentGender === 'male' ? '/icon2023.webp' : '/icon2025.webp';
-      const chatbotIcon = document.getElementById('chatbot-icon');
-      const chatbotHeaderIcon = document.getElementById('chatbot-header-icon');
-      if (chatbotIcon && 'src' in chatbotIcon) chatbotIcon.src = iconSrc;
-      if (chatbotHeaderIcon && 'src' in chatbotHeaderIcon) chatbotHeaderIcon.src = iconSrc;
+  const genderIcon = document.getElementById('gender-icon');
+  const headerIcon = document.getElementById('chatbot-header-icon');
+  const chatbotIcon = document.getElementById('chatbot-icon');
+  let isMale = true;
+  if (genderToggle && genderIcon && headerIcon && chatbotIcon) {
+    genderToggle.addEventListener('click', () => {
+      isMale = !isMale;
+      if (isMale) {
+        genderIcon.src = '/hombre.png';
+        genderIcon.alt = 'Hombre';
+        headerIcon.src = '/icon2023.webp';
+        chatbotIcon.src = '/icon2023.webp';
+      } else {
+        genderIcon.src = '/mujer.png';
+        genderIcon.alt = 'Mujer';
+        headerIcon.src = '/icon2025.webp';
+        chatbotIcon.src = '/icon2025.webp';
+      }
+      // Aquí puedes agregar lógica adicional para el cambio de género si es necesario
     });
   }
+});
   
   // Funciones de navegación
   function showInitialView() {
