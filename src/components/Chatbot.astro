@@ -567,6 +567,15 @@ declare global {
     const chatArea = document.getElementById('chat-area');
     if (initialView) initialView.classList.remove('hidden');
     if (chatArea) chatArea.classList.remove('scrollable');
+    // Limpiar formulario de documento y ocultar clave secreta
+    const docForm = document.getElementById('document-form-form') as HTMLFormElement | null;
+    const claveStep = document.getElementById('clave-secreta-step');
+    if (docForm) {
+      docForm.reset();
+    }
+    if (claveStep) {
+      claveStep.classList.add('hidden');
+    }
   }
   window.showInitialView = showInitialView;
   
