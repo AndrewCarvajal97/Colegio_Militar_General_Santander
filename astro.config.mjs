@@ -6,7 +6,6 @@ export default defineConfig({
   server: {
     port: 3000
   },
-  site: 'https://andrewcarvajal97.github.io',
-  base: '/frontend_Hackaton',
+  site: 'https://andrewcarvajal97.github.io/frontend_Hackaton',
   output: 'static'
 });

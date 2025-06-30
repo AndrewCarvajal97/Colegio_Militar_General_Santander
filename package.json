@@ -12,7 +12,7 @@
     "clean": "rm -rf dist .astro",
     "lint": "echo 'No linter configured'",
     "type-check": "astro check",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run clean && npm run build && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
