@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "build:prod": "astro build --mode production",
-    "clean": "rm -rf dist .astro",
+    "clean": "if exist dist rmdir /s /q dist && if exist .astro rmdir /s /q .astro",
     "lint": "echo 'No linter configured'",
     "type-check": "astro check",
     "deploy": "npm run clean && npm run build && gh-pages -d dist --dotfiles"
