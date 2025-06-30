@@ -7,8 +7,5 @@ export default defineConfig({
     port: 3000
   },
   site: 'https://andrewcarvajal97.github.io/frontend_Hackaton',
-  output: 'static',
-  build: {
-    assets: 'assets'
-  }
+  output: 'static'
 });
