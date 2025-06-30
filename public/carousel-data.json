@@ -6,22 +6,22 @@
       "id": "aulas",
       "title": "Aulas Especializadas",
       "description": "Espacios modernos equipados con tecnología de última generación",
-      "thumbnail": "/Carrusel principal/1.webp",
+      "thumbnail": "Carrusel principal/1.webp",
       "images": [
         {
-          "src": "/Carrusel principal/1.webp",
+          "src": "Carrusel principal/1.webp",
           "alt": "Aula de tecnología con computadores modernos",
           "title": "Laboratorio de Informática",
           "description": "Equipos de última generación para el aprendizaje tecnológico"
         },
         {
-          "src": "/Carrusel principal/2.webp",
+          "src": "Carrusel principal/2.webp",
           "alt": "Aula de ciencias con equipos especializados",
           "title": "Laboratorio de Ciencias",
           "description": "Espacios equipados para experimentación y aprendizaje científico"
         },
         {
-          "src": "/Carrusel principal/3.webp",
+          "src": "Carrusel principal/3.webp",
           "alt": "Aula multimedia para presentaciones",
           "title": "Aula Multimedia",
           "description": "Tecnología audiovisual para clases interactivas"
@@ -32,22 +32,22 @@
       "id": "polideportivo",
       "title": "Polideportivo",
       "description": "Instalaciones deportivas completas para la formación física",
-      "thumbnail": "/carrusel aniversario 59/3.webp",
+      "thumbnail": "carrusel aniversario 59/3.webp",
       "images": [
         {
-          "src": "/carrusel aniversario 59/3.webp",
+          "src": "carrusel aniversario 59/3.webp",
           "alt": "Cancha de baloncesto del polideportivo",
           "title": "Cancha Principal",
           "description": "Espacio multiusos para deportes y eventos institucionales"
         },
         {
-          "src": "/carrusel aniversario 59/1.webp",
+          "src": "carrusel aniversario 59/1.webp",
           "alt": "Gimnasio con equipos de ejercicio",
           "title": "Gimnasio",
           "description": "Área de acondicionamiento físico y entrenamiento"
         },
         {
-          "src": "/carrusel aniversario 59/2.webp",
+          "src": "carrusel aniversario 59/2.webp",
           "alt": "Canchas exteriores",
           "title": "Canchas Exteriores",
           "description": "Espacios al aire libre para práctica deportiva"
@@ -58,22 +58,22 @@
       "id": "ejercicios",
       "title": "Ejercicios de Campo",
       "description": "Formación práctica en situaciones reales",
-      "thumbnail": "/Carrusel ejercicios de campo/1.webp",
+      "thumbnail": "Carrusel ejercicios de campo/1.webp",
       "images": [
         {
-          "src": "/Carrusel ejercicios de campo/1.webp",
+          "src": "Carrusel ejercicios de campo/1.webp",
           "alt": "Cadetes en formación militar",
           "title": "Formación Táctica",
           "description": "Entrenamiento militar en campo abierto"
         },
         {
-          "src": "/Carrusel ejercicios de campo/2.webp",
+          "src": "Carrusel ejercicios de campo/2.webp",
           "alt": "Ejercicios de supervivencia",
           "title": "Supervivencia",
           "description": "Técnicas de supervivencia y orientación"
         },
         {
-          "src": "/Carrusel ejercicios de campo/3.webp",
+          "src": "Carrusel ejercicios de campo/3.webp",
           "alt": "Maniobras militares",
           "title": "Maniobras Militares",
           "description": "Ejercicios avanzados de estrategia militar"
@@ -84,28 +84,28 @@
       "id": "eventos",
       "title": "Eventos Especiales",
       "description": "Celebraciones y actividades para toda la comunidad",
-      "thumbnail": "/Carrusel dia del niño/1.webp",
+      "thumbnail": "Carrusel dia del niño/1.webp",
       "images": [
         {
-          "src": "/Carrusel dia del niño/1.webp",
+          "src": "Carrusel dia del niño/1.webp",
           "alt": "Celebración del día del niño",
           "title": "Día del Niño",
           "description": "Actividades especiales para los más pequeños"
         },
         {
-          "src": "/Carrusel dia del niño/2.webp",
+          "src": "Carrusel dia del niño/2.webp",
           "alt": "Festival cultural institucional",
           "title": "Festival Cultural",
           "description": "Presentaciones artísticas y culturales"
         },
         {
-          "src": "/Carrusel dia del niño/3.webp",
+          "src": "Carrusel dia del niño/3.webp",
           "alt": "Graduación de bachilleres",
           "title": "Ceremonia de Graduación",
           "description": "Entrega de grados a nuevos Sub-Tenientes"
         },
         {
-          "src": "/Carrusel dia del niño/4.jpg",
+          "src": "Carrusel dia del niño/4.jpg",
           "alt": "Actividades deportivas especiales",
           "title": "Olimpiadas Institucionales",
           "description": "Competencias deportivas entre estudiantes"

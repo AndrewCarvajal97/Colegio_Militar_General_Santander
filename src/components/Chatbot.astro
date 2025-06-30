@@ -16,7 +16,7 @@
   >
     <img 
       id="chatbot-icon" 
-      src="/icon2023.webp" 
+      src={`${import.meta.env.BASE_URL}/icon2023.webp`} 
       alt="Asistente Virtual" 
       class="w-20 h-20 rounded-full object-cover"
     />
@@ -31,7 +31,7 @@
     <!-- Header del chatbot -->
     <div class="chatbot-header p-5 text-white flex items-center justify-between rounded-t-3xl shadow-sm" style="background: linear-gradient(135deg, #34b70d 0%, #5771FE 100%); min-height: 70px;">
       <div class="flex items-center space-x-4">
-        <img id="chatbot-header-icon" src="/icon2023.webp" alt="Asistente" class="w-12 h-12 rounded-full border-4 border-white shadow-md">
+        <img id="chatbot-header-icon" src={`${import.meta.env.BASE_URL}/icon2023.webp`} alt="Asistente" class="w-12 h-12 rounded-full border-4 border-white shadow-md">
         <div>
           <h3 class="font-extrabold text-base tracking-wide">Asistente Virtual CMGS</h3>
           <p class="text-xs opacity-90 font-medium">En línea</p>
@@ -44,7 +44,7 @@
           class="p-2 hover:bg-white/20 rounded-full transition-colors"
           title="Cambiar asistente"
         >
-          <img id="gender-icon" src="/hombre.png" alt="Hombre" class="w-7 h-7 object-contain" />
+          <img id="gender-icon" src={`${import.meta.env.BASE_URL}/hombre.png`} alt="Hombre" class="w-7 h-7 object-contain" />
         </button>
         <!-- Botón cerrar -->
         <button 
@@ -545,15 +545,15 @@ declare global {
     genderToggle.addEventListener('click', () => {
       isMale = !isMale;
       if (isMale) {
-        genderIcon.src = '/hombre.png';
+        genderIcon.src = `${import.meta.env.BASE_URL}/hombre.png`;
         genderIcon.alt = 'Hombre';
-        headerIcon.src = '/icon2023.webp';
-        chatbotIcon.src = '/icon2023.webp';
+        headerIcon.src = `${import.meta.env.BASE_URL}/icon2023.webp`;
+        chatbotIcon.src = `${import.meta.env.BASE_URL}/icon2023.webp`;
       } else {
-        genderIcon.src = '/mujer.png';
+        genderIcon.src = `${import.meta.env.BASE_URL}/mujer.png`;
         genderIcon.alt = 'Mujer';
-        headerIcon.src = '/icon2025.webp';
-        chatbotIcon.src = '/icon2025.webp';
+        headerIcon.src = `${import.meta.env.BASE_URL}/icon2025.webp`;
+        chatbotIcon.src = `${import.meta.env.BASE_URL}/icon2025.webp`;
       }
       // Aquí puedes agregar lógica adicional para el cambio de género si es necesario
     });
@@ -1090,7 +1090,7 @@ declare global {
     input.value = '';
     // Fetch respuestas
     try {
-      const res = await fetch('/mayor_virtual.json');
+      const res = await fetch(`${import.meta.env.BASE_URL}/mayor_virtual.json`);
       const data = await res.json();
 
       const normalize = (str) => str

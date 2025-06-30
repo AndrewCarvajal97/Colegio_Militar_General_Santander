@@ -108,7 +108,7 @@
             </div>
           </div>
           <!-- Botón de descarga -->
-          <a href="/001-formato_referencia.pdf" download class="download-btn w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 flex items-center justify-center space-x-2">
+          <a href={`${import.meta.env.BASE_URL}/001-formato_referencia.pdf`} download class="download-btn w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 flex items-center justify-center space-x-2">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
@@ -116,7 +116,7 @@
           </a>
           <!-- Botón de pago PSE -->
           <a href="https://www.pse.com.co/persona" target="_blank" rel="noopener noreferrer" class="download-btn w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 hover:from-green-600 hover:to-green-700 transform hover:scale-105 flex items-center justify-center space-x-2 mt-3">
-            <img src="/pse.png" alt="PSE" class="w-8 h-8 object-contain" style="background:transparent; border-radius:0;" />
+            <img src={`${import.meta.env.BASE_URL}/pse.png`} alt="PSE" class="w-8 h-8 object-contain" style="background:transparent; border-radius:0;" />
             <span>Pagar con PSE</span>
           </a>
         </div>
