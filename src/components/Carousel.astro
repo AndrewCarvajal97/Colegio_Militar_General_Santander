@@ -71,7 +71,7 @@
   // Cargar datos del JSON
   async function loadCarouselData() {
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}/carousel-data.json`);
+      const response = await fetch(`${import.meta.env.BASE_URL}carousel-data.json`);
       carouselData = await response.json();
       
       // Actualizar título y subtítulo
@@ -104,7 +104,7 @@
       >
         <div class="w-full h-full relative">
           <img 
-            src="${import.meta.env.BASE_URL}/${group.thumbnail}" 
+            src="${import.meta.env.BASE_URL}${group.thumbnail}" 
             alt="${group.title}"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             loading="lazy"
@@ -153,7 +153,7 @@
       <div class="carousel-slide w-full flex-shrink-0 relative">
         <div class="aspect-video relative overflow-hidden">
           <img 
-            src="${import.meta.env.BASE_URL}/${image.src}" 
+            src="${import.meta.env.BASE_URL}${image.src}" 
             alt="${image.alt}"
             class="absolute inset-0 w-full h-full object-cover"
             loading="lazy"

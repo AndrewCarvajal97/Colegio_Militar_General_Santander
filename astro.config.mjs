@@ -6,7 +6,10 @@ export default defineConfig({
   server: {
     port: 3000
   },
-  site: 'https://andrewcarvajal97.github.io',
-  base: '/Colegio_Militar_General_Santander',
-  output: 'static'
+  site: 'https://andrewcarvajal97.github.io/Colegio_Militar_General_Santander',
+  base: '/',
+  output: 'static',
+  build: {
+    assets: '_astro'
+  }
 });

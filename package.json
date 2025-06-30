@@ -12,7 +12,9 @@
     "clean": "if exist dist rmdir /s /q dist && if exist .astro rmdir /s /q .astro",
     "lint": "echo 'No linter configured'",
     "type-check": "astro check",
-    "deploy": "npm run clean && npm run build && gh-pages -d dist --dotfiles"
+    "rebuild": "npm run clean && npm run build",
+    "deploy": "npm run clean && npm run build && gh-pages -d dist --dotfiles",
+    "deploy:github": "npm run clean && npm run build"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.0.0",
