@@ -1,0 +1,1 @@
+import{_ as n}from"./hoisted.DrQR6AwD.js";import"https://player.vimeo.com/api/player.js";import"./hoisted.CVjswDaB.js";async function c({templateId:o,templateParams:e}){const i=await n(()=>import("./index.KztZbWNg.js"),[]),_="service_colegioPruebas",t="nLa_zNSAseWydi_H6";return i.init&&i.init(t),i.send(_,o,e,t)}export{c as sendEmail};
