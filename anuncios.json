@@ -1,0 +1,21 @@
+[
+  {
+    "tipo": "imagen",
+    "titulo": "Feria Universitaria 2025",
+    "descripcion": "¡No te pierdas la feria universitaria este 30 de mayo!",
+    "src": "/carrousel%20principal/Folio.webp"
+  },
+   {
+    "tipo": "imagen",
+    "titulo": "Día del Niño",
+    "descripcion": "Celebración especial para los más pequeños.",
+    "src": "/carrousel%20principal/Folio.webp"
+  },
+  {
+    "tipo": "video",
+    "titulo": "Mensaje del Rector",
+    "descripcion": "Palabras del rector para toda la comunidad.",
+    "src": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+ 
+]
