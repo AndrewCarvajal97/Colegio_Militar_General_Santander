@@ -7,6 +7,6 @@ export default defineConfig({
     port: 3000
   },
   site: 'https://andrewcarvajal97.github.io',
-  base: '/frontend_Hackaton',
+  base: '/Colegio_Militar_General_Santander',
   output: 'static'
 });
